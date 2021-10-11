@@ -15,13 +15,14 @@ function Reviews ({ reviews, spotId }) {
     const [reviewCount, setReviewCount] = useState(0)
 
 
-    useEffect((...reviews) => {
+    const countReviews = (reviews) => {
         let count = 0;
         for (let i = 0; i < reviews.length; i++) {
             count ++;
         }
-        setReviewCount(count);
-    }, [reviewCount]);
+        setReviewCount(count)
+        return reviewCount;
+    }
 
 
     const submitReview = async (e) => {
@@ -43,7 +44,7 @@ function Reviews ({ reviews, spotId }) {
         <>
             <div className="reviews-container">
                 <div id="review-heading" className="text">
-                   {reviewCount} Reviews
+                   {countReviews} Reviews
                 </div>
                 <form onSubmit={submitReview} className="add-review-form">
                 {/* <input type='hidden' name='_csrf' value={csrfToken} ></input> */}
