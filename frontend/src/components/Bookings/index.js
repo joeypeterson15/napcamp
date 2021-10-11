@@ -4,13 +4,13 @@ function Bookings () {
     return (
         <>
             <div id="booking-card-container" className="booking-card-container">
-                <div>Price</div>
+                <div id="bookings-price">Price</div>
                 <div className="booking-dates">
-                    <div>Check In</div>
-                    <div>Check Out</div>
+                    <div className="book-date">Check In</div>
+                    <div className="book-date">Check Out</div>
                 </div>
-                <div>Guests</div>
-                <button>Request to Book</button>
+                <div id="bookings-guests">Guests</div>
+                <button id="bookings-button" >Request to Book</button>
             </div>
         </>
     )

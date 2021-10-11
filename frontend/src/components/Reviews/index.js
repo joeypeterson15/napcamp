@@ -53,8 +53,9 @@ function Reviews ({ reviews, spotId }) {
                 </form>
                 <div className="reviews-detail-page">
                     {reviews.map((review) => (
-                        <div>
-                            <p className="text review-text">{review.content}</p>
+                        <div className="icon-review-container">
+
+                            <p className="text review-text"><img className="review-icon" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>{review.content}</p>
                         </div>
                     ))}
                     <div className="div-lines"></div>
