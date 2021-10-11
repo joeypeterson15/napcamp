@@ -1,0 +1,32 @@
+
+.spot-detail-div {
+    display: flex;
+    justify-content: space-around;
+}
+.spot-detail-images {
+    width: 400px;
+    height: 400px;
+}
+
+#spot-name {
+    font-size: 40px;
+    padding-top: 30px;
+    margin-left: 12%;
+}
+
+.description-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    margin-left: 12%;
+    margin-top: 10%;
+    width: 50%;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    border-bottom: 1px solid rgb(206, 206, 206);
+    border-top: 1px solid rgb(206, 206, 206);
+}
+
+#spot-description {
+    width: 70%;
+}

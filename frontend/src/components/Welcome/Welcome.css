@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap");
+
+.welcome-div {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin-bottom: 100px;
+    font-family: 'Roboto';
+    color: rgb(0, 61, 0)
+}
+
+#welcome-img {
+    border-radius: 20px;
+}
+
+#welcome-header-big {
+    font-size: 70px;
+}
+
+#welcome-header-small {
+    font-size: 30px;
+}

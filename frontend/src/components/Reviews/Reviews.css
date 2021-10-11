@@ -1,0 +1,48 @@
+.reviews-container {
+    background-color: white;
+    margin-left: 12%;
+    width: 50%;
+    padding-top: 5%;
+    /* align-items: center; */
+    /* margin-left: 50%; */
+}
+
+.reviews-detail-page > div {
+    padding: 50px;
+}
+
+.add-review-form {
+    /* margin: auto; */
+    padding: 50px;
+    width: 100%;
+    align-items: center;
+}
+
+#text-submit-review {
+    resize: none;
+    outline: none;
+    width: 85%;
+}
+
+.review-text {
+    padding-bottom: 10%;
+    padding-top: 10%;
+    border-bottom: 1px solid rgb(206, 206, 206);
+    border-top: 1px solid rgb(206, 206, 206);
+}
+
+.div-lines {
+    border-bottom: 1px solid rgb(206, 206, 206);
+    padding-bottom: 10px;
+}
+#review-button {
+    background-color: aquamarine;
+    border: none;
+    padding: 3%;
+    margin-left: 70%;
+    color: white;
+}
+
+#review-heading {
+    margin-left: 5%;
+}
