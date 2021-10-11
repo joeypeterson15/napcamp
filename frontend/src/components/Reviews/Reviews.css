@@ -8,7 +8,8 @@
 }
 
 .reviews-detail-page > div {
-    padding: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .add-review-form {
@@ -27,7 +28,7 @@
 .review-text {
     padding-bottom: 10%;
     padding-top: 10%;
-    border-bottom: 1px solid rgb(206, 206, 206);
+    /* border-bottom: 1px solid rgb(206, 206, 206); */
     border-top: 1px solid rgb(206, 206, 206);
 }
 

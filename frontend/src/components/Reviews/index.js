@@ -14,6 +14,7 @@ function Reviews ({ reviews, spotId }) {
     const [review, setReview] = useState('')
     const [reviewCount, setReviewCount] = useState(0)
 
+
     useEffect((...reviews) => {
         let count = 0;
         for (let i = 0; i < reviews.length; i++) {
@@ -22,12 +23,6 @@ function Reviews ({ reviews, spotId }) {
         setReviewCount(count);
     }, [reviewCount]);
 
-    useEffect(() => {
-        dispatch(getReviews(spotId))
-    }, [review])
-
-
-
 
     const submitReview = async (e) => {
         e.preventDefault();
@@ -35,7 +30,7 @@ function Reviews ({ reviews, spotId }) {
         const payload = {
             content: review,
         }
-
+        setReview('')
         dispatch(createReview(payload, spotId))
 
         let createdReview;

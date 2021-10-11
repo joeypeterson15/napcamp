@@ -15,11 +15,12 @@ export default function SpotIdPage () {
     useEffect(() => {
         dispatch(getSpots())
         dispatch(getReviews(spotId))
-    }, [dispatch])
+    }, [dispatch, spotId])
 
 
     const spot = useSelector(state => state.spots[spotId])
     const reviews = useSelector(state => Object.values(state.reviews))
+    console.log(reviews)
     return (
         <>
             <div className="spot-detail-div">
@@ -29,11 +30,11 @@ export default function SpotIdPage () {
             </div>
             <div class="text" id="spot-name">{spot?.name}</div>
             <div className="description-container">
-                <span className="text" >Description</span>
+                <span id="description" className="text" >Description</span>
                 <span id="spot-description">{spot?.description}</span>
             </div>
             <SpotCards />
-            <Reviews spotId={spot?.id} reviews={reviews}/>
+            <Reviews spotId={spot?.id} reviews={reviews.filter((review) => review?.spotId === spot?.id)}/>
         </>
     );
 }

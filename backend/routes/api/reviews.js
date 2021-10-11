@@ -31,7 +31,8 @@ router.get('/:id', asyncHandler(async function(req, res) {
 router.post('/:id', asyncHandler(async function(req, res) {
     console.log('hellllooooo')
     const review = await Review.create(req.body);
-    return res.redirect(`${req.baseUrl}/${review.spotId}`)
+    // return res.redirect(`${req.baseUrl}/${review.spotId}`)
+    res.json(review)
 }))
 
 
