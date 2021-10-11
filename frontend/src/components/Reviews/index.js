@@ -9,20 +9,24 @@ import { useEffect, useState } from 'react';
 
 function Reviews ({ reviews, spotId }) {
 
-
     const dispatch = useDispatch();
     const history = useHistory();
     const [review, setReview] = useState('')
     const [reviewCount, setReviewCount] = useState(0)
 
-    const findReviewCount =
-         (reviews) => {
-            let count = 0;
-            for (let i = 0; i < reviews.length; i++) {
-                count ++;
-            }
-            setReviewCount(count);
+    useEffect((...reviews) => {
+        let count = 0;
+        for (let i = 0; i < reviews.length; i++) {
+            count ++;
         }
+        setReviewCount(count);
+    }, [reviewCount]);
+
+    useEffect(() => {
+        dispatch(getReviews(spotId))
+    }, [review])
+
+
 
 
     const submitReview = async (e) => {
