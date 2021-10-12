@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 
 const LOAD = 'bookings/LOAD'
 const ADD_BOOKING = 'bookings/ADD_BOOKING'
+const DELETE_BOOKING ='bookings/DELETE_BOOKING'
 
 
 
@@ -19,6 +20,13 @@ const load = bookings => ({
 
 const addOneBooking = booking => ({
     type: ADD_BOOKING,
+    booking
+})
+
+//ACTION FOR DELETING A BOOKING
+
+const deleteOneBooking = booking => ({
+    type: DELETE_BOOKING,
     booking
 })
 
@@ -53,6 +61,24 @@ export const createBooking = (payload, spotId, userId) => async dispatch => {
     if (response.ok) {
         const booking = await response.json()
         dispatch(addOneBooking(booking))
+    }
+}
+
+
+export const deleteBooking = (spotId, userId) => async dispatch => {
+    const token = Cookies.get('XSRF-TOKEN');
+    const response = await fetch(`/api/bookings/${userId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type' : 'application/json',
+            'XSRF-TOKEN': `${token}`
+          },
+          body: JSON.stringify({ spotId })
+    })
+
+    if (response.ok) {
+        const bookings = await response.json()
+        dispatch(load(bookings))
     }
 }
 
