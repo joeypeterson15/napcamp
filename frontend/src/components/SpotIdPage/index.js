@@ -29,7 +29,7 @@ export default function SpotIdPage () {
                 <img className="spot-detail-images" alt={spot?.id} src={spot?.imageUrl}></img>
                 <img className="spot-detail-images" alt={spot?.id} src={spot?.imageUrl}></img>
             </div>
-            <Bookings />
+            <Bookings spotId={spot?.id}/>
             <div className="title-spot-page">
                 <div className="text arrows-above-title">{`United States  >  California  >  Point Reyes`}</div>
                 <div className="text" id="spot-name">{spot?.name}</div>

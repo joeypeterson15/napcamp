@@ -20,7 +20,6 @@ const router = express.Router()
 
 
 router.get('/:id', asyncHandler(async function(req, res) {
-    console.log('YAYAYAYAAYA')
     const reviews = await Review.findAll({where: {
         spotId : req.params.id
     }});
@@ -29,9 +28,7 @@ router.get('/:id', asyncHandler(async function(req, res) {
 
 //adding a review
 router.post('/:id', asyncHandler(async function(req, res) {
-    console.log('hellllooooo')
     const review = await Review.create(req.body);
-    // return res.redirect(`${req.baseUrl}/${review.spotId}`)
     res.json(review)
 }))
 
