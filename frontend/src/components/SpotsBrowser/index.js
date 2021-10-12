@@ -29,7 +29,7 @@ const SpotsBrowser = () => {
         <>
             <div className="spots-container">
                 {spots.map((spot) => (
-                    <Link to={`/spots/${spot.id}`} className="spots-div">
+                    <Link to={`/spots/${spot.id}`} className="spots-div text">
                         <img className="spots-img"alt={spot?.id} src={spot.imageUrl}></img>
                         <div className="text category">{spot.category}</div>
                         <div className="text location">{spot.location}</div>

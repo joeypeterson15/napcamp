@@ -30,11 +30,15 @@ export default function SpotIdPage () {
                 <img className="spot-detail-images" alt={spot?.id} src={spot?.imageUrl}></img>
             </div>
             <Bookings />
-            <div class="text" id="spot-name">{spot?.name}</div>
+            <div className="title-spot-page">
+                <div className="text arrows-above-title">{`United States  >  California  >  Point Reyes`}</div>
+                <div className="text" id="spot-name">{spot?.name}</div>
+                <div className="text recommended"><span className="text hundred-percent">👍 %100</span> Recommended</div>
+            </div>
 
             <div className="description-container">
                 <span id="description" className="text" >Description</span>
-                <span id="spot-description">{spot?.description}</span>
+                <span className="text" id="spot-description">{spot?.description}</span>
             </div>
             <SpotCards />
             <Reviews spotId={spot?.id} reviews={reviews.filter((review) => review?.spotId === spot?.id)}/>

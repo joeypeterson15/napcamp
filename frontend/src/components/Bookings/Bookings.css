@@ -27,10 +27,14 @@
 }
 
 .book-date {
-    border:1px solid rgb(206, 206, 206);
+    border-top:1px solid rgb(206, 206, 206);
     width: 50%;
     text-align: center;
     height: 40px;
+}
+
+#border-right {
+    border-left:1px solid rgb(206, 206, 206);
 }
 
 #bookings-price{
@@ -39,7 +43,7 @@
 }
 
 #bookings-guests {
-    border:1px solid rgb(206, 206, 206);
+    border-top:1px solid rgb(206, 206, 206);
     height: 50px;
     width: 100%;
 }

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 .spots-container {
+    position: relavive;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -11,8 +12,11 @@
 }
 
 .spots-img:hover {
-    margin-bottom: 5px;
+    position: absolute;
+    /* bottom: 2px; */
     box-shadow: 0 0 11px rgba(33,33,33,.2);
+    transition: transform 300ms;
+    transform: translate3d(0, -10%, 0)
 }
 .spots-img {
     width: 350px;
@@ -26,5 +30,11 @@
 }
 
 .category {
+
     font-weight: bolder;
+}
+
+.spots-div {
+    color: rgb(0, 32, 0);
+    text-decoration: none;
 }

@@ -8,22 +8,26 @@ function SpotCards () {
                 <div className="card-title text">Nap Area</div>
                 <ul className="card-list">
                     <li>Up to two guests per bed!</li>
-                    <li>1 site</li>
+                    <li>♙ 1 site</li>
+                    <li>☒ no campfires allowed</li>
+                    <li>☼ Daytime availability</li>
                 </ul>
             </div>
             <div className="spot-cards">
                 <div className="card-title text">Essentials</div>
                 <ul className="card-list">
-                    <li>Toilet available</li>
+                    <li>♺ Toilet available</li>
                     <li>Pets allowed</li>
-                    <li>Campfires not allowed</li>
+                    <li>✚ First Aid Kit</li>
                 </ul>
 
             </div>
             <div className="spot-cards">
                 <div className="card-title text">Amenities</div>
                 <ul className="card-list">
-                    <li>Potable water available</li>
+                    <li>☁ Potable water available</li>
+                    <li>✆ Emergency payphone</li>
+                    <li>❆ extra blanket</li>
                 </ul>
             </div>
         </div>

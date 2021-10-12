@@ -1,3 +1,6 @@
+/* body {
+    background-color: white;
+} */
 
 .spot-detail-div {
     display: flex;
@@ -11,7 +14,15 @@
 #spot-name {
     font-size: 40px;
     padding-top: 30px;
+    /* margin-left: 12%; */
+}
+
+.title-spot-page {
     margin-left: 12%;
+    padding-top: 2%;
+}
+.recommended {
+    padding-top: 3%;
 }
 
 .description-container {
@@ -19,12 +30,16 @@
     justify-content: space-between;
     background-color: white;
     margin-left: 12%;
-    margin-top: 10%;
+    margin-top: 5%;
     width: 50%;
-    padding-top: 3%;
+    padding-top: 2%;
     padding-bottom: 5%;
-    border-bottom: 1px solid rgb(206, 206, 206);
+    /* border-bottom: 1px solid rgb(206, 206, 206); */
     border-top: 1px solid rgb(206, 206, 206);
+}
+
+.hundred-percent {
+    color: aquamarine;
 }
 
 #spot-description {
@@ -33,4 +48,5 @@
 
 #description {
     padding-left: 5%;
+    font-size:larger
 }

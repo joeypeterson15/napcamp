@@ -52,13 +52,16 @@ function Reviews ({ reviews, spotId }) {
                     <button type="submit" id="review-button">POST</button>
                 </form>
                 <div className="reviews-detail-page">
+                <div className="div-lines"></div>
                     {reviews.map((review) => (
+                            <div className="div-lines">
                         <div className="icon-review-container">
-
-                            <p className="text review-text"><img className="review-icon" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>{review.content}</p>
+                            <img className="review-icon" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>
+                            <div className="text review-text">{review.content}</div>
+                        </div>
                         </div>
                     ))}
-                    <div className="div-lines"></div>
+                    {/* <div className="div-lines"></div> */}
                 </div>
 
             </div>

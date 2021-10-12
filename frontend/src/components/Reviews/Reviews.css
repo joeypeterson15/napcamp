@@ -20,21 +20,27 @@
 }
 
 #text-submit-review {
+    border: 1px solid rgb(230, 230, 230);
     resize: none;
     outline: none;
     width: 85%;
 }
 
 .review-text {
+    align-content: center;
     padding-bottom: 10%;
     padding-top: 10%;
+
     /* border-bottom: 1px solid rgb(206, 206, 206); */
-    border-top: 1px solid rgb(206, 206, 206);
+    /* border-top: 1px solid rgb(206, 206, 206); */
 }
 
 .div-lines {
     border-bottom: 1px solid rgb(206, 206, 206);
-    padding-bottom: 10px;
+    padding-bottom: 10%;
+    padding-top: 10%;
+
+
 }
 #review-button {
     background-color: aquamarine;
@@ -48,7 +54,16 @@
     margin-left: 5%;
 }
 
+.icon-review-container {
+    padding-right: 20%;
+    width: 50%;
+    display: flex;
+
+    justify-content: left;
+    align-items: center;
+}
 .review-icon {
     height: 60px;
     width: 60px;
+    padding-right: 20%;
 }
