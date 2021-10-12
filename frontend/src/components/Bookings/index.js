@@ -1,11 +1,16 @@
 import "./Bookings.css"
 
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react'
+import { createBooking } from "../../store/bookings"
 
 
 function Bookings ({ spotId }) {
+
+    const userId = useSelector((state) => state.session?.user?.id);
+
     const dispatch = useDispatch();
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('')
@@ -23,7 +28,7 @@ function Bookings ({ spotId }) {
         setEndDate('');
         setGuests(0);
 
-        dispatch(createBookings(payload, spotId, userId))
+        dispatch(createBooking(payload, spotId, userId))
 
     }
 
@@ -35,9 +40,9 @@ function Bookings ({ spotId }) {
                     <input value={startDate} onChange={(e) => setStartDate(e.target.value)} type="date" placeholder="start-date" className="text book-date"></input>
                     <input value={endDate} onChange={(e) => setEndDate(e.target.value)} type="date" placeholder="checkout-date" id="border-right"className="text book-date"></input>
                 </div>
-                <select value={guests} onChange={(e) => setGuests(e.target.value)} className="guests-select-menu">
-                    <option type="click" className="text bookings-guests" >1 guests</option>
-                    <option type="click" className="text bookings-guests" >2 guests</option>
+                <select value={guests} onChange={(e) => setGuests(parseInt(e.target.value, 10))} className="guests-select-menu">
+                    <option type="click" className="text bookings-guests">1</option>
+                    <option type="click" className="text bookings-guests">2</option>
                 </select>
                 <button type="submit" id="bookings-button" >Request to Book</button>
             </form>

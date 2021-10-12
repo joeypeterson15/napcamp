@@ -11,7 +11,7 @@ router.use('/users', usersRouter);
 const spotsRouter = require("./spots.js");
 router.use("/spots", spotsRouter)
 router.use("/reviews", reviewsRouter)
-router.use("/bookings")
+router.use("/bookings", bookingsRouter)
 
 
 // GET /api/set-token-cookie

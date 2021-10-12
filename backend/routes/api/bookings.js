@@ -4,5 +4,17 @@ const { Booking } = require('../../db/models')
 
 const router = express.Router()
 
+router.get('/:id', asyncHandler(async function(req, res) {
+    const bookings = await Booking.findAll({where: {
+        userId : req.params.id
+    }});
+    res.json(bookings)
+}))
+
+router.post('/:id', asyncHandler(async function(req, res) {
+    const booking = await Booking.create(req.body);
+    res.json(booking)
+}))
+
 
 module.exports = router;
