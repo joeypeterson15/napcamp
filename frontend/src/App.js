@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import SpotsBrowser from "./components/SpotsBrowser";
 import Welcome from "./components/Welcome"
 import SpotsIdPage from "./components/SpotIdPage"
+import BookingsPage from "./components/BookingsPage"
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,9 @@ function App() {
       </Route>
       <Route exact path="/spots/:spotId">
         <SpotsIdPage />
+      </Route>
+      <Route exact path="/trips">
+        <BookingsPage />
       </Route>
       {isLoaded && (
         <Switch>
