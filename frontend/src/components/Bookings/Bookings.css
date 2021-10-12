@@ -1,4 +1,4 @@
-#booking-card-container {
+.booking-card-container {
     background-color: white;
     position: absolute;
     z-index: 1;
@@ -9,6 +9,7 @@
     height: 28%;
     border:1px solid rgb(206, 206, 206);
     border-radius: 3px;
+    box-shadow: 1px 1px 1px rgb(216, 216, 216);
 }
 
 #bookings-button {
@@ -28,6 +29,7 @@
 
 .book-date {
     border-top:1px solid rgb(206, 206, 206);
+    border-bottom:1px solid rgb(206, 206, 206);
     width: 50%;
     text-align: center;
     height: 40px;
@@ -35,6 +37,12 @@
 
 #border-right {
     border-left:1px solid rgb(206, 206, 206);
+    border-right: 1px solid rgb(206, 206, 206);
+}
+
+#border-left {
+    border-left:1px solid rgb(206, 206, 206);
+    border-right: 1px solid rgb(206, 206, 206);
 }
 
 #bookings-price{

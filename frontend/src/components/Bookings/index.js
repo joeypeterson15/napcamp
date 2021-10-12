@@ -37,7 +37,7 @@ function Bookings ({ spotId }) {
             <form onSubmit={onSubmit} id="booking-card-container" className="booking-card-container">
                 <div className="text" id="bookings-price">Price</div>
                 <div className="booking-dates">
-                    <input value={startDate} onChange={(e) => setStartDate(e.target.value)} type="date" placeholder="start-date" className="text book-date"></input>
+                    <input value={startDate} onChange={(e) => setStartDate(e.target.value)} type="date" placeholder="start-date" id="border-left" className="text book-date"></input>
                     <input value={endDate} onChange={(e) => setEndDate(e.target.value)} type="date" placeholder="checkout-date" id="border-right"className="text book-date"></input>
                 </div>
                 <select value={guests} onChange={(e) => setGuests(parseInt(e.target.value, 10))} className="guests-select-menu">
