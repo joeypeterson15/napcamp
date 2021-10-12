@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getBookings } from '../../store/bookings';
 import { getSpots } from '../../store/spots';
+import './BookingsPage.css'
 
 export default function BookingsPage () {
 
@@ -24,9 +25,9 @@ export default function BookingsPage () {
         <>
             <div className="bookings-container">
                 {bookings.map((booking) => (
-                    <div>
+                    <div className="bookings-card">
                         <div>{booking.startDate}</div>
-                        <img src={spots.filter((spot) => spot.id === bookings.spotId).imageUrl}></img>
+                        <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId).imageUrl}></img>
                     </div>
                 ))}
             </div>
