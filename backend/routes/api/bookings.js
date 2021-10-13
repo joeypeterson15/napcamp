@@ -26,7 +26,7 @@ router.delete('/:id/:spotId', asyncHandler(async function(req, res) {
     const bookings = await Booking.findAll({where: {
         userId : req.params.id
     }})
-    res.json(bookings)
+    res.json({bookings,  id : booking.id })
 }))
 
 

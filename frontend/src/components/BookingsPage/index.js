@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { getBookings } from '../../store/bookings';
 import { getSpots } from '../../store/spots';
 import { deleteBooking } from '../../store/bookings';
+import {loadAfterDelete} from '../../store/bookings';
 import { useHistory } from 'react-router-dom';
 import './BookingsPage.css'
 
@@ -19,7 +20,9 @@ export default function BookingsPage () {
 
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getBookings(userId))
+        if (userId){
+            dispatch(getBookings(userId))
+        }
         dispatch(getSpots())
     }, [dispatch, userId])
 
@@ -30,12 +33,6 @@ export default function BookingsPage () {
         e.preventDefault();
         dispatch(deleteBooking(spotId, userId));
 
-        let deletedBooking;
-        if (deletedBooking) {
-            dispatch(getBookings(userId))
-            history.push('/trips')
-        }
-
     }
 
     return (
@@ -44,15 +41,15 @@ export default function BookingsPage () {
             <div className="bookings-container">
                 {bookings.map((booking) => (
                     <div className="bookings-card">
-                        <div>start date: {booking.startDate}</div>
-                        <div>end date: {booking.endDate}</div>
+                        <div>start date: {new Date(booking.startDate).getDate()}th</div>
+                        <div>end date: {new Date(booking.endDate).getDate()}th</div>
                         <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId).imageUrl}></img>
                         <form onSubmit={cancelBooking(booking.spotId)}>
                             <button type="submit">Cancel Booking</button>
                         </form>
                             <button value={updateForm} onClick={() => setUpdateForm('show-form')} type="click">Update Booking</button>
-                        <form>
-                                <div className={updateForm}>
+                        <form className={updateForm}>
+                                <div >
                                     <input></input>
                                 </div>
                         </form>

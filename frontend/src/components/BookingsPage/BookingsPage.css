@@ -28,7 +28,7 @@
 }
 
 .hide-form {
-    display: hidden
+    display: none;
 }
 
 .show-form {
