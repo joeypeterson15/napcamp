@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 const LOAD = 'bookings/LOAD'
 const ADD_BOOKING = 'bookings/ADD_BOOKING'
 const LOAD_AFTER_DELETE = 'bookings/LOAD_AFTER_DELETE'
+const LOAD_AFTER_UPDATE = 'bookings/LOAD_AFTER_UPDATE'
 
 
 
@@ -28,6 +29,12 @@ const addOneBooking = booking => ({
 const loadAfterDelete = id => ({
     type: LOAD_AFTER_DELETE,
     id
+})
+
+const loadAfterUpdate = (id, newBooking) => ({
+    type: LOAD_AFTER_UPDATE,
+    id,
+    newBooking
 })
 
 
@@ -79,8 +86,8 @@ export const updateOneBooking = (payload, spotId, userId) => async dispatch => {
     })
 
     if (response.ok) {
-        const bookings = await response.json()
-        dispatch(load(bookings))
+        const {bookings, newBooking, id} = await response.json()
+        dispatch(loadAfterUpdate(id, newBooking))
     }
 }
 
@@ -127,6 +134,12 @@ const bookingsReducer = ( state = initialState, action ) => {
         case LOAD_AFTER_DELETE: {
             const newState = {...state}
             delete newState[action.id]
+            return newState;
+        }
+        case LOAD_AFTER_UPDATE: {
+            const newState = {...state}
+            delete newState[action.id]
+            newState[action.id] = action.newBooking
             return newState;
         }
         default:

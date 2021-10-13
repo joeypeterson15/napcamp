@@ -61,7 +61,7 @@ export default function BookingsPage () {
                             <button type="submit">Cancel Booking</button>
                         </form>
 
-                        <form onSubmit={updateBooking} className='update-booking-form'>
+                        <form onSubmit={updateBooking(booking.spotId)} className='update-booking-form'>
                                 <div className="booking-dates">
                                     <input value={startDate} onChange={(e) => setStartDate(e.target.value)} type="date" id="border-left" className="text book-date"></input>
                                     <input value={endDate} onChange={(e) => setEndDate(e.target.value)} type="date" id="border-right"className="text book-date"></input>
