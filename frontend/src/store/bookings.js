@@ -73,7 +73,6 @@ export const deleteBooking = (spotId, userId) => async dispatch => {
             'Content-Type' : 'application/json',
             'XSRF-TOKEN': `${token}`
           },
-        //   body: JSON.stringify({ spotId })
     })
 
     if (response.ok) {

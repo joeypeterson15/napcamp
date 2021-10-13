@@ -9,6 +9,9 @@ import { useHistory } from 'react-router-dom';
 import './BookingsPage.css'
 
 export default function BookingsPage () {
+
+    const [updateForm, setUpdateForm] = useState('hide-form')
+
     const history = useHistory();
     // const [spotId, setSpotId] = useState(0)
     const userId = useSelector((state) => state.session?.user?.id);
@@ -47,8 +50,11 @@ export default function BookingsPage () {
                         <form onSubmit={cancelBooking(booking.spotId)}>
                             <button type="submit">Cancel Booking</button>
                         </form>
+                            <button value={updateForm} onClick={() => setUpdateForm('show-form')} type="click">Update Booking</button>
                         <form>
-                            <button type="submit">Update Booking</button>
+                                <div className={updateForm}>
+                                    <input></input>
+                                </div>
                         </form>
                     </div>
                 ))}
