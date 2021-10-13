@@ -1,6 +1,15 @@
 /* body {
-    background-color: white;
 } */
+
+.background-white {
+    background-color: white;
+
+}
+
+.background-grey {
+    background-color: rgb(228, 228, 228);
+
+}
 
 .spot-detail-div {
     display: flex;

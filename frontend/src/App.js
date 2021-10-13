@@ -12,6 +12,7 @@ import BookingsPage from "./components/BookingsPage"
 
 function App() {
   const dispatch = useDispatch();
+  const[isGrey, setIsGrey] = useState(true)
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));

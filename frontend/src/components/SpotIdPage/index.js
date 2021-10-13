@@ -7,9 +7,12 @@ import { useEffect } from 'react';
 import  Reviews  from '../Reviews/index.js'
 import SpotCards from '../SpotCards';
 import Bookings from '../Bookings';
+
 import './SpotIdPage.css'
 
 export default function SpotIdPage () {
+    const isBackgroundGrey = false;
+
     const { spotId } = useParams()
 
     const dispatch = useDispatch()
@@ -23,7 +26,7 @@ export default function SpotIdPage () {
     const reviews = useSelector(state => Object.values(state.reviews))
     console.log(reviews)
     return (
-        <>
+        <div className={isBackgroundGrey ? 'background-grey' : 'background-white'}>
             <div className="spot-detail-div">
                 <img className="spot-detail-images" alt={spot?.id} src={spot?.imageUrl}></img>
                 <img className="spot-detail-images" alt={spot?.id} src={spot?.imageUrl}></img>
@@ -42,8 +45,7 @@ export default function SpotIdPage () {
             </div>
             <SpotCards />
             <Reviews spotId={spot?.id} reviews={reviews.filter((review) => review?.spotId === spot?.id)}/>
-            {/* <div id="map"></div>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAB0C-dzmN7OKL0hJvjeSGOLxTcPySOAcM&callback=initMap&libraries=&v=weekly" async></script> */}
-        </>
+
+        </div>
     );
 }
