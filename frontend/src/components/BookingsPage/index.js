@@ -1,17 +1,20 @@
-import { useParams } from 'react-router-dom'
+
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getBookings } from '../../store/bookings';
 import { getSpots } from '../../store/spots';
 import { deleteBooking } from '../../store/bookings';
-import {loadAfterDelete} from '../../store/bookings';
 import { useHistory } from 'react-router-dom';
+import { updateOneBooking } from '../../store/bookings';
 import './BookingsPage.css'
 
 export default function BookingsPage () {
 
-    const [updateForm, setUpdateForm] = useState('hide-form')
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('')
+    const [guests, setGuests] = useState(1)
+    // const [updateForm, setUpdateForm] = useState('hide-form')
 
     const history = useHistory();
     // const [spotId, setSpotId] = useState(0)
@@ -35,6 +38,16 @@ export default function BookingsPage () {
 
     }
 
+    const updateBooking = (spotId) => (e) => {
+        e.preventDefault()
+        const payload = {
+            startDate,
+            endDate,
+            guests
+        }
+        dispatch(updateOneBooking(payload, spotId, userId))
+    }
+
     return (
         <>
             <div className="userName-bookings text">{userName}'s Trips:</div>
@@ -47,11 +60,17 @@ export default function BookingsPage () {
                         <form onSubmit={cancelBooking(booking.spotId)}>
                             <button type="submit">Cancel Booking</button>
                         </form>
-                            <button value={updateForm} onClick={() => setUpdateForm('show-form')} type="click">Update Booking</button>
-                        <form className={updateForm}>
-                                <div >
-                                    <input></input>
+
+                        <form onSubmit={updateBooking} className='update-booking-form'>
+                                <div className="booking-dates">
+                                    <input value={startDate} onChange={(e) => setStartDate(e.target.value)} type="date" id="border-left" className="text book-date"></input>
+                                    <input value={endDate} onChange={(e) => setEndDate(e.target.value)} type="date" id="border-right"className="text book-date"></input>
                                 </div>
+                                    <select value={guests} onChange={(e) => setGuests(parseInt(e.target.value, 10))}>
+                                        <option type="click" className="text bookings-guests">1</option>
+                                        <option type="click" className="text bookings-guests">2</option>
+                                    </select>
+                                    <button type="submit">Update Booking</button>
                         </form>
                     </div>
                 ))}

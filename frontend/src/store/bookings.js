@@ -32,6 +32,8 @@ const loadAfterDelete = id => ({
 
 
 
+//THUNK GET ALL BOOKINGS
+
 export const getBookings = (userId) => async dispatch => {
     const response = await fetch(`/api/bookings/${userId}`)
 
@@ -54,7 +56,7 @@ export const createBooking = (payload, spotId, userId) => async dispatch => {
         headers: {
             'Content-Type' : 'application/json',
             'XSRF-TOKEN': `${token}`
-          },
+        },
         body: JSON.stringify({...payload, spotId, userId})
     })
 
@@ -64,6 +66,23 @@ export const createBooking = (payload, spotId, userId) => async dispatch => {
     }
 }
 
+//UPDATE ONE BOOKING
+export const updateOneBooking = (payload, spotId, userId) => async dispatch => {
+    const token = Cookies.get('XSRF-TOKEN');
+    const response = await fetch(`/api/bookings/${userId}/${spotId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type' : 'application/json',
+            'XSRF-TOKEN': `${token}`
+          },
+        body: JSON.stringify(payload)
+    })
+
+    if (response.ok) {
+        const bookings = await response.json()
+        dispatch(load(bookings))
+    }
+}
 
 export const deleteBooking = (spotId, userId) => async dispatch => {
     const token = Cookies.get('XSRF-TOKEN');
@@ -106,14 +125,6 @@ const bookingsReducer = ( state = initialState, action ) => {
             return newState;
         }
         case LOAD_AFTER_DELETE: {
-            // const allBookings = {};
-            // action.bookings.forEach(booking => {
-            //     allBookings[booking.id] = booking
-            // });
-            // return {
-            //     ...allBookings,
-            //     ...state,
-            // }
             const newState = {...state}
             delete newState[action.id]
             return newState;
