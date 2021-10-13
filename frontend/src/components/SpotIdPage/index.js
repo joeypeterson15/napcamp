@@ -42,6 +42,8 @@ export default function SpotIdPage () {
             </div>
             <SpotCards />
             <Reviews spotId={spot?.id} reviews={reviews.filter((review) => review?.spotId === spot?.id)}/>
+            {/* <div id="map"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAB0C-dzmN7OKL0hJvjeSGOLxTcPySOAcM&callback=initMap&libraries=&v=weekly" async></script> */}
         </>
     );
 }

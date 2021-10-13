@@ -14,7 +14,7 @@ function Bookings ({ spotId }) {
     const dispatch = useDispatch();
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('')
-    const [guests, setGuests] = useState(0)
+    const [guests, setGuests] = useState(1)
 
     const onSubmit = (e) => {
         e.preventDefault();

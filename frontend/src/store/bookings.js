@@ -67,13 +67,13 @@ export const createBooking = (payload, spotId, userId) => async dispatch => {
 
 export const deleteBooking = (spotId, userId) => async dispatch => {
     const token = Cookies.get('XSRF-TOKEN');
-    const response = await fetch(`/api/bookings/${userId}`, {
+    const response = await fetch(`/api/bookings/${userId}/${spotId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type' : 'application/json',
             'XSRF-TOKEN': `${token}`
           },
-          body: JSON.stringify({ spotId })
+        //   body: JSON.stringify({ spotId })
     })
 
     if (response.ok) {

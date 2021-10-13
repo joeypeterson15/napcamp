@@ -5,11 +5,14 @@ import { useEffect, useState } from 'react';
 import { getBookings } from '../../store/bookings';
 import { getSpots } from '../../store/spots';
 import { deleteBooking } from '../../store/bookings';
+import { useHistory } from 'react-router-dom';
 import './BookingsPage.css'
 
 export default function BookingsPage () {
-    const [spotId, setSpotId] = useState(0)
+    const history = useHistory();
+    // const [spotId, setSpotId] = useState(0)
     const userId = useSelector((state) => state.session?.user?.id);
+    const userName = useSelector((state) => state.session?.user?.username)
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -18,25 +21,31 @@ export default function BookingsPage () {
     }, [dispatch, userId])
 
     const bookings = useSelector(state => Object.values(state.bookings))
-    console.log('ellllloooo', bookings)
     const spots = useSelector(state => Object.values(state.spots))
-    console.log(spots)
 
-    const cancelBooking = (e) => {
+    const cancelBooking = (spotId) => (e) => {
         e.preventDefault();
-        dispatch(deleteBooking(spotId, userId))
+        dispatch(deleteBooking(spotId, userId));
+
+        let deletedBooking;
+        if (deletedBooking) {
+            dispatch(getBookings(userId))
+            history.push('/trips')
+        }
 
     }
 
     return (
         <>
+            <div className="userName-bookings text">{userName}'s Trips:</div>
             <div className="bookings-container">
                 {bookings.map((booking) => (
                     <div className="bookings-card">
-                        <div>{booking.startDate}</div>
+                        <div>start date: {booking.startDate}</div>
+                        <div>end date: {booking.endDate}</div>
                         <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId).imageUrl}></img>
-                        <form onSubmit={cancelBooking}>
-                            <button data-spotId={booking.spotId} onClick={(e) => setSpotId(e.target.dataset.spotId) } type="submit">Cancel Booking</button>
+                        <form onSubmit={cancelBooking(booking.spotId)}>
+                            <button type="submit">Cancel Booking</button>
                         </form>
                         <form>
                             <button type="submit">Update Booking</button>

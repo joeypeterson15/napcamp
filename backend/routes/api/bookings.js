@@ -16,10 +16,10 @@ router.post('/:id', asyncHandler(async function(req, res) {
     res.json(booking)
 }))
 
-router.delete('/:id', asyncHandler(async function(req, res) {
+router.delete('/:id/:spotId', asyncHandler(async function(req, res) {
     const booking = await Booking.findOne({where:
         {userId : req.params.id,
-        spotId : req.body.spotId}
+        spotId : req.params.spotId}
     })
 
     await booking.destroy();
