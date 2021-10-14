@@ -41,15 +41,17 @@ export default function BookingsPage () {
             <div className="bookings-container">
                 {bookings.map((booking) => (
                     <div className="bookings-card">
-                        <div>DATE: {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate()}th</div>
-                        <div>TIME: {booking.startTime} - {booking.endTime}</div>
+                        <div className="text">{new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate() + 1}th, 2021</div>
+                        <div className="text">NapTime : {booking.startTime} - {booking.endTime}</div>
+                        <div className="text">Guests : {booking.guests}</div>
 
-                        <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId).imageUrl}></img>
+                        <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
                         <form onSubmit={cancelBooking(booking.spotId)}>
                             <button className="cancel-booking-button" type="submit">Cancel Booking</button>
                         </form>
+                        {/* <i onClick={cancelBooking(booking.spotId)} class="fas fa-eraser"></i> */}
 
-                        <UpdateBookingsForm booking={booking}/>
+                        <UpdateBookingModal booking={booking}/>
                     </div>
                 ))}
             </div>
