@@ -7,18 +7,17 @@ import { getSpots } from '../../store/spots';
 import { deleteBooking } from '../../store/bookings';
 import { useHistory } from 'react-router-dom';
 import { updateOneBooking } from '../../store/bookings';
+import  UpdateBookingsForm  from '../UpdateBookingsForm'
 import './BookingsPage.css'
 
 export default function BookingsPage () {
 
-    const [date, setDate] = useState('');
-    const [startTime, setStartTime] = useState('')
-    const [endTime, setEndTime] = useState('')
-    const [guests, setGuests] = useState(1)
-    // const [updateForm, setUpdateForm] = useState('hide-form')
+    // const [date, setDate] = useState('');
+    // const [startTime, setStartTime] = useState('')
+    // const [endTime, setEndTime] = useState('')
+    // const [guests, setGuests] = useState(1)
 
     const history = useHistory();
-    // const [spotId, setSpotId] = useState(0)
     const userId = useSelector((state) => state.session?.user?.id);
     const userName = useSelector((state) => state.session?.user?.username)
 
@@ -39,16 +38,16 @@ export default function BookingsPage () {
 
     }
 
-    const updateBooking = (spotId) => (e) => {
-        e.preventDefault()
-        const payload = {
-            date,
-            startTime,
-            endTime,
-            guests
-        }
-        dispatch(updateOneBooking(payload, spotId, userId))
-    }
+    // const updateBooking = (spotId) => (e) => {
+    //     e.preventDefault()
+    //     const payload = {
+    //         date,
+    //         startTime,
+    //         endTime,
+    //         guests
+    //     }
+    //     dispatch(updateOneBooking(payload, spotId, userId))
+    // }
 
     return (
         <>
@@ -64,7 +63,9 @@ export default function BookingsPage () {
                             <button className="cancel-booking-button" type="submit">Cancel Booking</button>
                         </form>
 
-                        <form onSubmit={updateBooking(booking.spotId)} className='update-booking-form'>
+                        <UpdateBookingsForm booking={booking}/>
+
+                        {/* <form onSubmit={updateBooking(booking.spotId)} className='update-booking-form'>
                         <button className="update-booking-button" type="submit">Update Booking</button>
                                 <div className="booking-dates">
                                     <input value={date} onChange={(e) => setDate(e.target.value)} type="date" id="border-left" className="text book-date"></input>
@@ -76,7 +77,7 @@ export default function BookingsPage () {
                                         <option type="click" className="text bookings-guests">2</option>
                                     </select>
 
-                        </form>
+                        </form> */}
                     </div>
                 ))}
             </div>

@@ -50,3 +50,17 @@
     background-color: rgba(121, 71, 71, 0.4);
 
 }
+
+.green-update-button {
+    width: 200px;
+    height: 40px;
+    background-color: rgba(109, 231, 174, 0.925);
+}
+
+.hide-update-form {
+    display: none;
+}
+
+.hide-booking-dates {
+    display: none;
+}
