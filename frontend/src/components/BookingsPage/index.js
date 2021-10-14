@@ -56,15 +56,16 @@ export default function BookingsPage () {
             <div className="bookings-container">
                 {bookings.map((booking) => (
                     <div className="bookings-card">
-                        <div>start date: {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate()}th</div>
-                        <div>start time: {booking.startTime}</div>
-                        <div>end time: {booking.endTime}</div>
+                        <div>DATE: {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate()}th</div>
+                        <div>TIME: {booking.startTime} - {booking.endTime}</div>
+
                         <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId).imageUrl}></img>
                         <form onSubmit={cancelBooking(booking.spotId)}>
                             <button className="cancel-booking-button" type="submit">Cancel Booking</button>
                         </form>
 
                         <form onSubmit={updateBooking(booking.spotId)} className='update-booking-form'>
+                        <button className="update-booking-button" type="submit">Update Booking</button>
                                 <div className="booking-dates">
                                     <input value={date} onChange={(e) => setDate(e.target.value)} type="date" id="border-left" className="text book-date"></input>
                                     <input value={startTime} onChange={(e) => setStartTime(e.target.value)} type="time" id="border-right"className="text book-date"></input>
@@ -74,7 +75,7 @@ export default function BookingsPage () {
                                         <option type="click" className="text bookings-guests">1</option>
                                         <option type="click" className="text bookings-guests">2</option>
                                     </select>
-                                    <button type="submit">Update Booking</button>
+
                         </form>
                     </div>
                 ))}

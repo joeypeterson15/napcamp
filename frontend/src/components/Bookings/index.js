@@ -81,7 +81,7 @@ function Bookings ({ spotId }) {
                 </div>
                 <label>
                     Guests
-                    <select value={guests} onChange={(e) => setGuests(parseInt(e.target.value, 10))} className="guests-select-menu">
+                    <select name="guests" value={guests} onChange={(e) => setGuests(parseInt(e.target.value, 10))} className="guests-select-menu">
                         <option type="click" className="text bookings-guests">1</option>
                         <option type="click" className="text bookings-guests">2</option>
                     </select>
