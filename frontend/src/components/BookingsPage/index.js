@@ -7,15 +7,12 @@ import { getSpots } from '../../store/spots';
 import { deleteBooking } from '../../store/bookings';
 import { useHistory } from 'react-router-dom';
 import { updateOneBooking } from '../../store/bookings';
-import  UpdateBookingsForm  from '../UpdateBookingsForm'
+import  UpdateBookingsForm  from '../UpdateBookingsForm';
+import UpdateBookingModal from '../UpdateBookingModal';
 import './BookingsPage.css'
 
 export default function BookingsPage () {
 
-    // const [date, setDate] = useState('');
-    // const [startTime, setStartTime] = useState('')
-    // const [endTime, setEndTime] = useState('')
-    // const [guests, setGuests] = useState(1)
 
     const history = useHistory();
     const userId = useSelector((state) => state.session?.user?.id);
@@ -38,17 +35,6 @@ export default function BookingsPage () {
 
     }
 
-    // const updateBooking = (spotId) => (e) => {
-    //     e.preventDefault()
-    //     const payload = {
-    //         date,
-    //         startTime,
-    //         endTime,
-    //         guests
-    //     }
-    //     dispatch(updateOneBooking(payload, spotId, userId))
-    // }
-
     return (
         <>
             <div className="userName-bookings text">{userName}'s Trips:</div>
@@ -64,20 +50,6 @@ export default function BookingsPage () {
                         </form>
 
                         <UpdateBookingsForm booking={booking}/>
-
-                        {/* <form onSubmit={updateBooking(booking.spotId)} className='update-booking-form'>
-                        <button className="update-booking-button" type="submit">Update Booking</button>
-                                <div className="booking-dates">
-                                    <input value={date} onChange={(e) => setDate(e.target.value)} type="date" id="border-left" className="text book-date"></input>
-                                    <input value={startTime} onChange={(e) => setStartTime(e.target.value)} type="time" id="border-right"className="text book-date"></input>
-                                    <input value={endTime} onChange={(e) => setEndTime(e.target.value)} type="time" id="border-right"className="text book-date"></input>
-                                </div>
-                                    <select value={guests} onChange={(e) => setGuests(parseInt(e.target.value, 10))}>
-                                        <option type="click" className="text bookings-guests">1</option>
-                                        <option type="click" className="text bookings-guests">2</option>
-                                    </select>
-
-                        </form> */}
                     </div>
                 ))}
             </div>
