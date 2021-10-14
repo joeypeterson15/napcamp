@@ -27,8 +27,9 @@ function Bookings ({ spotId }) {
 
 
     const dispatch = useDispatch();
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
+    const [date, setDate] = useState('');
+    const [startTime, setStartTime] = useState('');
+    const [endTime, setEndTime] = useState('');
     const [guests, setGuests] = useState(1);
     const [validationErrors, setValidationErrors] = useState([])
     const [validationSuccess, setValidationSuccess] = useState('')
@@ -37,24 +38,26 @@ function Bookings ({ spotId }) {
         e.preventDefault();
         const errors = []
 
-        if (new Date(startDate).getDate() > new Date(endDate).getDate()){
+        if (new Date(date).getDate() > new Date(startTime).getDate()){
             errors.push('End date must be after start date')
             setValidationErrors(errors);
             return;
         }
-        if (startDate.length < 1 || endDate.length < 1) {
+        if (date.length < 1 || startTime.length < 1) {
             errors.push('Please book a start date and end date')
             setValidationErrors(errors);
             return;
         }
 
         const payload = {
-            startDate,
-            endDate,
+            date,
+            startTime,
+            endTime,
             guests
         }
-        setStartDate('');
-        setEndDate('');
+        setDate('');
+        setStartTime('');
+        setEndTime('');
         setGuests(0);
         setValidationErrors([])
         setValidationSuccess('Booked!')
@@ -72,8 +75,9 @@ function Bookings ({ spotId }) {
                 </ul>
                 <div className="text" id="bookings-price">Price</div>
                 <div className="booking-dates">
-                    <input value={startDate} onChange={(e) => setStartDate(e.target.value)} type="date" placeholder="start-date" id="border-left" className="text book-date"></input>
-                    <input value={endDate} onChange={(e) => setEndDate(e.target.value)} type="date" placeholder="checkout-date" id="border-right"className="text book-date"></input>
+                    <input value={date} onChange={(e) => setDate(e.target.value)} type="date" placeholder="start-date" id="border-left" className="text book-date"></input>
+                    <input value={startTime} onChange={(e) => setStartTime(e.target.value)} type="time" placeholder="checkout-date" id="border-right"className="text book-date"></input>
+                    <input value={endTime} onChange={(e) => setEndTime(e.target.value)} type="time" placeholder="checkout-date" id="border-right"className="text book-date"></input>
                 </div>
                 <label>
                     Guests

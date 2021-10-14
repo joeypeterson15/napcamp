@@ -11,7 +11,6 @@
 }
 
 .bookings-card {
-    border: 1px solid black;
     height: 200px;
     width: 200px;
 }
@@ -22,9 +21,10 @@
 }
 
 .userName-bookings {
+    font-size: 30px;
     position: absolute;
     margin-left: 30%;
-    padding-top: 15%;
+    top: 15%;
 }
 
 .hide-form {
@@ -33,4 +33,13 @@
 
 .show-form {
     background-color: pink;
+}
+
+.cancel-booking-button {
+    position: relative;
+    z-index: 1;
+    /* bottom: 43px; */
+    width: 200px;
+    height: 40px;
+    background-color: rgba(121, 71, 71, 0.4);
 }

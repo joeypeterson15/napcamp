@@ -11,8 +11,9 @@ import './BookingsPage.css'
 
 export default function BookingsPage () {
 
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('')
+    const [date, setDate] = useState('');
+    const [startTime, setStartTime] = useState('')
+    const [endTime, setEndTime] = useState('')
     const [guests, setGuests] = useState(1)
     // const [updateForm, setUpdateForm] = useState('hide-form')
 
@@ -41,8 +42,9 @@ export default function BookingsPage () {
     const updateBooking = (spotId) => (e) => {
         e.preventDefault()
         const payload = {
-            startDate,
-            endDate,
+            date,
+            startTime,
+            endTime,
             guests
         }
         dispatch(updateOneBooking(payload, spotId, userId))
@@ -54,17 +56,19 @@ export default function BookingsPage () {
             <div className="bookings-container">
                 {bookings.map((booking) => (
                     <div className="bookings-card">
-                        <div>start date: {new Date(booking.startDate).getDate()}th</div>
-                        <div>end date: {new Date(booking.endDate).getDate()}th</div>
+                        <div>start date: {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate()}th</div>
+                        <div>start time: {booking.startTime}</div>
+                        <div>end time: {booking.endTime}</div>
                         <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId).imageUrl}></img>
                         <form onSubmit={cancelBooking(booking.spotId)}>
-                            <button type="submit">Cancel Booking</button>
+                            <button className="cancel-booking-button" type="submit">Cancel Booking</button>
                         </form>
 
                         <form onSubmit={updateBooking(booking.spotId)} className='update-booking-form'>
                                 <div className="booking-dates">
-                                    <input value={startDate} onChange={(e) => setStartDate(e.target.value)} type="date" id="border-left" className="text book-date"></input>
-                                    <input value={endDate} onChange={(e) => setEndDate(e.target.value)} type="date" id="border-right"className="text book-date"></input>
+                                    <input value={date} onChange={(e) => setDate(e.target.value)} type="date" id="border-left" className="text book-date"></input>
+                                    <input value={startTime} onChange={(e) => setStartTime(e.target.value)} type="time" id="border-right"className="text book-date"></input>
+                                    <input value={endTime} onChange={(e) => setEndTime(e.target.value)} type="time" id="border-right"className="text book-date"></input>
                                 </div>
                                     <select value={guests} onChange={(e) => setGuests(parseInt(e.target.value, 10))}>
                                         <option type="click" className="text bookings-guests">1</option>

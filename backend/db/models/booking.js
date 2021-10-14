@@ -1,13 +1,17 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Booking = sequelize.define('Booking', {
-    startDate: {
+    date: {
       allowNull: false,
       type: DataTypes.DATE
     },
-    endDate: {
+    startTime: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: DataTypes.TIME
+    },
+    endTime: {
+      allowNull: false,
+      type: DataTypes.TIME
     },
     guests: {
       allowNull: false,

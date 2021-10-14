@@ -8,13 +8,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      startDate: {
+      date: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      endDate: {
+      startTime: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.TIME
+      },
+      endTime: {
+        allowNull: false,
+        type: Sequelize.TIME
       },
       guests: {
         allowNull: false,

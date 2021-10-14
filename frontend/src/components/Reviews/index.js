@@ -43,6 +43,13 @@ function Reviews ({ reviews, spotId }) {
         }
     }
 
+    // const submitDeleteReview = (review.id) => (e) => {
+    //     e.preventDefault();
+    //     dispatch(deleteReview(userId, spotId))
+    // }
+
+
+
     return (
         <>
             <div className="reviews-container">
@@ -69,7 +76,16 @@ function Reviews ({ reviews, spotId }) {
                             <img className="review-icon" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>
                             <div className="text review-text">{review.content}</div>
                             {review.userId === userId ?
-                            <div className="review-buttons-div"><button className='review-button-delete'>DELETE</button> <button className='review-button-edit'>EDIT</button></div>
+
+                                <div className="review-buttons-div">
+                                    <form>
+                                        <button type="submit" className='review-button-delete'>DELETE</button>
+                                    </form>
+                                    <form>
+                                        <button type="submit" className='review-button-edit'>EDIT</button>
+                                    </form>
+                                </div>
+
                             :
                             <button className="review-buttons">Helpful?</button>}
                         </div>
