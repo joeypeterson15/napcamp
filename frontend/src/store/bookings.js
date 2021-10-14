@@ -103,7 +103,6 @@ export const deleteBooking = (spotId, userId) => async dispatch => {
 
     if (response.ok) {
         const {bookings, id} = await response.json()
-        console.log(bookings)
         dispatch(loadAfterDelete(id))
     }
 }

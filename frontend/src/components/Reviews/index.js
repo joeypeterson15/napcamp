@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getReviews } from '../../store/reviews';
+import { deleteReview } from '../../store/reviews';
 
 import "./Reviews.css"
 
@@ -43,10 +44,10 @@ function Reviews ({ reviews, spotId }) {
         }
     }
 
-    // const submitDeleteReview = (review.id) => (e) => {
-    //     e.preventDefault();
-    //     dispatch(deleteReview(userId, spotId))
-    // }
+    const submitDeleteReview = (reviewId) => (e) => {
+        e.preventDefault();
+        dispatch(deleteReview(spotId, reviewId));
+    }
 
 
 
@@ -78,7 +79,7 @@ function Reviews ({ reviews, spotId }) {
                             {review.userId === userId ?
 
                                 <div className="review-buttons-div">
-                                    <form>
+                                    <form onSubmit={submitDeleteReview(review.id)}>
                                         <button type="submit" className='review-button-delete'>DELETE</button>
                                     </form>
                                     <form>

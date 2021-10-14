@@ -32,5 +32,17 @@ router.post('/:id', asyncHandler(async function(req, res) {
     res.json(review)
 }))
 
+router.delete('/:id/:reviewId', asyncHandler(async function (req, res) {
+    const review = await Review.findOne({where: {
+        id: req.params.reviewId
+    }})
+
+    await review.destroy();
+    const reviews = await Review.findAll({where : {
+        spotId : req.params.id
+    }})
+    res.json({ reviews, id : review.id })
+}))
+
 
 module.exports = router;
