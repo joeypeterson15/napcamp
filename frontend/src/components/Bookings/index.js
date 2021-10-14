@@ -10,6 +10,19 @@ import { createBooking } from "../../store/bookings"
 function Bookings ({ spotId }) {
 
     const userId = useSelector((state) => state.session?.user?.id);
+    const bookings = useSelector((state) => (state.bookings));
+    const [isBooked, setIsBooked] = useState(false)
+
+    useEffect(() => {
+        for (const booking in bookings) {
+            if (booking?.spotId === spotId && booking?.userId === userId) {
+                setIsBooked(true);
+            }
+        }
+    },[spotId])
+
+
+
 
     const dispatch = useDispatch();
     const [startDate, setStartDate] = useState('');
@@ -62,7 +75,7 @@ function Bookings ({ spotId }) {
                         <option type="click" className="text bookings-guests">2</option>
                     </select>
                 </label>
-                <button type="submit" id="bookings-button" >{validationSuccess.length > 0 ? validationSuccess : 'Request to Book'}</button>
+                <button type="submit" id="bookings-button" >{isBooked ? "you've already booked this spot!" : 'Request to Book'}</button>
             </form>
         </>
     )

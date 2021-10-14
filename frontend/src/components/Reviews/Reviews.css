@@ -67,3 +67,29 @@
     width: 60px;
     padding-right: 20%;
 }
+
+.review-buttons {
+    position: absolute;
+    left: 50%;
+    background-color: aquamarine;
+    border: none;
+    padding: 10px;
+    color: white;
+}
+
+.review-button-delete {
+    position: absolute;
+    left: 50%;
+    background-color: aquamarine;
+    border: none;
+    color: white;
+
+}
+
+.review-button-edit {
+    position: absolute;
+    left: 45%;
+    background-color: aquamarine;
+    border: none;
+    color: white;
+}

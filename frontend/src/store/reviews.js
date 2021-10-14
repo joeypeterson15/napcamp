@@ -31,7 +31,7 @@ export const getReviews = (spotId) => async dispatch => {
 }
 
 //THUNK ACTION ADD A REVIEW
-export const createReview = (payload, spotId) => async dispatch => {
+export const createReview = (payload, spotId, userId) => async dispatch => {
     const token = Cookies.get('XSRF-TOKEN');
     const response = await fetch(`/api/reviews/${spotId}`, {
       method: 'POST',
@@ -39,7 +39,7 @@ export const createReview = (payload, spotId) => async dispatch => {
         'Content-Type' : 'application/json',
         'XSRF-TOKEN': `${token}`
       },
-      body: JSON.stringify({...payload, spotId})
+      body: JSON.stringify({...payload, spotId, userId})
     })
     if (response.ok) {
       const review = await response.json()
