@@ -22,6 +22,15 @@
     height: 30%;
     /* margin-top: 40%; */
 }
+#bookings-booked-button {
+    background-color: pink;
+    border: none;
+    padding: 3%;
+    color: white;
+    width: 100%;
+    height: 30%;
+    /* margin-top: 40%; */
+}
 
 .booking-dates {
     display: flex;

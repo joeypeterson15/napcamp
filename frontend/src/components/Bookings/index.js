@@ -10,16 +10,18 @@ import { createBooking } from "../../store/bookings"
 function Bookings ({ spotId }) {
 
     const userId = useSelector((state) => state.session?.user?.id);
+
+
     const bookings = useSelector((state) => (state.bookings));
     const [isBooked, setIsBooked] = useState(false)
 
-    useEffect(() => {
-        for (const booking in bookings) {
-            if (booking?.spotId === spotId && booking?.userId === userId) {
-                setIsBooked(true);
-            }
-        }
-    },[spotId])
+    // useEffect(() => {
+    //     for (const booking in bookings) {
+    //         if (booking?.spotId === spotId && booking?.userId === userId) {
+    //             setIsBooked(true);
+    //         }
+    //     }
+    // })
 
 
 
@@ -37,6 +39,11 @@ function Bookings ({ spotId }) {
 
         if (new Date(startDate).getDate() > new Date(endDate).getDate()){
             errors.push('End date must be after start date')
+            setValidationErrors(errors);
+            return;
+        }
+        if (startDate.length < 1 || endDate.length < 1) {
+            errors.push('Please book a start date and end date')
             setValidationErrors(errors);
             return;
         }
@@ -75,7 +82,7 @@ function Bookings ({ spotId }) {
                         <option type="click" className="text bookings-guests">2</option>
                     </select>
                 </label>
-                <button type="submit" id="bookings-button" >{isBooked ? "you've already booked this spot!" : 'Request to Book'}</button>
+                <button type="submit" id={validationSuccess ? "bookings-booked-button" : "bookings-button"} >{validationSuccess ? 'BOOKED!!': 'Request to Book'}</button>
             </form>
         </>
     )
