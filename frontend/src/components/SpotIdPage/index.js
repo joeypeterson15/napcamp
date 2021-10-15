@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import  Reviews  from '../Reviews/index.js'
 import SpotCards from '../SpotCards';
 import Bookings from '../Bookings';
+import ImageModal from '../ImageModal'
 
 import './SpotIdPage.css'
 
@@ -32,6 +33,7 @@ export default function SpotIdPage () {
                 <img className="spot-detail-2" alt={spot?.id} src={spot?.imageUrl}></img>
                 <img className="spot-detail-3" alt={spot?.id} src={spot?.imageUrl}></img>
             </div>
+            <ImageModal spot={spot}/>
             <Bookings spotId={spot?.id}/>
             <div className="title-spot-page">
                 <div className="font arrows-above-title">{`United States  >  California  >  ${spot?.location}`}</div>

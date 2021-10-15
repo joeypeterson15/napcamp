@@ -1,0 +1,15 @@
+.arrow-icon-modal-left {
+    position: absolute;
+    top: 38%;
+    font-size: 50px;
+    color: black;
+
+}
+
+.arrow-icon-modal-right{
+    position: absolute;
+    right: 10px;
+    top: 38%;
+    font-size: 50px;
+    color: black;
+}

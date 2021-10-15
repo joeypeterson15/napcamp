@@ -76,9 +76,9 @@ function Reviews ({ reviews, spotId, spot }) {
                             <div className="icon-review-container">
                             <img className="review-icon" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>
                             <div className="text review-text">{review.content}</div>
-                            {review.userId === userId ?
+                            {review?.userId === userId ?
                                     <div className='review-button-delete'>
-                                        <i id="icon-padding"class="fas fa-trash-alt" onClick={submitDeleteReview(review.id)}></i>
+                                        <i id="icon-padding"className="fas fa-trash-alt" onClick={submitDeleteReview(review?.id)}></i>
                                         <UpdateReviewModal review={review} spot={spot} />
                                     </div>
                                 :
