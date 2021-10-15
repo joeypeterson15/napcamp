@@ -6,11 +6,11 @@ import './UpdateBookingsForm.css'
 
 
 
-function UpdateBookingsForm ({ booking, showModal, setShowModal }) {
+function UpdateBookingsForm ({ booking, showModal, setShowModal, spot }) {
 
-    const [date, setDate] = useState('');
-    const [startTime, setStartTime] = useState('')
-    const [endTime, setEndTime] = useState('')
+    const [date, setDate] = useState(booking.date);
+    const [startTime, setStartTime] = useState(booking.startTime)
+    const [endTime, setEndTime] = useState(booking.endTime)
     const [guests, setGuests] = useState('guests');
     const [showForm, setShowForm] = useState(false);
     const [validationSuccess, setValidationSuccess] = useState(false)
@@ -36,7 +36,8 @@ function UpdateBookingsForm ({ booking, showModal, setShowModal }) {
     }
 
     return (
-        <div>
+        <div className="update-booking-container">
+            <img className="update-booking-image" src={spot.imageUrl}></img>
 
         {/* <i class={showForm ? '' : "far fa-edit"} value={showForm} onClick={() => setShowModal(true) }></i> */}
         <form onSubmit={updateBooking(booking.spotId)} className={showModal ?'update-booking-form' : 'hide-update-form'}>

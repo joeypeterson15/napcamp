@@ -30,7 +30,7 @@
     /* align-content: center; */
     padding-bottom: 10%;
     padding-top: 10%;
-    width: 100%;
+    width: 60%;
 
     /* border-bottom: 1px solid rgb(206, 206, 206); */
     /* border-top: 1px solid rgb(206, 206, 206); */
@@ -66,22 +66,22 @@
 .review-icon {
     height: 60px;
     width: 60px;
-    padding-right: 20%;
+    padding-right: 10%;
 }
 
 .review-buttons {
     position: absolute;
-    left: 70%;
-    background-color: rgb(255, 127, 127);
+    left: 26%;
+    background-color: rgb(127, 255, 195);
     border: none;
-    padding: 10px;
+    padding: 15px;
     color: white;
 }
 
 .review-button-delete {
-    font-size: 22px;
+    font-size: 18px;
     position: absolute;
-    left: 58%;
+    left: 48%;
     color: rgb(255, 127, 127);
     border: none;
 
@@ -89,9 +89,9 @@
 }
 
 .review-button-edit {
-    font-size: 22px;
+    font-size: 18px;
     position: absolute;
-    left: 60%;
+    left: 52%;
     color: rgb(255, 127, 127);
     border: none;
 

@@ -77,6 +77,7 @@ function Reviews ({ reviews, spotId }) {
                         <div className="icon-review-container">
                             <img className="review-icon" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>
                             <div className="text review-text">{review.content}</div>
+                            </div>
                             {review.userId === userId ?
 
                                 <div className="review-buttons-div">
@@ -95,8 +96,7 @@ function Reviews ({ reviews, spotId }) {
                                 </div>
 
                             :
-                            <button className="review-buttons">Helpful?</button>}
-                        </div>
+                            <button className="review-buttons"><i class="fas fa-thumbs-up"></i><span>     </span>Helpful</button>}
                         </div>
                     ))}
                 </div>

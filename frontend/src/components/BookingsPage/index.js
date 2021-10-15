@@ -48,7 +48,7 @@ export default function BookingsPage () {
                         <div className="text">Check-in: {booking.startTime}</div>
                         <div className="text">Check-out: {booking.endTime}</div>
                         <div className="text">Guests : {booking.guests}</div>
-                        <UpdateBookingModal booking={booking}/>
+                        <UpdateBookingModal spot={spots.find((spot) => spot.id === booking.spotId)} booking={booking}/>
                         <form onSubmit={cancelBooking(booking.spotId)}>
                             <button className="cancel-booking-button" type="submit">Cancel Booking</button>
                         </form>
