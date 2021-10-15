@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom';
 import { updateOneBooking } from '../../store/bookings';
 import  UpdateBookingsForm  from '../UpdateBookingsForm';
 import UpdateBookingModal from '../UpdateBookingModal';
+import { Link } from 'react-router-dom';
 import './BookingsPage.css'
 
 export default function BookingsPage () {
@@ -42,8 +43,9 @@ export default function BookingsPage () {
             <div className="bookings-container">
                 {bookings.map((booking) => (
                     <div className="bookings-card">
-
-                        <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
+                        <Link exact to={`/spots/${(booking?.spotId)}}`}>
+                            <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
+                        </Link>
                         <div className="text">Date: {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate() + 1}th, 2021</div>
                         <div className="text">Check-in: {booking.startTime}</div>
                         <div className="text">Check-out: {booking.endTime}</div>

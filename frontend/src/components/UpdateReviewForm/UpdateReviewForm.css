@@ -4,7 +4,7 @@
     /* margin: auto; */
     box-sizing: border-box;
     width: 400px;
-    height: 400px;
+    height: 420px;
     /* align-items: center; */
     border:1px solid rgb(238, 238, 238);
     box-shadow: 0.2px 0.3px 0.5px 0.2px rgb(231, 231, 231);
@@ -22,4 +22,5 @@
 
 #update-review-form-image {
     width: 360px;
+    height: 250px;
 }
