@@ -1,6 +1,9 @@
 /* body {
 } */
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+
 .background-white {
     background-color: white;
 
@@ -16,13 +19,28 @@
     justify-content: space-around;
 }
 .spot-detail-images {
-    width: 400px;
-    height: 450px;
+    position: relative;
+    z-index: 0;
+    left: 0;
+    width: 48%;
+    height: 480px;
+}
+.spot-detail-2 {
+    position: relative;
+    z-index: 0;
+    width: 28%;
+    height: 480px;
+}
+.spot-detail-3 {
+    position: relative;
+    z-index: 0;
+    width: 18%;
+    height: 480px;
 }
 
 #spot-name {
     font-size: 40px;
-    padding-top: 30px;
+    padding-top: 20px;
     /* margin-left: 12%; */
 }
 
@@ -39,7 +57,7 @@
     justify-content: space-between;
     background-color: white;
     margin-left: 12%;
-    margin-top: 5%;
+    margin-top: 3%;
     width: 50%;
     padding-top: 2%;
     padding-bottom: 5%;
@@ -53,6 +71,8 @@
 
 #spot-description {
     width: 70%;
+    font-size: 14px;
+    line-height: 20pt
 }
 
 #description {
@@ -64,4 +84,12 @@
     width: 100%;
     height: 200px;
     background-color: white;
+}
+
+.font {
+    font-family: 'Inter';
+}
+
+#spot-name {
+    font-family: 'Inter';
 }

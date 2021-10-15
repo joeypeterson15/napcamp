@@ -30,7 +30,7 @@ function Bookings ({ spotId }) {
     const [date, setDate] = useState('');
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
-    const [guests, setGuests] = useState(1);
+    const [guests, setGuests] = useState('guests');
     const [validationErrors, setValidationErrors] = useState([])
     const [validationSuccess, setValidationSuccess] = useState('')
 
@@ -73,20 +73,19 @@ function Bookings ({ spotId }) {
                         <li key={error}>{error}</li>
                     ))}
                 </ul>
-                <div className="text" id="bookings-price">Price</div>
+                <div className="price text" id="bookings-price">Price</div>
                 <div className="booking-dates">
                     <input value={date} onChange={(e) => setDate(e.target.value)} type="date" placeholder="start-date" id="border-left" className="text book-date"></input>
                     <input value={startTime} onChange={(e) => setStartTime(e.target.value)} type="time" placeholder="checkout-date" id="border-right"className="text book-date"></input>
                     <input value={endTime} onChange={(e) => setEndTime(e.target.value)} type="time" placeholder="checkout-date" id="border-right"className="text book-date"></input>
                 </div>
-                <label>
-                    Guests
-                    <select name="guests" value={guests} onChange={(e) => setGuests(parseInt(e.target.value, 10))} className="guests-select-menu">
+                    <select name="guests" value={guests} onChange={(e) => setGuests(parseInt(e.target.value, 10))} className="guests-select-menu text">
+                        <option>Guests</option>
                         <option type="click" className="text bookings-guests">1</option>
                         <option type="click" className="text bookings-guests">2</option>
                     </select>
-                </label>
-                <button type="submit" id={validationSuccess ? "bookings-booked-button" : "bookings-button"} >{validationSuccess ? 'BOOKED!!': 'Request to Book'}</button>
+                    <div className="time-requirment text">1 hour minimium</div>
+                <button type="submit" id={validationSuccess ? "bookings-booked-button" : "bookings-button"} >{validationSuccess ? 'BOOKED!!': 'Instant Book'}</button>
             </form>
         </>
     )

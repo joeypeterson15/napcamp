@@ -60,6 +60,7 @@ function Reviews ({ reviews, spotId }) {
                 <form onSubmit={submitReview} className="add-review-form">
                 {/* <input type='hidden' name='_csrf' value={csrfToken} ></input> */}
                     <textarea
+                    className="font"
                     value={review}
                     onChange={(e) => setReview(e.target.value)}
                     id="text-submit-review"
@@ -79,12 +80,18 @@ function Reviews ({ reviews, spotId }) {
                             {review.userId === userId ?
 
                                 <div className="review-buttons-div">
-                                    <form onSubmit={submitDeleteReview(review.id)}>
+                                    {/* <form onSubmit={submitDeleteReview(review.id)}>
                                         <button type="submit" className='review-button-delete'>DELETE</button>
-                                    </form>
-                                    <form>
+                                    </form> */}
+                                    <div className='review-button-delete'>
+                                        <i class="fas fa-trash-alt" onClick={submitDeleteReview(review.id)}></i>
+                                    </div>
+                                    <div className='review-button-edit'>
+                                        <i class="far fa-edit"></i>
+                                    </div>
+                                    {/* <form>
                                         <button type="submit" className='review-button-edit'>EDIT</button>
-                                    </form>
+                                    </form> */}
                                 </div>
 
                             :

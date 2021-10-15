@@ -7,7 +7,10 @@ function UpdateBookingModal({booking}) {
     return (
         <>
           {/* <button onClick={() => setShowModal(true)}>UPDATE</button> */}
-          <i id="edit-icon-button" class={showModal ? '' : "far fa-edit"} onClick={() => setShowModal(true) }></i>
+          <div className="color-edit-icon">
+            <i id="edit-icon-button" class={showModal ? '' : "far fa-edit"} onClick={() => setShowModal(true) }></i>
+
+          </div>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <UpdateBookingsForm setShowModal={setShowModal} showModal={showModal} booking={booking}/>

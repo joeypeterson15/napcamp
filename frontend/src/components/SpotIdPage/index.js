@@ -29,19 +29,19 @@ export default function SpotIdPage () {
         <div className={isBackgroundGrey ? 'background-grey' : 'background-white'}>
             <div className="spot-detail-div">
                 <img className="spot-detail-images" alt={spot?.id} src={spot?.imageUrl}></img>
-                <img className="spot-detail-images" alt={spot?.id} src={spot?.imageUrl}></img>
-                <img className="spot-detail-images" alt={spot?.id} src={spot?.imageUrl}></img>
+                <img className="spot-detail-2" alt={spot?.id} src={spot?.imageUrl}></img>
+                <img className="spot-detail-3" alt={spot?.id} src={spot?.imageUrl}></img>
             </div>
             <Bookings spotId={spot?.id}/>
             <div className="title-spot-page">
-                <div className="text arrows-above-title">{`United States  >  California  >  Point Reyes`}</div>
-                <div className="text" id="spot-name">{spot?.name}</div>
-                <div className="text recommended"><span className="text hundred-percent">👍 %100</span> Recommended</div>
+                <div className="font arrows-above-title">{`United States  >  California  >  ${spot?.location}`}</div>
+                <div id="spot-name" className="text" id="spot-name">{spot?.name}</div>
+                <div className="font recommended"><span className="text hundred-percent"><i class="fas fa-thumbs-up"></i> %100</span> Recommended</div>
             </div>
 
-            <div className="description-container">
-                <span id="description" className="text" >Description</span>
-                <span className="text" id="spot-description">{spot?.description}</span>
+            <div className="description-container font">
+                <span id="description" className="font" >Description</span>
+                <p className="font" id="spot-description">{spot?.description}</p>
             </div>
             <SpotCards />
             <Reviews spotId={spot?.id} reviews={reviews.filter((review) => review?.spotId === spot?.id)}/>
