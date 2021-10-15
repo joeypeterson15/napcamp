@@ -1,6 +1,4 @@
 import Cookies from 'js-cookie';
-import { restoreCSRF } from "./csrf"
-import { csrfFetch } from './csrf';
 
 const LOAD = 'reviews/LOAD'
 const ADD_REVIEW = 'reviews/ADD_REVIEW'
@@ -72,13 +70,12 @@ export const createReview = (payload, spotId, userId) => async dispatch => {
           },
     })
         if (response.ok) {
-            const { reviews, id } = await response.json()
+            const { id } = await response.json()
             dispatch(loadAfterDelete(id))
         }
   }
 
   export const updateReview = (payload, reviewId, spotId) => async dispatch => {
-      console.log('hellllloooo00000000' )
       const token = Cookies.get('XSRF-TOKEN');
       const response = await fetch(`/api/reviews/${spotId}/${reviewId}`, {
           method: 'PUT',
@@ -89,7 +86,7 @@ export const createReview = (payload, spotId, userId) => async dispatch => {
           body: JSON.stringify(payload)
       })
       if (response.ok) {
-          const { reviews, id, review } = await response.json()
+          const { id, review } = await response.json()
           dispatch(loadAfterUpdate(id, review))
       }
   }

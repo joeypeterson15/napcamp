@@ -28,14 +28,14 @@ export default function SpotIdPage () {
     return (
         <div className={isBackgroundGrey ? 'background-grey' : 'background-white'}>
             <div className="spot-detail-div">
-                <img className="spot-detail-images" alt={spot?.id} src={spot?.imageUrl}></img>
+                <img className="spot-detail-images" alt={`${spot?.id}`} src={spot?.imageUrl}></img>
                 <img className="spot-detail-2" alt={spot?.id} src={spot?.imageUrl}></img>
                 <img className="spot-detail-3" alt={spot?.id} src={spot?.imageUrl}></img>
             </div>
             <Bookings spotId={spot?.id}/>
             <div className="title-spot-page">
                 <div className="font arrows-above-title">{`United States  >  California  >  ${spot?.location}`}</div>
-                <div id="spot-name" className="text" id="spot-name">{spot?.name}</div>
+                <div id="spot-name" className="text">{spot?.name}</div>
                 <div className="font recommended"><span className="text hundred-percent"><i class="fas fa-thumbs-up"></i> %100</span> Recommended</div>
             </div>
 

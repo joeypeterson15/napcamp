@@ -37,7 +37,6 @@ router.put('/:spotId/:reviewId', asyncHandler(async function (req, res) {
         id: req.params.reviewId
     }})
     await review.update({ content: req.body.content})
-    console.log(review)
     const reviews = await Review.findAll({where: {
         spotId: req.params.spotId
     }})

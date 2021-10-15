@@ -9,7 +9,7 @@ export default function Welcome () {
                 <h3 id="welcome-header-small">Discover and book beds for a quick nap at your convenience</h3>
             </div>
             <div>
-                <img id="welcome-img" src="https://i.ibb.co/744kBqM/women-sleeping-main-page.jpg"></img>
+                <img alt="" id="welcome-img" src="https://i.ibb.co/744kBqM/women-sleeping-main-page.jpg"></img>
             </div>
         </div>
     );

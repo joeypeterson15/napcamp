@@ -1,7 +1,7 @@
 import { updateOneBooking } from '../../store/bookings';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './UpdateBookingsForm.css'
 
 
@@ -12,7 +12,6 @@ function UpdateBookingsForm ({ booking, showModal, setShowModal, spot }) {
     const [startTime, setStartTime] = useState(booking.startTime)
     const [endTime, setEndTime] = useState(booking.endTime)
     const [guests, setGuests] = useState('guests');
-    const [showForm, setShowForm] = useState(false);
     const [validationSuccess, setValidationSuccess] = useState(false)
 
     const userId = useSelector((state) => state.session?.user?.id);
@@ -37,9 +36,8 @@ function UpdateBookingsForm ({ booking, showModal, setShowModal, spot }) {
 
     return (
         <div className="update-booking-container">
-            <img className="update-booking-image" src={spot.imageUrl}></img>
+            <img alt='' className="update-booking-image" src={spot.imageUrl}></img>
 
-        {/* <i class={showForm ? '' : "far fa-edit"} value={showForm} onClick={() => setShowModal(true) }></i> */}
         <form onSubmit={updateBooking(booking.spotId)} className={showModal ?'update-booking-form' : 'hide-update-form'}>
                                 <div className={validationSuccess ? "hide-booking-dates" : "booking-dates"}>
                                     <input value={date} onChange={(e) => setDate(e.target.value)} type="date" id="border-left" className="text book-date"></input>

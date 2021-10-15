@@ -86,7 +86,7 @@ export const updateOneBooking = (payload, spotId, userId) => async dispatch => {
     })
 
     if (response.ok) {
-        const {bookings, newBooking, id} = await response.json()
+        const {newBooking, id} = await response.json()
         dispatch(loadAfterUpdate(id, newBooking))
     }
 }
@@ -102,7 +102,7 @@ export const deleteBooking = (spotId, userId) => async dispatch => {
     })
 
     if (response.ok) {
-        const {bookings, id} = await response.json()
+        const {id} = await response.json()
         dispatch(loadAfterDelete(id))
     }
 }

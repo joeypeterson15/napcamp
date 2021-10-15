@@ -1,10 +1,10 @@
-import { useSelector } from 'react-redux';
+
 import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { updateReview } from '../../store/reviews'
 import './UpdateReviewForm.css'
 
-function UpdateReviewForm ({ review, showModal, setShowModal, spot }) {
+function UpdateReviewForm ({ review, setShowModal, spot }) {
 
     const [content, setContent] = useState(review.content)
     const dispatch = useDispatch();
@@ -20,7 +20,7 @@ function UpdateReviewForm ({ review, showModal, setShowModal, spot }) {
 
     return (
         <div className="review-update-form-container">
-            <img id="update-review-form-image" src={spot.imageUrl}></img>
+            <img alt="" id="update-review-form-image" src={spot.imageUrl}></img>
             <form onSubmit={submitUpdateReview(review)}>
                 <textarea
                 id='update-review-textarea'
