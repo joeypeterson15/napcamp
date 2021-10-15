@@ -2,13 +2,12 @@ import { createReview } from '../../store/reviews';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getReviews } from '../../store/reviews';
 import { deleteReview } from '../../store/reviews';
 import UpdateReviewModal from '../UpdateReviewModal'
-
+import { useState } from 'react';
 import "./Reviews.css"
 
-import { useEffect, useState } from 'react';
+
 
 function Reviews ({ reviews, spotId, spot }) {
 
@@ -59,7 +58,6 @@ function Reviews ({ reviews, spotId, spot }) {
                    {countReviews} Reviews
                 </div>
                 <form onSubmit={submitReview} className="add-review-form">
-                {/* <input type='hidden' name='_csrf' value={csrfToken} ></input> */}
                     <textarea
                     className="font"
                     value={review}

@@ -2,27 +2,13 @@ import "./Bookings.css"
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { createBooking } from "../../store/bookings"
 
 
 function Bookings ({ spotId }) {
 
     const userId = useSelector((state) => state.session?.user?.id);
-
-
-    const bookings = useSelector((state) => (state.bookings));
-    const [isBooked, setIsBooked] = useState(false)
-
-    // useEffect(() => {
-    //     for (const booking in bookings) {
-    //         if (booking?.spotId === spotId && booking?.userId === userId) {
-    //             setIsBooked(true);
-    //         }
-    //     }
-    // })
-
 
 
 

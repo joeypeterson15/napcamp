@@ -1,13 +1,10 @@
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getBookings } from '../../store/bookings';
 import { getSpots } from '../../store/spots';
 import { deleteBooking } from '../../store/bookings';
-import { useHistory } from 'react-router-dom';
-import { updateOneBooking } from '../../store/bookings';
-import  UpdateBookingsForm  from '../UpdateBookingsForm';
 import UpdateBookingModal from '../UpdateBookingModal';
 import { Link } from 'react-router-dom';
 import './BookingsPage.css'
@@ -15,7 +12,6 @@ import './BookingsPage.css'
 export default function BookingsPage () {
     const isBackgroundGrey = false;
 
-    const history = useHistory();
     const userId = useSelector((state) => state.session?.user?.id);
     const userName = useSelector((state) => state.session?.user?.username)
 
@@ -54,7 +50,6 @@ export default function BookingsPage () {
                         <form onSubmit={cancelBooking(booking.spotId)}>
                             <button className="cancel-booking-button" type="submit">Cancel Booking</button>
                         </form>
-                        {/* <i onClick={cancelBooking(booking.spotId)} class="fas fa-eraser"></i> */}
 
                     </div>
                 ))}
