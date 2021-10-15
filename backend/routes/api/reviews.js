@@ -3,18 +3,6 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { Review } = require('../../db/models')
 
-
-// const csrf = require('csurf');
-// const csrfProtection = csrf({ cookie: true });
-// const requireAuth = (req, res, next) => {
-//     if (!res.locals.authenticated) {
-//       return res.redirect('/main');
-//     }
-//     return next();
-//   };
-
-// const spotsRepository = require('../../db/spots-repository')
-
 const router = express.Router()
 
 
@@ -42,6 +30,18 @@ router.delete('/:id/:reviewId', asyncHandler(async function (req, res) {
         spotId : req.params.id
     }})
     res.json({ reviews, id : review.id })
+}))
+
+router.put('/:spotId/:reviewId', asyncHandler(async function (req, res) {
+    const review = await Review.findOne({where: {
+        id: req.params.reviewId
+    }})
+    await review.update({ content: req.body.content})
+    console.log(review)
+    const reviews = await Review.findAll({where: {
+        spotId: req.params.spotId
+    }})
+    res.json({ reviews, id: review.id, review })
 }))
 
 

@@ -1,0 +1,25 @@
+.review-update-form-container {
+    padding: 20px;
+    position: relative;
+    /* margin: auto; */
+    box-sizing: border-box;
+    width: 400px;
+    height: 400px;
+    /* align-items: center; */
+    border:1px solid rgb(238, 238, 238);
+    box-shadow: 0.2px 0.3px 0.5px 0.2px rgb(231, 231, 231);
+    border-radius: 10px;
+}
+
+#update-review-textarea {
+    margin-top: 10px;
+    border: 1px solid rgb(230, 230, 230);
+    resize: none;
+    outline: none;
+    width: 98%;
+    height: 80px;
+}
+
+#update-review-form-image {
+    width: 360px;
+}

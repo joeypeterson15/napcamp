@@ -5,6 +5,7 @@ import { csrfFetch } from './csrf';
 const LOAD = 'reviews/LOAD'
 const ADD_REVIEW = 'reviews/ADD_REVIEW'
 const LOAD_AFTER_DELETE = 'reviews/LOAD_AFTER_DELETE'
+const LOAD_AFTER_UPDATE = 'reviews/LOAD_AFTER_UPDATE'
 
 
 //---- ACTIONS ----
@@ -26,6 +27,12 @@ const addOneReview = review => ({
 const loadAfterDelete = id => ({
     type: LOAD_AFTER_DELETE,
     id
+})
+
+const loadAfterUpdate = (id, review) => ({
+    type: LOAD_AFTER_UPDATE,
+    id,
+    review
 })
 
 //GET ALL REVIEWS
@@ -70,6 +77,23 @@ export const createReview = (payload, spotId, userId) => async dispatch => {
         }
   }
 
+  export const updateReview = (payload, reviewId, spotId) => async dispatch => {
+      console.log('hellllloooo00000000' )
+      const token = Cookies.get('XSRF-TOKEN');
+      const response = await fetch(`/api/reviews/${spotId}/${reviewId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type' : 'application/json',
+            'XSRF-TOKEN': `${token}`
+          },
+          body: JSON.stringify(payload)
+      })
+      if (response.ok) {
+          const { reviews, id, review } = await response.json()
+          dispatch(loadAfterUpdate(id, review))
+      }
+  }
+
 
 //---- REVIEWS REDUCER ----
 
@@ -98,6 +122,12 @@ const reviewsReducer = (state = initialState, action) => {
         case LOAD_AFTER_DELETE: {
             const newState = {...state}
             delete newState[action.id]
+            return newState;
+        }
+        case LOAD_AFTER_UPDATE: {
+            const newState = { ...state }
+            delete newState[action.id]
+            newState[action.id] = action.review
             return newState;
         }
         default:

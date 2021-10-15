@@ -37,7 +37,6 @@ router.put('/:id/:spotId', asyncHandler(async function(req, res) {
     }})
 
     const newBooking = await booking.update({ date: req.body.date, startTime : req.body.startTime, endTime: req.body.endTime, guests: req.body.guests})
-    console.log(newBooking, "helllllllloooooooo")
     const bookings = await Booking.findAll({where: {
         userId : req.params.id
     }})

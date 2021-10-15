@@ -40,11 +40,11 @@ export default function SpotIdPage () {
             </div>
 
             <div className="description-container font">
-                <span id="description" className="font" >Description</span>
+                <span id="description" className="font">Description</span>
                 <p className="font" id="spot-description">{spot?.description}</p>
             </div>
             <SpotCards />
-            <Reviews spotId={spot?.id} reviews={reviews.filter((review) => review?.spotId === spot?.id)}/>
+            <Reviews spot={spot} spotId={spot?.id} reviews={reviews.filter((review) => review?.spotId === spot?.id)}/>
 
         </div>
     );

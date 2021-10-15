@@ -4,12 +4,13 @@ import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getReviews } from '../../store/reviews';
 import { deleteReview } from '../../store/reviews';
+import UpdateReviewModal from '../UpdateReviewModal'
 
 import "./Reviews.css"
 
 import { useEffect, useState } from 'react';
 
-function Reviews ({ reviews, spotId }) {
+function Reviews ({ reviews, spotId, spot }) {
 
     const userId = useSelector((state) => state.session?.user?.id);
 
@@ -81,22 +82,14 @@ function Reviews ({ reviews, spotId }) {
                             {review.userId === userId ?
 
                                 <div className="review-buttons-div">
-                                    {/* <form onSubmit={submitDeleteReview(review.id)}>
-                                        <button type="submit" className='review-button-delete'>DELETE</button>
-                                    </form> */}
                                     <div className='review-button-delete'>
                                         <i class="fas fa-trash-alt" onClick={submitDeleteReview(review.id)}></i>
                                     </div>
-                                    <div className='review-button-edit'>
-                                        <i class="far fa-edit"></i>
-                                    </div>
-                                    {/* <form>
-                                        <button type="submit" className='review-button-edit'>EDIT</button>
-                                    </form> */}
+                                    <UpdateReviewModal review={review} spot={spot} />
                                 </div>
 
                             :
-                            <button className="review-buttons"><i class="fas fa-thumbs-up"></i><span>     </span>Helpful</button>}
+                            <button className="review-buttons"><i class="fas fa-thumbs-up"></i>Helpful</button>}
                         </div>
                     ))}
                 </div>
