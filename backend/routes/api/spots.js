@@ -9,6 +9,13 @@ router.get('/', asyncHandler(async function(req, res) {
     res.json(list)
 }))
 
+router.get('/:location', asyncHandler(async function(req, res) {
+    const locations = await Spot.findAll({where : {
+        location : req.params.location
+    }})
+    res.json(locations)
+}))
+
 
 
 module.exports = router;

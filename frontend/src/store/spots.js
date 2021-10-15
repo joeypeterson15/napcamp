@@ -1,4 +1,5 @@
 const LOAD = 'spots/LOAD'
+const LOAD_AFTER_SEARCH = 'spots/LOAD_AFTER_SEARCH'
 
 
 //actions
@@ -6,6 +7,11 @@ const LOAD = 'spots/LOAD'
 const load = list => ({
     type: LOAD,
     list,
+})
+
+const loadAfterSearch = locations => ({
+    type: LOAD_AFTER_SEARCH,
+    locations
 })
 
 
@@ -17,6 +23,19 @@ export const getSpots = () => async dispatch => {
     if (response.ok) {
         const list = await response.json();
         dispatch(load(list))
+    }
+}
+
+
+
+//thunk action for searching all spots
+
+export const searchForLocations = (location) => async dispatch => {
+    const response = await fetch(`/api/spots/${location}`)
+
+    if (response.ok) {
+        const locations = await response.json();
+        dispatch(loadAfterSearch(locations))
     }
 }
 
@@ -35,6 +54,18 @@ const spotsReducer = (state = initialState, action) => {
                 ...allSpots,
                 ...state,
                 list: action.list,
+            }
+
+        }
+        case LOAD_AFTER_SEARCH: {
+            const allSpots = {};
+            action.locations.forEach(spot => {
+                allSpots[spot.id] = spot
+            })
+            return {
+                ...allSpots,
+                ...state,
+                list: action.locations
             }
         }
         default:

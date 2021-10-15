@@ -15,7 +15,7 @@ function ImageModal ({ spot }) {
             </div>
             {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-              <img src={spot?.imageUrl}></img>
+              <img alt="" src={spot?.imageUrl}></img>
             </Modal>
           )}
         </>

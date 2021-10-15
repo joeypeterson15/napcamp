@@ -1,0 +1,32 @@
+.search-location {
+    background-color: rgb(228, 228, 228);
+    border: 0.5px solid rgb(184, 184, 184);
+    position: absolute;
+    width: 70%;
+    height: 18%;
+    top: 280px;
+    z-index: 2;
+    align-content: center;
+    border-radius: 60px;
+}
+
+#search-button {
+    margin: auto;
+    background-color: rgb(127, 255, 195);
+    border: none;
+    border-radius: 10%;
+    padding: 7px;
+    margin-left: 5px;
+    color: white;
+}
+
+#search-text {
+    border-radius: 10px;
+    width: 90%;
+    height: 25px;
+}
+
+.search-form {
+    margin-top: 5%;
+    margin-left: 7%;
+}
