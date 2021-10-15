@@ -1,4 +1,4 @@
-import Cookies from 'js-cookie';
+import { csrfFetch } from './csrf'
 
 const LOAD = 'reviews/LOAD'
 const ADD_REVIEW = 'reviews/ADD_REVIEW'
@@ -45,12 +45,10 @@ export const getReviews = (spotId) => async dispatch => {
 
 //THUNK ACTION ADD A REVIEW
 export const createReview = (payload, spotId, userId) => async dispatch => {
-    const token = Cookies.get('XSRF-TOKEN');
-    const response = await fetch(`/api/reviews/${spotId}`, {
+    const response = await csrfFetch(`/api/reviews/${spotId}`, {
       method: 'POST',
       headers: {
         'Content-Type' : 'application/json',
-        'XSRF-TOKEN': `${token}`
       },
       body: JSON.stringify({...payload, spotId, userId})
     })
@@ -61,12 +59,10 @@ export const createReview = (payload, spotId, userId) => async dispatch => {
   }
 
   export const deleteReview = (spotId, reviewId) => async dispatch => {
-    const token = Cookies.get('XSRF-TOKEN');
-    const response = await fetch(`/api/reviews/${spotId}/${reviewId}`, {
+    const response = await csrfFetch(`/api/reviews/${spotId}/${reviewId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type' : 'application/json',
-            'XSRF-TOKEN': `${token}`
           },
     })
         if (response.ok) {
@@ -76,12 +72,10 @@ export const createReview = (payload, spotId, userId) => async dispatch => {
   }
 
   export const updateReview = (payload, reviewId, spotId) => async dispatch => {
-      const token = Cookies.get('XSRF-TOKEN');
-      const response = await fetch(`/api/reviews/${spotId}/${reviewId}`, {
+      const response = await csrfFetch(`/api/reviews/${spotId}/${reviewId}`, {
           method: 'PUT',
           headers: {
             'Content-Type' : 'application/json',
-            'XSRF-TOKEN': `${token}`
           },
           body: JSON.stringify(payload)
       })

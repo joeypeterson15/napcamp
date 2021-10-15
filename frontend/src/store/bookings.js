@@ -1,4 +1,5 @@
-import Cookies from 'js-cookie';
+
+import { csrfFetch } from './csrf'
 
 
 const LOAD = 'bookings/LOAD'
@@ -57,12 +58,12 @@ export const getBookings = (userId) => async dispatch => {
 
 export const createBooking = (payload, spotId, userId) => async dispatch => {
 
-    const token = Cookies.get('XSRF-TOKEN');
-    const response = await fetch(`/api/bookings/${userId}`, {
+
+    const response = await csrfFetch(`/api/bookings/${userId}`, {
         method: 'POST',
         headers: {
             'Content-Type' : 'application/json',
-            'XSRF-TOKEN': `${token}`
+
         },
         body: JSON.stringify({...payload, spotId, userId})
     })
@@ -75,12 +76,12 @@ export const createBooking = (payload, spotId, userId) => async dispatch => {
 
 //UPDATE ONE BOOKING
 export const updateOneBooking = (payload, spotId, userId) => async dispatch => {
-    const token = Cookies.get('XSRF-TOKEN');
-    const response = await fetch(`/api/bookings/${userId}/${spotId}`, {
+
+    const response = await csrfFetch(`/api/bookings/${userId}/${spotId}`, {
         method: 'PUT',
         headers: {
             'Content-Type' : 'application/json',
-            'XSRF-TOKEN': `${token}`
+
           },
         body: JSON.stringify(payload)
     })
@@ -92,12 +93,12 @@ export const updateOneBooking = (payload, spotId, userId) => async dispatch => {
 }
 
 export const deleteBooking = (spotId, userId) => async dispatch => {
-    const token = Cookies.get('XSRF-TOKEN');
-    const response = await fetch(`/api/bookings/${userId}/${spotId}`, {
+
+    const response = await csrfFetch(`/api/bookings/${userId}/${spotId}`, {
         method: 'DELETE',
         headers: {
             'Content-Type' : 'application/json',
-            'XSRF-TOKEN': `${token}`
+           
           },
     })
 
