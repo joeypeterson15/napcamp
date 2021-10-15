@@ -54,9 +54,27 @@
     border-right: 1px solid rgb(206, 206, 206);
 }
 
+#border-right:before {
+    content: 'Check-in time'
+}
+
 #border-left {
     border-left:1px solid rgb(206, 206, 206);
     border-right: 1px solid rgb(206, 206, 206);
+}
+
+#border-left:before {
+    content: 'Check-out';
+    padding: 10px;
+}
+
+#date-border {
+    border-left:1px solid rgb(206, 206, 206);
+    border-right: 1px solid rgb(206, 206, 206);
+}
+
+#date-border:before {
+    content: 'Pick a Date'
 }
 
 #bookings-price{

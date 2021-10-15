@@ -61,9 +61,9 @@ function Bookings ({ spotId }) {
                 </ul>
                 <div className="price text" id="bookings-price">Price</div>
                 <div className="booking-dates">
-                    <input value={date} onChange={(e) => setDate(e.target.value)} type="date" placeholder="start-date" id="border-left" className="text book-date"></input>
+                    <input name="booking-date-label" value={date} onChange={(e) => setDate(e.target.value)} type="date" placeholder="start-date" id="date-border" className="text book-date"></input>
                     <input value={startTime} onChange={(e) => setStartTime(e.target.value)} type="time" placeholder="checkout-date" id="border-right"className="text book-date"></input>
-                    <input value={endTime} onChange={(e) => setEndTime(e.target.value)} type="time" placeholder="checkout-date" id="border-right"className="text book-date"></input>
+                    <input value={endTime} onChange={(e) => setEndTime(e.target.value)} type="time" placeholder="checkout-date" id="border-left"className="text book-date"></input>
                 </div>
                     <select name="guests" value={guests} onChange={(e) => setGuests(parseInt(e.target.value, 10))} className="guests-select-menu text">
                         <option>Guests</option>
