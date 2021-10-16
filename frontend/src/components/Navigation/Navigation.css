@@ -1,16 +1,18 @@
 .nav-bar {
     text-decoration: none;
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    height: 50px;
+    margin-top: auto;
+    width: 100%;
+    padding: 15px 0;
+    height: 70px;
     background-color: rgb(228, 228, 228);
     display: flex;
     justify-content: space-between;
     position: sticky;
     top: 0;
-    z-index: 1;
-    align-content: center;
+    z-index: 10;
+    /* align-content: center; */
+    text-align: center;
 }
 
 .nav-link {
@@ -18,21 +20,23 @@
 }
 
 #napcamp-text {
-    padding-left: 100px;
+    padding-left: 160px;
     font-size: 30px;
     color: rgb(0, 46, 0)
 }
 
 .right-nav {
-    margin-right: 20px;
+    padding-right: 160px;
     display: flex;
     justify-content: space-between;
     padding-left: 2%;
+    padding-right: 15%;
+    padding-top: 10px;
 }
 
 #nav-saves {
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
 .nav-link {
@@ -40,9 +44,10 @@
 }
 
 .review-icon-nav {
-    height: 25px;
-    width: 25px;
-    padding: none;
+    height: 30px;
+    width: 30px;
+    margin-bottom: 20px;
+    margin-left: 20px ;
     margin: none;
     border-radius: 20px;
 }

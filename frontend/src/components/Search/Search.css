@@ -1,13 +1,13 @@
 .search-location {
     background-color: rgb(228, 228, 228);
-    border: 0.5px solid rgb(184, 184, 184);
+    border: 0.2px solid rgb(221, 221, 221);
     position: absolute;
-    width: 70%;
-    height: 18%;
-    top: 280px;
+    width: 75%;
+    height: 16%;
+    top: 375px;
     z-index: 2;
     align-content: center;
-    border-radius: 60px;
+    border-radius: 75px;
 }
 
 #search-button {
@@ -21,12 +21,17 @@
 }
 
 #search-text {
-    border-radius: 10px;
+    border-radius: 20px;
     width: 90%;
-    height: 25px;
+    height: 40px;
+    border: none;
 }
 
 .search-form {
-    margin-top: 5%;
+    margin-top: 1%;
     margin-left: 7%;
+}
+
+#where-to {
+    padding-bottom: 10px;
 }

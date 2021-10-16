@@ -3,14 +3,14 @@
 
 .spots-container {
     /* position: relavive; */
-    width: 80%;
+    width: 47%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    margin-left: 6.5%;
+    margin-left: 10%;
     /* margin-right: 20%; */
-    grid-row-gap: 100px;
-    grid-column-gap: 5%;
+    grid-row-gap: 50px;
+    grid-column-gap: 4%;
 }
 
 .spots-img:hover {
@@ -21,8 +21,8 @@
     transform: translate3d(0, -10%, 0)
 }
 .spots-img {
-    width: 380px;
-    height: 350px;
+    width: 360px;
+    height: 370px;
     border-radius: 25px;
 }
 
@@ -35,6 +35,11 @@
 .category {
 
     font-weight: bolder;
+    padding-top: 5px;
+}
+
+.location {
+    padding-top: 5px;
 }
 
 .spots-div {

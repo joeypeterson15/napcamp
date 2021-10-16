@@ -31,10 +31,10 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button id="header-icon-button" onClick={openMenu}>
-        <img className="review-icon-nav" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>
+      {/* <button id="header-icon-button" onClick={openMenu}>
 
-      </button>
+      </button> */}
+        <img onClick={openMenu} className="review-icon-nav" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>
       {showMenu && (
         <ul className="profile-dropdown">
           <li>{user.username}</li>

@@ -20,6 +20,7 @@ function Search () {
     return(
         <div className="search-location">
             <form className="search-form" onSubmit={searchLocation}>
+                <div id="where-to">WHERE TO?</div>
                 <input id="search-text" value={location} onChange={(e) => setLocation(e.target.value)} type="text" placeholder="Search a Location..."></input>
                 <button id="search-button" type="submit" >search</button>
             </form>
