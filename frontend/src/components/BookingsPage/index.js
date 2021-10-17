@@ -50,7 +50,7 @@ export default function BookingsPage () {
             <div className="bookings-container">
                 {bookings.map((booking) => (
                     <div key={booking.id} className="bookings-card">
-                        <Link to={`/spots/${(booking?.spotId)}}`}>
+                        <Link to={`/spots/${booking.spotId}`}>
                             <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
                         </Link>
                         <div key={booking.date} className="text">Date: {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate() + 1}th, 2021</div>

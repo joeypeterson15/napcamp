@@ -24,11 +24,12 @@ function App() {
         <Welcome />
         <SpotsBrowser />
       </Route>
-      <Route exact path="/spots/:spotId">
-        <SpotsIdPage />
-      </Route>
+
       <Route exact path="/trips">
         <BookingsPage />
+      </Route>
+      <Route exact path="/spots/:spotId">
+        <SpotsIdPage />
       </Route>
       {isLoaded && (
         <Switch>
