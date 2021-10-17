@@ -2,14 +2,15 @@
     position: absolute;
     top: 38%;
     font-size: 50px;
-    color: black;
+    color: white;
+    left: 30px;
 
 }
 
 .arrow-icon-modal-right{
     position: absolute;
-    right: 10px;
+    right: 30px;
     top: 38%;
     font-size: 50px;
-    color: black;
+    color: white;
 }

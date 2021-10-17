@@ -8,10 +8,10 @@ function ImageModal ({ spot }) {
     return (
         <>
             <div className="arrow-icon-modal-left">
-                <i id="arrow-icon-left" className={showModal ? '' : "fas fa-chevron-circle-left"} onClick={() => setShowModal(true)}></i>
+                <i id="arrow-icon-left" className={showModal ? '' : "fas fa-angle-left"} onClick={() => setShowModal(true)}></i>
             </div>
             <div className="arrow-icon-modal-right">
-                <i className={showModal ? '' : "fas fa-chevron-circle-right"} onClick={() => setShowModal(true)}></i>
+                <i className={showModal ? '' : "fas fa-angle-right"} onClick={() => setShowModal(true)}></i>
             </div>
             {showModal && (
             <Modal onClose={() => setShowModal(false)}>

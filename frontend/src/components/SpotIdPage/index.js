@@ -34,7 +34,7 @@ export default function SpotIdPage () {
                 <img className="spot-detail-3" alt={spot?.id} src={spot?.imageUrl}></img>
             </div>
             <ImageModal spot={spot}/>
-            <Bookings spotId={spot?.id}/>
+            <Bookings spot={spot} spotId={spot?.id}/>
             <div className="title-spot-page">
                 <div className="font arrows-above-title">{`United States  >  California  >  ${spot?.location}`}</div>
                 <div id="spot-name" className="text">{spot?.name}</div>

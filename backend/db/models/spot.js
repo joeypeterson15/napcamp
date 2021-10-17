@@ -24,6 +24,9 @@ module.exports = (sequelize, DataTypes) => {
     bookId: {
       type: DataTypes.INTEGER
     },
+    price: {
+      type: DataTypes.STRING
+    }
   }, {});
   Spot.associate = function(models) {
     // associations can be defined here

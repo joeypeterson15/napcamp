@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { createBooking } from "../../store/bookings"
 
 
-function Bookings ({ spotId }) {
+function Bookings ({ spotId, spot }) {
 
     const userId = useSelector((state) => state.session?.user?.id);
 
@@ -23,17 +23,23 @@ function Bookings ({ spotId }) {
     const onSubmit = (e) => {
         e.preventDefault();
         const errors = []
+        if (date.length < 1) {
+            errors.push('Please choose the date you would like to nap')
+            setValidationErrors(errors);
+            return;
+        }
+        if (startTime === '') {
+            errors.push('Please provide a start time')
+        }
+        if (endTime.length < 1) {
+            errors.push('Please provide an end time')
+        }
+        if (endTime < startTime){
+            errors.push('Please provide an end time after the start time')
+            setValidationErrors(errors);
+            return;
+        }
 
-        if (new Date(date).getDate() > new Date(startTime).getDate()){
-            errors.push('End date must be after start date')
-            setValidationErrors(errors);
-            return;
-        }
-        if (date.length < 1 || startTime.length < 1) {
-            errors.push('Please book a start date and end date')
-            setValidationErrors(errors);
-            return;
-        }
 
         const payload = {
             date,
@@ -59,7 +65,7 @@ function Bookings ({ spotId }) {
                         <li key={error}>{error}</li>
                     ))}
                 </ul>
-                <div className="price text" id="bookings-price">Price</div>
+                <div className="price text" id="bookings-price">{spot?.price === null ? 'FREE' : spot?.price}</div>
                 <div className="booking-dates">
                     <input name="booking-date-label" value={date} onChange={(e) => setDate(e.target.value)} type="date" placeholder="start-date" id="date-border" className="text book-date"></input>
                     <input value={startTime} onChange={(e) => setStartTime(e.target.value)} type="time" placeholder="checkout-date" id="border-right"className="text book-date"></input>
@@ -71,7 +77,7 @@ function Bookings ({ spotId }) {
                         <option type="click" className="text bookings-guests">2</option>
                     </select>
                     <div className="time-requirment text">1 hour minimium</div>
-                <button type="submit" id={validationSuccess ? "bookings-booked-button" : "bookings-button"} >{validationSuccess ? 'BOOKED!!': 'Instant Book'}</button>
+                <button type="submit" id={validationSuccess ? "bookings-booked-button" : "bookings-button"} >{validationSuccess ? <div className="checked-icon-div"><i class="fas fa-check"></i></div>: 'Instant Book'}</button>
             </form>
         </>
     )

@@ -11,10 +11,12 @@
 }
 
 #search-button {
-    margin: auto;
+    width: 50px;
+    height: 50px;
+    /* margin-left: 30px; */
     background-color: rgb(127, 255, 195);
     border: none;
-    border-radius: 10%;
+    border-radius: 50%;
     padding: 7px;
     margin-left: 5px;
     color: white;
@@ -34,4 +36,8 @@
 
 #where-to {
     padding-bottom: 10px;
+}
+
+#search-icon-div {
+    font-size: 20px;
 }

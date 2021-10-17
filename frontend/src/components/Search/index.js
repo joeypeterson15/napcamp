@@ -11,7 +11,16 @@ function Search () {
     const dispatch = useDispatch()
 
     const searchLocation = (e) => {
+
         e.preventDefault();
+
+        // let locationArray = location.split(' ')
+        // for (let i = 0; i < locationArray.length; i++) {
+        //     let location = locationArray[i];
+        //     location[0].toUpperCase()
+        // }
+        // locationArray.join(' ')
+
         setLocation('')
         dispatch(searchForLocations(location))
 
@@ -22,7 +31,7 @@ function Search () {
             <form className="search-form" onSubmit={searchLocation}>
                 <div id="where-to">WHERE TO?</div>
                 <input id="search-text" value={location} onChange={(e) => setLocation(e.target.value)} type="text" placeholder="Search a Location..."></input>
-                <button id="search-button" type="submit" >search</button>
+                <button id="search-button" type="submit" ><div id="search-icon-div"><i class="fas fa-search"></i></div></button>
             </form>
         </div>
     )
