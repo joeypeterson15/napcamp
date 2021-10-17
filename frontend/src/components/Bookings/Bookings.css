@@ -1,8 +1,9 @@
+
 .booking-card-container {
     background-color: white;
     position: absolute;
     z-index: 1;
-    top: 60%;
+    top: 70%;
     width: 100px;
     left: 67%;
     width: 23%;

@@ -7,6 +7,7 @@ import { getSpots } from '../../store/spots';
 import { deleteBooking } from '../../store/bookings';
 import UpdateBookingModal from '../UpdateBookingModal';
 import { Link } from 'react-router-dom';
+
 import './BookingsPage.css'
 
 export default function BookingsPage () {
@@ -14,6 +15,16 @@ export default function BookingsPage () {
 
     const userId = useSelector((state) => state.session?.user?.id);
     const userName = useSelector((state) => state.session?.user?.username)
+
+    const convertTime = function(time){
+        var time = time.split(':');
+        var hours = time[0];
+        var minutes = time[1];
+        let timeValue = "" + ((hours >12) ? hours -12 :hours);
+            timeValue += (minutes < 10) ? ':' + minutes : ":" + minutes;
+            timeValue += (hours >= 12) ? " pm" : " am";
+            return timeValue;
+        }
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -43,8 +54,8 @@ export default function BookingsPage () {
                             <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
                         </Link>
                         <div key={booking.date} className="text">Date: {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate() + 1}th, 2021</div>
-                        <div key={booking.startTime} className="text">Check-in: {booking.startTime}</div>
-                        <div key={booking.endTime} className="text">Check-out: {booking.endTime}</div>
+                        <div key={booking.startTime} className="text">Check-in: {convertTime(booking.startTime.toString())}</div>
+                        <div key={booking.endTime} className="text">Check-out: {convertTime(booking.endTime.toString())}</div>
                         <div key={booking.guests} className="text">Guests : {booking.guests}</div>
                         <UpdateBookingModal spot={spots.find((spot) => spot.id === booking.spotId)} booking={booking}/>
                         <form onSubmit={cancelBooking(booking.spotId)}>
