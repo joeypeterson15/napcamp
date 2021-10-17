@@ -15,6 +15,7 @@ function LoginFormPage() {
     <Redirect to="/" />
   );
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -23,33 +24,55 @@ function LoginFormPage() {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
+
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-      <label>
-        Username or Email
-        <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <>
+    <div className="login-headers-div">
+
+      <h1>Welcome Back!</h1>
+      <h3>Let's get you napping.</h3>
+    </div>
+      <div className="login-form-container">
+
+        <div id="inner-login-container">
+
+              <form onSubmit={handleSubmit}>
+                <ul>
+                  {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
+                  <div className="email-login-div">
+
+                    <input
+                    className="input-login"
+                      type="text"
+                      value={credential}
+                      onChange={(e) => setCredential(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div id="login-password-div">
+
+                      <input
+                        className="input-login"
+                        placeholder="password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                      />
+
+                  </div>
+                <button id="login-submit" type="submit">Log In</button>
+              </form>
+
+        </div>
+
+
+      </div>
+    </>
   );
 }
 

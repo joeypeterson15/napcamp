@@ -1,0 +1,26 @@
+#signup-button {
+    border-radius: 15px;
+    color: white;
+    background-color: aquamarine;
+    width: 100%;
+    margin-top: 30px;
+    height: 30px;
+    border: none;
+}
+
+.signup-form-container {
+    box-sizing: border-box;
+    border: 1px solid blue;
+}
+
+.signup-form-card {
+    border: 1px solid grey;
+    padding: 20px;
+    width: 20%;
+    height: 550px;
+    margin-left: 40%;
+}
+
+.signup-headers {
+    text-align: center;
+}

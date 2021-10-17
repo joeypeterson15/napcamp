@@ -35,9 +35,9 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
-        <button onClick={() => demoLogin()}></button>
+        <NavLink id="nav-login" className="nav-link" to="/login">Log In</NavLink>
+        <NavLink id="nav-signup" className="nav-link" to="/signup">Sign Up</NavLink>
+        <button id="demo-user-button" onClick={() => demoLogin()}>Demo</button>
       </>
     );
   }

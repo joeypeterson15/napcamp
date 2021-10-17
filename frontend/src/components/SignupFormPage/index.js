@@ -5,6 +5,9 @@ import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 
 function SignupFormPage() {
+
+
+  const isBackgroundGrey = false;
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
@@ -29,48 +32,66 @@ function SignupFormPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-      <label>
-        Email
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Username
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Confirm Password
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Sign Up</button>
-    </form>
+    <div className={isBackgroundGrey ? 'background-grey' : 'background-white'}>
+      <div className="signup-form-container">
+
+        <div className="text signup-form-card">
+          <div className="text signup-headers">
+
+            <h2>Join Hipcamp</h2>
+            <h5>Discover the best napping near me</h5>
+
+          </div>
+
+            <form onSubmit={handleSubmit}>
+              <ul>
+                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+              </ul>
+              <label>
+                Email
+                <input
+                  type="text"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </label>
+              <label>
+                Username
+                <input
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                />
+              </label>
+              <label>
+                Password
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </label>
+              <label>
+                Confirm Password
+                <input
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                />
+              </label>
+              <button id="signup-button" type="submit">Join Hipcamp</button>
+            </form>
+
+        </div>
+
+
+
+      </div>
+    </div>
   );
 }
 

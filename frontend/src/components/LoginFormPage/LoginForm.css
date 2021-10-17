@@ -1,0 +1,51 @@
+.login-form-container {
+    box-sizing: border-box;
+    display: flex;
+    /* border: 2px solid red; */
+    width: 22%;
+    height: 400px;
+    margin-left: 550px;
+    margin-right: 500px;
+    /* margin-top: 150px; */
+    align-items: center;
+}
+
+/* .email-login-div {
+
+} */
+
+#login-submit {
+    display: block;
+    width: 102%;
+    background-color: aquamarine;
+    border: none;
+    height: 50px;
+    color: white;
+    border-radius: 5px;
+}
+
+#login-password-div {
+    /* padding: 20px; */
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+#inner-login-container {
+    /* border: 1px solid blue; */
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    border: 1px solid black;
+    height: 50px;
+}
+
+.login-headers-div {
+    border: 1px solid orange;
+    width: 30%;
+    margin-left: 500px;
+    margin-right: 500px;
+    text-align: center;
+    margin-top: 50px;
+}
