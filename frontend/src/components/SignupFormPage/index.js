@@ -47,42 +47,48 @@ function SignupFormPage() {
               <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
               </ul>
-              <label>
-                Email
+
                 <input
+                id="signup-email-input"
+                  className="signup-inputs"
+                  placeholder="Email"
                   type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-              </label>
-              <label>
-                Username
+
+
+
                 <input
+                  className="signup-inputs"
+                  placeholder="Username"
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   required
                 />
-              </label>
-              <label>
-                Password
+
+
                 <input
+                  className="signup-inputs"
+                  placeholder="Password"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-              </label>
-              <label>
-                Confirm Password
+
+
                 <input
+                  className="signup-inputs"
+                  placeholder="Confirm Password"
                   type="password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                 />
-              </label>
+
               <button id="signup-button" type="submit">Join Hipcamp</button>
             </form>
 

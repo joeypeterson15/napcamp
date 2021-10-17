@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
 
 function LoginFormPage() {
+  const isBackgroundGrey = false;
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [credential, setCredential] = useState('');
@@ -28,7 +29,7 @@ function LoginFormPage() {
   }
 
   return (
-    <>
+    <div className={isBackgroundGrey ? 'background-grey' : 'background-white'}>
     <div className="login-headers-div">
 
       <h1>Welcome Back!</h1>
@@ -72,7 +73,7 @@ function LoginFormPage() {
 
 
       </div>
-    </>
+    </div>
   );
 }
 
