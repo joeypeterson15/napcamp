@@ -1,3 +1,7 @@
+.background-white{
+    background-color: white;
+}
+
 .bookings-container {
     width: 800px;
     height: 100%;
@@ -9,13 +13,15 @@
     /* margin-right: 20%; */
     grid-row-gap: 100px;
     grid-column-gap: 40px;
+    text-align: center;
     /* border: 1px solid rgb(206, 206, 206); */
+    line-height: 20pt;
 }
 
 
 .bookings-card {
-    padding: 5px;
-    height: 320px;
+    /* padding: 5px; */
+    height: 445px;
     width: 250px;
     border: 1px solid rgb(206, 206, 206);
     border-radius: 10px;
@@ -23,8 +29,10 @@
 }
 
 .bookings-image {
-    width: 100%;
-    height: 50%;
+    width: 100.5%;
+    height: 40%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .userName-bookings {
@@ -43,15 +51,16 @@
 }
 
 .cancel-booking-button {
-    position: relative;
+    /* position: relative; */
     /* z-index: 1; */
     /* bottom: 43px; */
-    width: 100%;
+    width: 90%;
     height: 40px;
     background-color: rgb(217, 250, 243);
     margin-top: 5%;
     border: 1px solid rgb(206, 206, 206);
-    border-radius: 5px;
+    /* border: none; */
+    border-radius: 10px;
 }
 
 .update-booking-button {
@@ -114,11 +123,17 @@
 }
 
 .color-edit-icon {
-    color: rgb(138, 0, 0);
+    color: rgb(151, 89, 89);
+    margin-right: 50%;
+
 }
 
 #div-line-trips {
     position: relative;
     top: 120px;
     border-bottom: 1px solid rgb(206, 206, 206);
+}
+
+.hide-details {
+    display: none;
 }

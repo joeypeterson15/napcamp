@@ -11,6 +11,11 @@ import { Link } from 'react-router-dom';
 import './BookingsPage.css'
 
 export default function BookingsPage () {
+    const dispatch = useDispatch();
+
+
+
+
     const isBackgroundGrey = false;
 
     const userId = useSelector((state) => state.session?.user?.id);
@@ -26,7 +31,7 @@ export default function BookingsPage () {
             return timeValue;
         }
 
-    const dispatch = useDispatch();
+
     useEffect(() => {
         if (userId){
             dispatch(getBookings(userId))
@@ -53,15 +58,15 @@ export default function BookingsPage () {
                         <Link to={`/spots/${booking.spotId}`}>
                             <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
                         </Link>
-                        <div key={booking.date} className="text">Date: {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate() + 1}th, 2021</div>
-                        <div key={booking.startTime} className="text">Check-in: {convertTime(booking.startTime.toString())}</div>
-                        <div key={booking.endTime} className="text">Check-out: {convertTime(booking.endTime.toString())}</div>
-                        <div key={booking.guests} className="text">Guests : {booking.guests}</div>
-                        <UpdateBookingModal spot={spots.find((spot) => spot.id === booking.spotId)} booking={booking}/>
-                        <form onSubmit={cancelBooking(booking.spotId)}>
-                            <button className="cancel-booking-button" type="submit">Cancel Booking</button>
-                        </form>
-
+                            <h2 className="text">{spots.find((spot) => spot.id === booking.spotId)?.name}</h2>
+                            <div key={booking.date} className="text">Date: {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate() + 1}th, 2021</div>
+                            <div key={booking.startTime} className="text">Check-in: {convertTime(booking.startTime.toString())}</div>
+                            <div key={booking.endTime} className="text">Check-out: {convertTime(booking.endTime.toString())}</div>
+                            <div key={booking.guests} className="text">Guests : {booking.guests}</div>
+                            <UpdateBookingModal spot={spots.find((spot) => spot.id === booking.spotId)} booking={booking}/>
+                            <form onSubmit={cancelBooking(booking.spotId)}>
+                                <button className="cancel-booking-button" type="submit">Cancel Booking</button>
+                            </form>
                     </div>
                 ))}
             </div>

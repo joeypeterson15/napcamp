@@ -5,13 +5,13 @@ import ProfileButton from './ProfileButton';
 import * as sessionActions from '../../store/session'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import './Navigation.css';
+import './NavigationWhite.css';
 
 
 
 
 
-function Navigation({ isLoaded, spotId }){
+function NavigationWhite({ isLoaded, spotId }){
 
   console.log('hellllo', spotId)
 
@@ -51,7 +51,7 @@ function Navigation({ isLoaded, spotId }){
 
 
   return (
-    <nav className="nav-bar text">
+    <nav className="nav-bar-white text">
       <div>
         <NavLink id="napcamp-text" className="nav-link" exact to="/">NapCamp</NavLink>
       </div>
@@ -65,4 +65,4 @@ function Navigation({ isLoaded, spotId }){
   );
 }
 
-export default Navigation;
+export default NavigationWhite;
