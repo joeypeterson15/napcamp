@@ -28,7 +28,7 @@ const SpotsBrowser = () => {
     }
 
     return (
-        <div className={isBackgroundGrey ? 'background-grey' : 'background-white'}>
+        <div className="background">
             <div className="spots-container">
                 {spots.map((spot) => (
                     <Link to={`/spots/${spot.id}`} className="spots-div text">

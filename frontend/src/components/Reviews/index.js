@@ -12,6 +12,7 @@ import "./Reviews.css"
 function Reviews ({ reviews, spotId, spot }) {
 
     const userId = useSelector((state) => state.session?.user?.id);
+    const userName = useSelector((state) => state.session?.user?.username);
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -73,6 +74,7 @@ function Reviews ({ reviews, spotId, spot }) {
                     <div className="div-lines"></div>
                     {reviews.map((review) => (
                         <div className="div-lines">
+                            <div className="text review-username">{<div><span className="thumbsup-review"><i class="fas fa-thumbs-up"></i></span><span id="review-username">{userName}</span>  recommends this listing</div>}</div>
                             <div className="icon-review-container">
                             <img className="review-icon" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>
                             <div className="text review-text">{review.content}</div>

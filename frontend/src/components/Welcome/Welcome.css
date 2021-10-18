@@ -7,7 +7,10 @@
     align-items: center;
     margin-bottom: 100px;
     font-family: 'Roboto';
-    color: rgb(0, 51, 0)
+    color: rgb(0, 51, 0);
+    background-color: rgb(240, 240, 240);
+
+
 }
 
 #welcome-img {
