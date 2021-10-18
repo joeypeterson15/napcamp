@@ -21,8 +21,8 @@ export default function BookingsPage () {
     const userId = useSelector((state) => state.session?.user?.id);
     const userName = useSelector((state) => state.session?.user?.username)
 
-    const convertTime = function(time){
-        var time = time.split(':');
+    const convertTime = function(oldTime){
+        var time = oldTime.split(':');
         var hours = time[0];
         var minutes = time[1];
         let timeValue = "" + ((hours >12) ? hours -12 :hours);

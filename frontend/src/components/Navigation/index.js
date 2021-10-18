@@ -11,9 +11,7 @@ import './Navigation.css';
 
 
 
-function Navigation({ isLoaded, spotId }){
-
-  console.log('hellllo', spotId)
+function Navigation({ isLoaded}){
 
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);

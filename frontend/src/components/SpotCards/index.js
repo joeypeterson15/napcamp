@@ -16,10 +16,10 @@ function SpotCards () {
             <div className="spot-cards">
                 <div className="card-title font">Essentials</div>
                 <ul className="card-list font">
-                    <li key="toilet"><span className="spot-card-icon-color"><i class="fas fa-toilet-paper"></i></span>Toilet available</li>
+                    <li key="toilet"><span className="spot-card-icon-color"><i className="fas fa-toilet-paper"></i></span>Toilet available</li>
                     <li key="pets">Pets allowed</li>
                     <li key="firstaid">✚ First Aid Kit</li>
-                    <li key="fire" id="fire-ban-red"><span className="spot-card-icon-color"><i class="fas fa-fire-alt"></i></span>Fire ban in effect</li>
+                    <li key="fire" id="fire-ban-red"><span className="spot-card-icon-color"><i className="fas fa-fire-alt"></i></span>Fire ban in effect</li>
                 </ul>
 
             </div>

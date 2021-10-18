@@ -9,7 +9,7 @@ function UpdateReviewModal ({ review, spot }) {
     return (
         <>
             <div className='review-edit-icon-div'>
-                <i class={showModal ? '' :  "far fa-edit"} onClick={() => setShowModal(true)}></i>
+                <i className={showModal ? '' :  "far fa-edit"} onClick={() => setShowModal(true)}></i>
             </div>
             {showModal && (
             <Modal onClose={() => setShowModal(false)}>
