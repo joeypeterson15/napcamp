@@ -21,6 +21,7 @@ export default function SpotIdPage () {
     useEffect(() => {
         dispatch(getSpots())
         dispatch(getReviews(spotId))
+        window.scrollTo(0, 0);
     }, [dispatch, spotId])
 
     const spots = useSelector(state => state?.spots)

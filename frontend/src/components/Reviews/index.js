@@ -14,6 +14,7 @@ function Reviews ({ reviews, spotId, spot }) {
     const userId = useSelector((state) => state.session?.user?.id);
     const userName = useSelector((state) => state.session?.user?.username);
 
+
     const dispatch = useDispatch();
     const history = useHistory();
     const [review, setReview] = useState('')
@@ -38,6 +39,7 @@ function Reviews ({ reviews, spotId, spot }) {
         }
         setReview('')
         dispatch(createReview(payload, spotId, userId))
+        window.scrollTo(0,document.body.scrollHeight);
 
         let createdReview;
         if (createdReview) {
