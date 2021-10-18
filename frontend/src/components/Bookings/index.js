@@ -4,9 +4,10 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react'
 import { createBooking } from "../../store/bookings"
+import CategorySpots from "../CategorySpots";
 
 
-function Bookings ({ spotId, spot }) {
+function Bookings ({ spotId, spot, spots, currentSpot, category }) {
 
     const userId = useSelector((state) => state.session?.user?.id);
 
@@ -79,6 +80,7 @@ function Bookings ({ spotId, spot }) {
                     <div className="time-requirment text">1 hour minimium</div>
                 <button type="submit" id={validationSuccess ? "bookings-booked-button" : "bookings-button"} >{validationSuccess ? <div className="checked-icon-div"><i class="fas fa-check"></i></div>: 'Instant Book'}</button>
             </form>
+            <CategorySpots category={category} spots={spots} currentSpot={currentSpot}/>
         </>
     )
 }

@@ -8,6 +8,7 @@ import  Reviews  from '../Reviews/index.js'
 import SpotCards from '../SpotCards';
 import Bookings from '../Bookings';
 import ImageModal from '../ImageModal'
+import CategorySpots from '../CategorySpots';
 
 import './SpotIdPage.css'
 
@@ -22,7 +23,7 @@ export default function SpotIdPage () {
         dispatch(getReviews(spotId))
     }, [dispatch, spotId])
 
-
+    const spots = useSelector(state => state?.spots)
     const spot = useSelector(state => state.spots[spotId])
     const reviews = useSelector(state => Object.values(state.reviews))
     console.log(reviews)
@@ -34,7 +35,8 @@ export default function SpotIdPage () {
                 <img className="spot-detail-3" alt={spot?.id} src={spot?.imageUrl}></img>
             </div>
             <ImageModal spot={spot}/>
-            <Bookings spot={spot} spotId={spot?.id}/>
+            {/* <CategorySpots category={spot?.category} spots={spots} currentSpot={spot}/> */}
+            <Bookings spot={spot} spotId={spot?.id} currentSpot={spot} category={spot?.category} spots={spots}/>
             <div className="title-spot-page">
                 <div className="font arrows-above-title">{`United States  >  California  >  ${spot?.location}`}</div>
                 <div id="spot-name" className="text">{spot?.name}</div>
