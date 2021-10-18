@@ -16,7 +16,7 @@ function Reviews ({ reviews, spotId, spot }) {
     const dispatch = useDispatch();
     const history = useHistory();
     const [review, setReview] = useState('')
-    const [reviewCount, setReviewCount] = useState(0)
+    // const [reviewCount, setReviewCount] = useState(0)
 
 
     const countReviews = (reviews) => {
@@ -24,8 +24,8 @@ function Reviews ({ reviews, spotId, spot }) {
         for (let i = 0; i < reviews.length; i++) {
             count ++;
         }
-        setReviewCount(count)
-        return reviewCount;
+        // setReviewCount(count)
+        return count;
     }
 
 
@@ -55,7 +55,7 @@ function Reviews ({ reviews, spotId, spot }) {
         <>
             <div className="reviews-container">
                 <div id="review-heading" className="text">
-                   {countReviews} Reviews
+                   {countReviews(reviews)} {countReviews(reviews) === 1 ? 'Review' : 'Reviews'}
                 </div>
                 <form onSubmit={submitReview} className="add-review-form">
                     <textarea
