@@ -70,7 +70,7 @@ function Reviews ({ reviews, spotId, spot }) {
                     <button type="submit" id="review-button">POST</button>
                 </form>
                 <div className="reviews-detail-page">
-                <div className="div-lines"></div>
+                    <div className="div-lines"></div>
                     {reviews.map((review) => (
                         <div className="div-lines">
                             <div className="icon-review-container">
@@ -78,7 +78,7 @@ function Reviews ({ reviews, spotId, spot }) {
                             <div className="text review-text">{review.content}</div>
                             {review?.userId === userId ?
                                     <div className='review-button-delete'>
-                                        <i id="icon-padding"className="fas fa-trash-alt" onClick={submitDeleteReview(review?.id)}></i>
+                                        <i id="icon-padding" className="fas fa-trash-alt" onClick={submitDeleteReview(review?.id)}></i>
                                         <UpdateReviewModal review={review} spot={spot} />
                                     </div>
                                 :

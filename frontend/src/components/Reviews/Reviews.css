@@ -2,10 +2,11 @@
     background-color: white;
     margin-left: 12%;
     width: 50%;
-    padding-top: 5%;
+    /* padding-top: 2%; */
 }
 
 .reviews-detail-page > div {
+    padding-top: 5%;
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -78,8 +79,8 @@
     display: flex;
     justify-content: right;
     width: 20%;
-    font-size: 18px;
-    color: rgb(46, 46, 46);
+    font-size: 14px;
+    color: rgb(207, 205, 204);
     border: none;
 
 

@@ -51,7 +51,7 @@ export default function BookingsPage () {
     return (
         <div className={isBackgroundGrey ? 'background-grey' : 'background-white'}>
             <div className="userName-bookings text">{userName}'s Trips:</div>
-            <div id="div-line-trips"></div>
+            <div className="div-line-trips"></div>
             <div className="bookings-container">
                 {bookings.map((booking) => (
                     <div key={booking.id} className="bookings-card">

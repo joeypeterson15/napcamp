@@ -24,6 +24,7 @@ function UpdateReviewForm ({ review, setShowModal, spot }) {
             <form onSubmit={submitUpdateReview(review)}>
                 <textarea
                 id='update-review-textarea'
+                className="text"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 >

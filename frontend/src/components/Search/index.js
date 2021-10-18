@@ -14,13 +14,6 @@ function Search () {
 
         e.preventDefault();
 
-        // let locationArray = location.split(' ')
-        // for (let i = 0; i < locationArray.length; i++) {
-        //     let location = locationArray[i];
-        //     location[0].toUpperCase()
-        // }
-        // locationArray.join(' ')
-
         setLocation('')
         dispatch(searchForLocations(location))
 

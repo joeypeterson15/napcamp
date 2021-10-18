@@ -68,7 +68,7 @@
     height: 40px;
     background-color: rgb(217, 250, 243);
     border-radius: 4px;
-    border: 0.5px solid rgb(177, 125, 125);
+    border: none;
     border-radius: 2px;
 
 }
@@ -91,7 +91,7 @@
 
 .update-booking-container {
     width: 100%;
-    border: 0.5px solid rgb(177, 125, 125)
+    /* border: 0.5px solid rgb(177, 125, 125) */
     /* padding: 1%; */
 }
 
@@ -117,8 +117,8 @@
 }
 
 #edit-icon-button {
-    position: relative;
-    z-index: 1;
+    /* position: relative;
+    z-index: 1; */
     margin-left: 90%;
 }
 
@@ -128,7 +128,7 @@
 
 }
 
-#div-line-trips {
+.div-line-trips {
     position: relative;
     top: 120px;
     border-bottom: 1px solid rgb(206, 206, 206);

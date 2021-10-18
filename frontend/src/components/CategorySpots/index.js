@@ -23,6 +23,7 @@ function CategorySpots ({category, spots, currentSpot}) {
 
     return (
         <div className="category-cards-container">
+            {Object.values(categorySpots).length > 0 ? <h5 className="text">{`More ${category} listings`}</h5> : <div></div>}
 
                 {Object.values(categorySpots).map((spot) => (
                     <div className="category-card">
