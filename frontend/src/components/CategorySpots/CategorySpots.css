@@ -40,3 +40,12 @@
     right: 10%;
     top: 115%;
 }
+
+
+.google-map-div {
+    position: relative;
+    top: 3rem;
+    width: 20.45rem;
+    height: 150rem;
+
+ }
