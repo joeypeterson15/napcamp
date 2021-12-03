@@ -9,6 +9,7 @@ import SpotCards from '../SpotCards';
 import Bookings from '../Bookings';
 import ImageModal from '../ImageModal'
 import CategorySpots from '../CategorySpots';
+import GoogleMap from '../GoogleMap';
 
 import './SpotIdPage.css'
 
@@ -49,6 +50,7 @@ export default function SpotIdPage () {
                 <p className="font" id="spot-description">{spot?.description}</p>
             </div>
             <SpotCards />
+           
             <Reviews spot={spot} spotId={spot?.id} reviews={reviews.filter((review) => review?.spotId === spot?.id)}/>
 
         </div>

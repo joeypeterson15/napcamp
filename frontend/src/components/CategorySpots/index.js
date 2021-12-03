@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import GoogleMap from '../GoogleMap';
 import './CategorySpots.css'
 
 function CategorySpots ({category, spots, currentSpot}) {
@@ -33,6 +34,9 @@ function CategorySpots ({category, spots, currentSpot}) {
                         </Link>
                     </div>
                 ))}
+            <div className="google-map-div">
+                <GoogleMap />
+            </div>
 
         </div>
     );

@@ -1,7 +1,11 @@
 /* TODO Add site wide styles */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
 
 body {
     /* box-sizing: border-box; */
     background-color: rgb(240, 240, 240);
-    color: rgb(0, 19, 0)
+    color: rgb(0, 19, 0);
+    /* font-family: 'Noto Sans', sans-serif; */
+
 }
