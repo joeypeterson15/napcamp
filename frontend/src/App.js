@@ -12,6 +12,7 @@ import SpotsIdPage from "./components/SpotIdPage"
 import BookingsPage from "./components/BookingsPage"
 
 
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -48,7 +49,6 @@ function App() {
           </Route>
         </Switch>
       )}
-
     </>
   );
 }

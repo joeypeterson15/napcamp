@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { deleteReview } from '../../store/reviews';
 import UpdateReviewModal from '../UpdateReviewModal'
-import { useState } from 'react';
-import GoogleMap from '../GoogleMap';
+import { useState, useEffect } from 'react';
+import CustomMap from '../GoogleMap';
 import "./Reviews.css"
 
 
@@ -19,7 +19,9 @@ function Reviews ({ reviews, spotId, spot }) {
     const dispatch = useDispatch();
     const history = useHistory();
     const [review, setReview] = useState('')
-    // const [reviewCount, setReviewCount] = useState(0)
+
+
+
 
 
     const countReviews = (reviews) => {
@@ -93,8 +95,9 @@ function Reviews ({ reviews, spotId, spot }) {
                     ))}
                 </div>
                 <div className="google-map-div">
-                     <GoogleMap />
+                     <CustomMap spot={spot}/>
                 </div>
+                {/* <div id="map"></div> */}
 
             </div>
         </>

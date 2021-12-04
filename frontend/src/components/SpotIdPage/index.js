@@ -50,7 +50,7 @@ export default function SpotIdPage () {
                 <p className="font" id="spot-description">{spot?.description}</p>
             </div>
             <SpotCards />
-           
+
             <Reviews spot={spot} spotId={spot?.id} reviews={reviews.filter((review) => review?.spotId === spot?.id)}/>
 
         </div>

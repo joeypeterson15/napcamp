@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/joeypeterson15/napcamp/issues"
   },
-  "homepage": "https://github.com/joeypeterson15/napcamp#readme"
+  "homepage": "https://github.com/joeypeterson15/napcamp#readme",
+  "dependencies": {
+    "react-google-maps": "^9.4.5"
+  }
 }
