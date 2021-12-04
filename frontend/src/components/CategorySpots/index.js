@@ -34,7 +34,7 @@ function CategorySpots ({category, spots, currentSpot}) {
                         </Link>
                     </div>
                 ))}
-            
+
 
         </div>
     );
