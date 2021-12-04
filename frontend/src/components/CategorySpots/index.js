@@ -34,9 +34,7 @@ function CategorySpots ({category, spots, currentSpot}) {
                         </Link>
                     </div>
                 ))}
-            <div className="google-map-div">
-                <GoogleMap />
-            </div>
+            
 
         </div>
     );

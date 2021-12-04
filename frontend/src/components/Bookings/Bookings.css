@@ -84,9 +84,10 @@
 }
 
 .bookings-guests {
-    border-top:0.4px solid rgba(206, 206, 206), 0.4;
+    border-top:0.4px solid rgba(206, 206, 206, 0.4);
     height: 50px;
     width: 100%;
+    outline: none;
 }
 
 .booking-errors {

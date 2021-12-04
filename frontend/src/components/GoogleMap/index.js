@@ -1,4 +1,5 @@
 import {Map, Marker, GoogleApiWrapper} from 'google-maps-react'
+import './GoogleMap.css'
 
 
 function GoogleMap({ google, locations = [] }) {

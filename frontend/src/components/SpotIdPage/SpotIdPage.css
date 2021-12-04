@@ -52,6 +52,8 @@
 }
 .recommended {
     padding-top: 3%;
+    font-size: 14.5px;
+    font-weight: 400
 }
 
 .description-container {
@@ -73,14 +75,15 @@
 }
 
 #spot-description {
-    width: 70%;
+    width: 80%;
     font-size: 14px;
+    font-weight: 300;
     line-height: 20pt
 }
 
 #description {
     /* padding-left: 3%; */
-    font-size:larger
+    font-size:16px;
 }
 
 #map {
@@ -96,4 +99,9 @@
 #spot-name {
     font-family: 'Inter';
     /* font-family: 'Noto Sans', sans-serif; */
+}
+
+.arrows-above-title {
+    font-size: 14px;
+    font-weight: 300;
 }

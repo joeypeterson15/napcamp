@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { deleteReview } from '../../store/reviews';
 import UpdateReviewModal from '../UpdateReviewModal'
 import { useState } from 'react';
+import GoogleMap from '../GoogleMap';
 import "./Reviews.css"
 
 
@@ -90,6 +91,9 @@ function Reviews ({ reviews, spotId, spot }) {
                         </div>
                         </div>
                     ))}
+                </div>
+                <div className="google-map-div">
+                     <GoogleMap />
                 </div>
 
             </div>
