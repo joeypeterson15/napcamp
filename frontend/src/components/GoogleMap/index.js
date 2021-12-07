@@ -63,5 +63,6 @@ function CustomMap({ spot, google, locations = [] }) {
 
 // export default CustomMap;
 export default GoogleApiWrapper({
+  // apiKey: process.env.GOOGLE_API_KEY
   apiKey: "AIzaSyDcQHD-tKZVqVpv07vx0eE9lhueTMnbkyI"
 })(CustomMap);
