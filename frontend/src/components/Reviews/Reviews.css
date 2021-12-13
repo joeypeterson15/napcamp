@@ -19,15 +19,17 @@
 }
 
 #text-submit-review {
-    border: 1px solid rgba(230, 230, 230, 0.4);
+    border: 1px solid rgba(230, 230, 230, 0.8);
     resize: none;
     outline: none;
     width: 85%;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
 }
 
 .review-text {
     position: absolute;
-    left: 25%;
+    left: 20%;
     /* padding-bottom: 10%;
     padding-top: 10%; */
     width: 60%;

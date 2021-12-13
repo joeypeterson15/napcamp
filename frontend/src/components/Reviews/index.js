@@ -79,11 +79,13 @@ function Reviews ({ reviews, spotId, spot }) {
                     <div className="div-lines"></div>
                     {reviews.map((review) => (
                         <div className="div-lines">
-                            <div className="text review-username">{<div><span className="thumbsup-review"><i class="fas fa-thumbs-up"></i></span><span id="review-username">{userName}</span>  recommends this listing</div>}</div>
+                            <div className="text review-username">
+                                {<div><span className="thumbsup-review"><i class="fas fa-thumbs-up"></i></span><span id="review-username">{userName}</span>  recommends this listing</div>}
+                            </div>
                             <div className="icon-review-container">
-                            <img className="review-icon" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>
-                            <div className="text review-text">{review.content}</div>
-                            {review?.userId === userId ?
+                                <img className="review-icon" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>
+                                <div className="text review-text">{review.content}</div>
+                                {review?.userId === userId ?
                                     <div className='review-button-delete'>
                                         <i id="icon-padding" className="fas fa-trash-alt" onClick={submitDeleteReview(review?.id)}></i>
                                         <UpdateReviewModal review={review} spot={spot} />
