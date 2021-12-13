@@ -10,7 +10,7 @@
     height: 318px;
     border: 0.2px solid rgba(228, 226, 226, 0.4);
     border-radius: 3px;
-    box-shadow: 0.2px 0.3px 0.4px rgb(216, 216, 216);
+    box-shadow: 0.4px 0.4px 0.7px 1px rgba(226, 226, 226, 0.4);
     /* position: sticky; */
 }
 

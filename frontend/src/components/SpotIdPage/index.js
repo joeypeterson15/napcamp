@@ -37,12 +37,14 @@ export default function SpotIdPage () {
                 <img className="spot-detail-3" alt={spot?.id} src={spot?.imageUrl}></img>
             </div>
             <ImageModal spot={spot}/>
-            {/* <CategorySpots category={spot?.category} spots={spots} currentSpot={spot}/> */}
             <Bookings spot={spot} spotId={spot?.id} currentSpot={spot} category={spot?.category} spots={spots}/>
             <div className="title-spot-page">
                 <div className="font arrows-above-title">{`United States  >  California  >  ${spot?.location}`}</div>
                 <div id="spot-name" className="text">{spot?.name}</div>
-                <div className="font recommended"><span className="text hundred-percent"><i class="fas fa-thumbs-up"></i> %100</span> Recommended</div>
+                <div className="save-and-recommended-div">
+                    <div className="font recommended"><span className="text hundred-percent"><i class="fas fa-thumbs-up"></i> %100</span> Recommended</div>
+                    <button id="save-button">Save to list</button>
+                </div>
             </div>
 
             <div className="description-container font">

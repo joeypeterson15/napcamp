@@ -1,8 +1,9 @@
 .google-map-div {
     position: relative;
-    top: 5rem;
-    width: 156%;
+    top: 3rem;
+    width: 158%;
     height: 20rem;
+    left: 0;
     bottom: 0;
 
  }
