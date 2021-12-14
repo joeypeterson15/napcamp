@@ -27,6 +27,7 @@
     width: 90%;
     height: 40px;
     border: none;
+    padding-left: 0.5rem;
 }
 
 .search-form {
@@ -36,8 +37,12 @@
 
 #where-to {
     padding-bottom: 10px;
+    color: black;
+    font-size: 0.8rem;
+    font-weight: 450;
 }
 
 #search-icon-div {
     font-size: 20px;
+    color: white;
 }
