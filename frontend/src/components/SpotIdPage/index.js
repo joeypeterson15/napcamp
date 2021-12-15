@@ -8,6 +8,7 @@ import  Reviews  from '../Reviews/index.js'
 import SpotCards from '../SpotCards';
 import Bookings from '../Bookings';
 import ImageModal from '../ImageModal'
+import { getSaves, createSave } from '../../store/saves';
 import CategorySpots from '../CategorySpots';
 import GoogleMap from '../GoogleMap';
 
@@ -28,7 +29,21 @@ export default function SpotIdPage () {
     const spots = useSelector(state => state?.spots)
     const spot = useSelector(state => state.spots[spotId])
     const reviews = useSelector(state => Object.values(state.reviews))
-    console.log(reviews)
+    // const userId = useSelector(state => state.session?.user?.id)
+    const userId = useSelector((state) => state.session?.user?.id);
+    console.log('userId', userId)
+
+
+    function saveSpot () {
+        const payload = {
+            spotId,
+            userId
+        }
+
+        dispatch(createSave(payload, spotId, userId))
+    }
+
+
     return (
         <div className={isBackgroundGrey ? 'background-grey' : 'background-white'}>
             <div className="spot-detail-div">
@@ -43,7 +58,7 @@ export default function SpotIdPage () {
                 <div id="spot-name" className="text">{spot?.name}</div>
                 <div className="save-and-recommended-div">
                     <div className="font recommended"><span className="text hundred-percent"><i class="fas fa-thumbs-up"></i> %100</span> Recommended</div>
-                    <button id="save-button">Save to list</button>
+                    <button onClick={saveSpot} id="save-button">Save to list</button>
                 </div>
             </div>
 
