@@ -1,13 +1,20 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import GetLocation from '../GetLocation';
+
 import GoogleMap from '../GoogleMap';
 import './CategorySpots.css'
 
-function CategorySpots ({category, spots, currentSpot}) {
+function CategorySpots ({category, spots, currentSpot, propSpot}) {
+
+    const dispatch = useDispatch();
+
 
 
     const [categorySpots, setCategorySpots] = useState({})
+
 
     useEffect(() => {
 
@@ -22,17 +29,28 @@ function CategorySpots ({category, spots, currentSpot}) {
         setCategorySpots(newSpots)
     }, [spots])
 
+
+
+
+
+
+
+
     return (
         <div className="category-cards-container">
             {Object.values(categorySpots).length > 0 ? <h5 className="text">{`More ${category} listings`}</h5> : <div></div>}
 
                 {Object.values(categorySpots).map((spot) => (
-                    <div className="category-card">
-                        <Link className="category-link text" to={`/spots/${spot.id}`}>
+                    <Link className="category-link text" to={`/spots/${spot.id}`}>
+                            <div className="category-card">
                                 <img className="category-image" src={spot.imageUrl} alt={spot.id}></img>
-                                <div className="category-name" key={spot.name}>{spot.name}</div>
-                        </Link>
+                                <div>
+                                    <div className="category-name" key={spot.name}>{spot.name}</div>
+                                    <GetLocation spot={spot}/>
+
+                                </div>
                     </div>
+                        </Link>
                 ))}
 
 

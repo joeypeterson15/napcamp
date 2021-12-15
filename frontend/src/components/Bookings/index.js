@@ -80,7 +80,7 @@ function Bookings ({ spotId, spot, spots, currentSpot, category }) {
                     <div className="time-requirment text">1 hour minimium</div>
                 <button type="submit" id={validationSuccess ? "bookings-booked-button" : "bookings-button"} >{validationSuccess ? <div className="checked-icon-div"><i class="fas fa-check"></i></div>: 'Instant Book'}</button>
             </form>
-            <CategorySpots category={category} spots={spots} currentSpot={currentSpot}/>
+            <CategorySpots propSpot={spot} category={category} spots={spots} currentSpot={currentSpot}/>
         </>
     )
 }

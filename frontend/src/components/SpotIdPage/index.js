@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getSpots } from '../../store/spots';
 import { getReviews } from '../../store/reviews';
-import { useEffect } from 'react';
+import { useEffect, useState} from 'react';
 import  Reviews  from '../Reviews/index.js'
 import SpotCards from '../SpotCards';
 import Bookings from '../Bookings';
@@ -20,18 +20,40 @@ export default function SpotIdPage () {
     const { spotId } = useParams()
 
     const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(getSpots())
-        dispatch(getReviews(spotId))
-        window.scrollTo(0, 0);
-    }, [dispatch, spotId])
-
     const spots = useSelector(state => state?.spots)
     const spot = useSelector(state => state.spots[spotId])
     const reviews = useSelector(state => Object.values(state.reviews))
-    // const userId = useSelector(state => state.session?.user?.id)
+    const saves = useSelector(state => Object.values(state.saves))
     const userId = useSelector((state) => state.session?.user?.id);
-    console.log('userId', userId)
+
+    const [isSaved, setIsSaved] = useState(false)
+
+    useEffect(() => {
+        dispatch(getSaves(userId))
+    }, [userId])
+
+    useEffect(() => {
+        dispatch(getSpots())
+        dispatch(getReviews(spotId))
+        // dispatch(getSaves(userId))
+        window.scrollTo(0, 0);
+    }, [dispatch, spotId])
+
+    useEffect(() => {
+        if (saves) {
+            for (let i = 0; i < saves.length; i++) {
+                let save = saves[i];
+                console.log('save', save)
+                if (save.spotId == spotId) {
+                    setIsSaved(true)
+                    return
+                }
+            }
+        }
+
+        return (setIsSaved(false))
+    }, [dispatch, spotId])
+
 
 
     function saveSpot () {
@@ -41,6 +63,7 @@ export default function SpotIdPage () {
         }
 
         dispatch(createSave(payload, spotId, userId))
+        setIsSaved(true)
     }
 
 
@@ -58,7 +81,13 @@ export default function SpotIdPage () {
                 <div id="spot-name" className="text">{spot?.name}</div>
                 <div className="save-and-recommended-div">
                     <div className="font recommended"><span className="text hundred-percent"><i class="fas fa-thumbs-up"></i> %100</span> Recommended</div>
-                    <button onClick={saveSpot} id="save-button">Save to list</button>
+                    <div>
+                        { isSaved ?
+                        <button id="save-button">Saved</button>
+                        :
+                        <button onClick={saveSpot} id="save-button">Save to list</button>}
+
+                    </div>
                 </div>
             </div>
 
