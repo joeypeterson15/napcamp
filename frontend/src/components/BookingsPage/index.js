@@ -85,9 +85,7 @@ export default function BookingsPage () {
                                      {booking.guests}
                                 </div>
                             </div>
-                            {/* <div key={booking.startTime} className="text">Check-in: {convertTime(booking.startTime.toString())}</div>
-                            <div key={booking.endTime} className="text">Check-out: {convertTime(booking.endTime.toString())}</div>
-                            <div key={booking.guests} className="text">Guests : {booking.guests}</div> */}
+                            
                             <UpdateBookingModal spot={spots.find((spot) => spot.id === booking.spotId)} booking={booking}/>
                             <form onSubmit={cancelBooking(booking.spotId)}>
                                 <button className="cancel-booking-button" type="submit">Cancel Booking</button>

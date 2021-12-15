@@ -10,6 +10,7 @@ import SpotsBrowser from "./components/SpotsBrowser";
 import Welcome from "./components/Welcome"
 import SpotsIdPage from "./components/SpotIdPage"
 import BookingsPage from "./components/BookingsPage"
+import SavesPage from "./components/SavesPage";
 
 
 
@@ -32,6 +33,10 @@ function App() {
       <Route exact path="/trips">
       <NavigationWhite isLoaded={isLoaded} />
         <BookingsPage />
+      </Route>
+      <Route exact path="/saves">
+      <NavigationWhite isLoaded={isLoaded} />
+        <SavesPage />
       </Route>
       <Route exact path="/spots/:spotId">
       <NavigationWhite isLoaded={isLoaded} />
