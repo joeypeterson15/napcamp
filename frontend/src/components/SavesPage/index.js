@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getSaves } from '../../store/saves';
 import { Link } from 'react-router-dom';
+import './SavesPage.css'
 
 
 function SavesPage () {
@@ -25,9 +26,10 @@ function SavesPage () {
         <>
             <div className="saves-container">
                 {saves.map(save => (
-                    <div>
+                    <div className="saves-card">
                         <Link to={`/spots/${save?.spotId}`}>
-                            <img className="bookings-image" alt={save.id} src={spots.find((spot) => spot.id === save.spotId)?.imageUrl}></img>
+                            <img className="saves-image" alt={save.id} src={spots.find((spot) => spot.id === save.spotId)?.imageUrl}></img>
+                            <div>{spots.find((spot) => spot.id === save.spotId)?.name}</div>
                         </Link>
                     </div>
                 ))}
