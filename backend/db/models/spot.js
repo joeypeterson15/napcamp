@@ -32,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Spot.hasMany(models.Review, { foreignKey: "spotId" })
     Spot.hasMany(models.Booking, { foreignKey: "spotId"})
+    Spot.hasMany(models.Save, { foreignKey: "spotId"})
   };
   return Spot;
 };
