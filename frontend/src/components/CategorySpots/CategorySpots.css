@@ -1,17 +1,10 @@
 
 .category-card {
-    /* text-align: center; */
     box-sizing: border-box;
     width: 20rem;
-    /* padding: 10px; */
-    /* position: relative;
-    z-index: 3; */
     border: 0.2px solid rgb(228, 226, 226);
-    /* left: 67.5%; */
-    /* top: 300px; */
     height: 8rem;
     margin-top: 40px;
-    /* background-color: red; */
     display: flex;
 }
 
