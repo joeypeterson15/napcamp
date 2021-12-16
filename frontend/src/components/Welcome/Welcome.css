@@ -21,8 +21,8 @@
 }
 
 #welcome-header-big {
-    margin-top: 10%;
-    margin-left: 15%;
+    margin-top: 5%;
+    /* margin-left: 15%; */
 
     font-size: 60px;
 }
@@ -30,7 +30,21 @@
 #welcome-header-small {
     text-align: center;
     font-size: 26px;
-    width: 60%;
-    margin-left: 22%;
+    width: 30rem;
+    padding-left: 28.3%;
     font-weight: 400;
+}
+
+#welcome-headers-div {
+    /* background-color: red; */
+    text-align: center;
+    width: 80%;
+}
+
+#next-getaway-text {
+    font-size: 21px;
+    font-family: 'Roboto';
+    padding-left: 9.5rem;
+    padding-bottom: 1rem;
+
 }

@@ -22,20 +22,24 @@
     color: white;
 }
 
-#search-text {
+.search-text {
     border-radius: 20px;
-    width: 90%;
+    width: 18rem;
     height: 40px;
     border: none;
     padding-left: 0.5rem;
 }
 
+
+
 .search-form {
     margin-top: 1%;
     margin-left: 7%;
+    display: flex;
+    justify-content: space-between;
 }
 
-#where-to {
+.where-to {
     padding-bottom: 10px;
     color: black;
     font-size: 0.8rem;
