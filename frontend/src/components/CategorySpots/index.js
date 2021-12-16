@@ -38,7 +38,7 @@ function CategorySpots ({category, spots, currentSpot, propSpot}) {
 
     return (
         <div className="category-cards-container">
-            {Object.values(categorySpots).length > 0 ? <h5 className="text">{`More ${category} listings`}</h5> : <div></div>}
+            {Object.values(categorySpots).length > 0 ? <h5 className="text">{`More ${category} listings near you`}</h5> : <div></div>}
 
                 {Object.values(categorySpots).map((spot) => (
                     <Link className="category-link text" to={`/spots/${spot.id}`}>
