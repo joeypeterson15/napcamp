@@ -23,24 +23,24 @@ function CustomMap({ spot, google, locations = [] }) {
     return (setLocation(''))
     }, [dispatch])
 
-    useEffect(() => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-              (position) => {
-                const pos = {
-                  lat: position.coords.latitude,
-                  lng: position.coords.longitude,
-                };
+    // useEffect(() => {
+    //     if (navigator.geolocation) {
+    //         navigator.geolocation.getCurrentPosition(
+    //           (position) => {
+    //             const pos = {
+    //               lat: position.coords.latitude,
+    //               lng: position.coords.longitude,
+    //             };
 
-                setCurrentLocation(pos)
-                console.log('this is current location', pos)
-              },
-            );
-          }
-    }, [dispatch])
+    //             setCurrentLocation(pos)
+    //             console.log('this is current location', pos)
+    //           },
+    //         );
+    //       }
+    // }, [dispatch])
 
 
-    
+
 
 
 
@@ -58,8 +58,8 @@ function CustomMap({ spot, google, locations = [] }) {
                 height: "100%"
             }}
             // center={locations[0]}
-            center={{lat: location?.geometry?.location?.lat, lng: location?.geometry?.location?.lng}}
-            initialCenter={{lat: location?.geometry?.location?.lat, lng: location?.geometry?.location?.lng}}
+            center={{lat: spot?.lat, lng: spot?.lng}}
+            initialCenter={{lat: spot?.lat, lng: spot?.lng}}
             zoom={locations.length === 1 ? 18 : 13}
             disableDefaultUI={true}
         >

@@ -75,3 +75,12 @@
     margin-left: 20px;
     margin-right: 20px;
 }
+
+
+.profile-dropdown {
+    border: 1px solid rgba(172, 172, 172, 0.7);
+    position: absolute;
+    right: 10rem;
+    top : 4rem;
+    padding: 1rem;
+}
