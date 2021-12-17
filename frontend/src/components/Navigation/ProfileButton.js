@@ -31,18 +31,15 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      {/* <button id="header-icon-button" onClick={openMenu}>
-
-      </button> */}
         <img onClick={openMenu} className="review-icon-nav" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>
       {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
+        <div className="profile-dropdown">
+          <div>{user.username}</div>
+          <div>{user.email}</div>
+          <div>
             <button onClick={logout}>Log Out</button>
-          </li>
-        </ul>
+          </div>
+        </div>
       )}
     </>
   );
