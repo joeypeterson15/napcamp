@@ -9,8 +9,7 @@ import SpotCards from '../SpotCards';
 import Bookings from '../Bookings';
 import ImageModal from '../ImageModal'
 import { getSaves, createSave } from '../../store/saves';
-import CategorySpots from '../CategorySpots';
-import GoogleMap from '../GoogleMap';
+
 
 import './SpotIdPage.css'
 
@@ -43,7 +42,7 @@ export default function SpotIdPage () {
         if (saves) {
             for (let i = 0; i < saves.length; i++) {
                 let save = saves[i];
-                console.log('save', save)
+                // console.log('save', save)
                 if (save.spotId == spotId) {
                     setIsSaved(true)
                     return

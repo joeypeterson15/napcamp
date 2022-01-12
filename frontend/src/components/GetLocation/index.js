@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './GetLocation.css'
 
@@ -9,12 +8,7 @@ function GetLocation ({spot}) {
      const [currentLocation, setCurrentLocation] = useState('')
      const dispatch = useDispatch();
 
-    //  useEffect(() => {
-    //     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${spot?.location},+CA&key=AIzaSyDcQHD-tKZVqVpv07vx0eE9lhueTMnbkyI`)
-    //     .then(res => res.json())
-    //     .then(results => setLocation(results?.results[0]))
-    //     .catch(e => console.log(e));
-    //     }, [dispatch])
+
 
 
      useEffect(() => {
@@ -27,7 +21,7 @@ function GetLocation ({spot}) {
                 };
 
                 setCurrentLocation(pos)
-                console.log('this is current location', pos)
+                // console.log('this is current location', pos)
               },
             );
           }

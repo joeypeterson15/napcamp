@@ -1,4 +1,4 @@
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -8,7 +8,7 @@ import './GoogleMap.css'
 function CustomMap({ spot, google, locations = [] }) {
 
     const [location, setLocation] = useState('')
-    const [currentLocation, setCurrentLocation] = useState('')
+    // const [currentLocation, setCurrentLocation] = useState('')
     const dispatch = useDispatch();
 
 
@@ -16,8 +16,8 @@ function CustomMap({ spot, google, locations = [] }) {
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${spot?.location},+CA&key=AIzaSyDcQHD-tKZVqVpv07vx0eE9lhueTMnbkyI`)
     .then(res => res.json())
     .then(json => setLocation(json?.results[0]))
-    .then(results => console.log('results', location?.geometry?.location))
-    .catch(e => console.log(e));
+    // .then(results => console.log('results', location?.geometry?.location))
+    // .catch(e => console.log(e));
 
 
     return (setLocation(''))
