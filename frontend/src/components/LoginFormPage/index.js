@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -52,6 +53,7 @@ function LoginFormPage() {
                       type="text"
                       value={credential}
                       onChange={(e) => setCredential(e.target.value)}
+                      placeholder="email"
                       required
                     />
                   </div>
@@ -72,9 +74,17 @@ function LoginFormPage() {
               </form>
 
         </div>
-
-
       </div>
+        <div className="login-to-sign-div">
+
+          <div className="grey-line"></div>
+
+          <div>Don't have a NapCamp account? <Link
+          id="login-to-signup"
+          to="/signup"
+          >Sign up!</Link></div>
+
+        </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@
     display: flex;
     /* border: 2px solid red; */
     width: 22%;
-    height: 20rem;
+    height: 15rem;
     margin-left: 550px;
     margin-right: 500px;
     /* margin-top: 150px; */
@@ -55,4 +55,26 @@
     text-align: center;
     padding-top: 7%;
     /* margin-top: 50px; */
+}
+
+.grey-line {
+    border-bottom: 2px solid rgba(211, 211, 211, 0.3);
+    position: absolute;
+    width: 20.5rem;
+    left: 38vw;
+    top: 60vh;
+    padding-top: 1.8rem;
+}
+
+.login-to-sign-div {
+    padding-top: 2rem;
+    margin-left: 40vw;
+    font-family: 'Inter';
+    font-size: 13px;
+    text-decoration: none;
+}
+
+#login-to-signup {
+    text-decoration: none;
+    font-weight: 500;
 }
