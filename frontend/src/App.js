@@ -23,7 +23,7 @@ function App() {
 
 
   return (
-    <>
+    <div className="back">
       <Route exact path="/">
       <Navigation isLoaded={isLoaded} />
         <Welcome />
@@ -54,7 +54,7 @@ function App() {
           </Route>
         </Switch>
       )}
-    </>
+    </div>
   );
 }
 

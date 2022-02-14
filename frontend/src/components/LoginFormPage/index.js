@@ -31,7 +31,7 @@ function LoginFormPage() {
   }
 
   return (
-    <div className={isBackgroundGrey ? 'background-grey' : 'background-white'}>
+  <div className={isBackgroundGrey ? 'background-grey' : 'background-white'}>
     <div className="login-headers-div">
 
       <h1 className="login-font">Welcome Back!</h1>
@@ -68,7 +68,7 @@ function LoginFormPage() {
                       />
 
                   </div>
-                <button id="login-submit" type="submit">Log In</button>
+                <button id="login-submit" type="submit">Login</button>
               </form>
 
         </div>
