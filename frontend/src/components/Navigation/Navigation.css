@@ -24,21 +24,16 @@
     font-size: 10rem;
     color: rgb(0, 46, 0);
     font-weight: 500;
+    text-decoration: none;
 }
 
 .right-nav {
-    /* padding-right: 160px; */
-    display: flex;
-    justify-content: space-between;
-    padding-left: 2%;
-    padding-right: 15%;
-    /* padding-top: 1rem; */
-    /* padding-top: 10px; */
+
 }
 
 #nav-saves {
-    padding-left: 15%;
-    padding-right: 15%;
+    /* padding-left: 15%; */
+    /* padding-right: 15%; */
 }
 
 .nav-link {
@@ -53,17 +48,22 @@
 
 }
 
-.pad {
+/* .pad {
     margin-right: 10rem;
-}
+} */
 
 .review-icon-nav {
+    position: absolute;
     height: 30px;
     width: 30px;
-    margin-bottom: 20px;
-    margin-left: 20px ;
-    margin: none;
+
+    /* margin-left: 30px; */
+
     border-radius: 20px;
+    /* margin-top: 0.8rem; */
+    right: 8.8rem;
+    top: 1.7rem;
+
 }
 
 #header-icon-button {
@@ -81,6 +81,9 @@
     width: 6rem;
     font-weight: 500;
     height: 3rem;
+}
+.trips-tag {
+    padding-right: 3rem;
 }
 
 #nav-login {

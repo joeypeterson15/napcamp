@@ -35,7 +35,7 @@ function Navigation({ isLoaded}){
     );
   } else {
     sessionLinks = (
-     
+
       <div className="right-nav">
 
         <NavLink id="nav-login" className="nav-link" to="/login">Login</NavLink>
@@ -53,10 +53,10 @@ function Navigation({ isLoaded}){
       <div>
         <NavLink id="napcamp-text" className="nav-link-login" exact to="/">NapCamp</NavLink>
       </div>
-      <div className="right-nav pad">
-        <Link to="/trips" className="nav-link">Trips</Link>
-        <Link id="nav-saves" to="/saves" className="nav-link">Saves</Link>
-        <Link to="/inbox" className="nav-link">Inbox</Link>
+      <div className="right-nav">
+        <Link to="/trips" className="nav-link trips-tag">Trips</Link>
+        <Link to="/saves" className="nav-link">Saves</Link>
+        {/* <Link to="/inbox" className="nav-link">Inbox</Link> */}
         {isLoaded && sessionLinks}
       </div>
     </nav>
