@@ -34,8 +34,8 @@ function LoginFormPage() {
     <div className={isBackgroundGrey ? 'background-grey' : 'background-white'}>
     <div className="login-headers-div">
 
-      <h1>Welcome Back!</h1>
-      <h3>Let's get you napping.</h3>
+      <h1 className="login-font">Welcome Back!</h1>
+      <h3 className="login-font">Let's get you napping.</h3>
     </div>
       <div className="login-form-container">
 

@@ -8,6 +8,7 @@
     margin-right: 500px;
     /* margin-top: 150px; */
     align-items: center;
+    /* background-color: red; */
 }
 
 /* .email-login-div {
@@ -30,6 +31,10 @@
     margin-bottom: 20px;
 }
 
+.login-font {
+    font-family: 'Inter';
+}
+
 #inner-login-container {
     /* border: 1px solid blue; */
     width: 100%;
@@ -37,7 +42,7 @@
 
 input {
     width: 100%;
-    border: 1px solid black;
+    border: 0.2px solid black;
     height: 50px;
 }
 

@@ -19,30 +19,8 @@ function CustomMap({ spot, google, locations = [] }) {
     // .then(results => console.log('results', location?.geometry?.location))
     // .catch(e => console.log(e));
 
-
     return (setLocation(''))
     }, [dispatch])
-
-    // useEffect(() => {
-    //     if (navigator.geolocation) {
-    //         navigator.geolocation.getCurrentPosition(
-    //           (position) => {
-    //             const pos = {
-    //               lat: position.coords.latitude,
-    //               lng: position.coords.longitude,
-    //             };
-
-    //             setCurrentLocation(pos)
-    //             console.log('this is current location', pos)
-    //           },
-    //         );
-    //       }
-    // }, [dispatch])
-
-
-
-
-
 
     return (
 
