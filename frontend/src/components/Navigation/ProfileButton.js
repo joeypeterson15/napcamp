@@ -34,10 +34,10 @@ function ProfileButton({ user }) {
         <img onClick={openMenu} className="review-icon-nav" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>
       {showMenu && (
         <div className="profile-dropdown">
-          <div>{user.username}</div>
-          <div>{user.email}</div>
+          {/* <div>{user.username}</div>
+          <div>{user.email}</div> */}
           <div>
-            <button onClick={logout}>Log Out</button>
+            <button className="logout-button" onClick={logout}>Log Out</button>
           </div>
         </div>
       )}
