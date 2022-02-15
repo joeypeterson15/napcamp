@@ -58,7 +58,7 @@ function NavigationWhite({ isLoaded, spotId }){
       <div className="right-nav">
         <Link to="/trips" className="nav-link">Trips</Link>
         <Link id="nav-saves" to="/saves" className="nav-link">Saves</Link>
-        <Link to="/inbox" className="nav-link">Inbox</Link>
+        {/* <Link to="/inbox" className="nav-link">Inbox</Link> */}
         {isLoaded && sessionLinks}
       </div>
     </nav>
