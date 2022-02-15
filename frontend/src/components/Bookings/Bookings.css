@@ -1,9 +1,11 @@
 
+
 .booking-card-container {
     background-color: white;
     position: absolute;
+    /* position: sticky; */
     z-index: 1;
-    top: 70%;
+    top: 30rem;
     width: 100px;
     left: 67%;
     width: 23%;
@@ -11,7 +13,20 @@
     border: 0.2px solid rgba(228, 226, 226, 0.4);
     border-radius: 3px;
     box-shadow: 0.4px 0.4px 0.7px 1px rgba(226, 226, 226, 0.4);
-    /* position: sticky; */
+}
+.booking-card-container-sticky {
+    background-color: white;
+    /* position: absolute; */
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    width: 100px;
+    left: 67%;
+    width: 23%;
+    height: 318px;
+    border: 0.2px solid rgba(228, 226, 226, 0.4);
+    border-radius: 3px;
+    box-shadow: 0.4px 0.4px 0.7px 1px rgba(226, 226, 226, 0.4);
 }
 
 #bookings-button {
@@ -27,6 +42,22 @@
     margin-top: 7.5px;
     /* margin-top: 40%; */
 }
+
+@keyframes button {
+
+}
+
+#bookings-button:hover {
+    border: 2px solid rgb(127, 255, 195);
+    color: rgb(127, 255, 195);
+    background-color: white;
+    /* -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease; */
+    transition: all 500ms ease;
+}
+
 #bookings-booked-button {
     background-color: rgb(192, 209, 255);
     border: none;

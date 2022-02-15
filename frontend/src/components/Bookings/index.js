@@ -2,7 +2,7 @@ import "./Bookings.css"
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { createBooking } from "../../store/bookings"
 import CategorySpots from "../CategorySpots";
 
@@ -20,6 +20,9 @@ function Bookings ({ spotId, spot, spots, currentSpot, category }) {
     const [guests, setGuests] = useState('guests');
     const [validationErrors, setValidationErrors] = useState([])
     const [validationSuccess, setValidationSuccess] = useState('')
+
+    let el = document.getElementById('booking-card-container');
+
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -59,7 +62,7 @@ function Bookings ({ spotId, spot, spots, currentSpot, category }) {
     }
 
     return (
-        <>
+        <div className="bookings-outer-container">
             <form onSubmit={onSubmit} id="booking-card-container" className="booking-card-container">
                 <ul className="booking-errors">
                     {validationErrors.map((error) => (
@@ -81,7 +84,7 @@ function Bookings ({ spotId, spot, spots, currentSpot, category }) {
                 <button type="submit" id={validationSuccess ? "bookings-booked-button" : "bookings-button"} >{validationSuccess ? <div className="checked-icon-div"><i class="fas fa-check"></i></div>: 'Instant Book'}</button>
             </form>
             <CategorySpots propSpot={spot} category={category} spots={spots} currentSpot={currentSpot}/>
-        </>
+        </div>
     )
 }
 
