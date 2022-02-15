@@ -10,6 +10,8 @@ function ProfileButton({ user }) {
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
+    // const background = document.createElement("div")
+    // background.setAttribute('id', "mask-white")
   };
 
   useEffect(() => {
@@ -17,11 +19,16 @@ function ProfileButton({ user }) {
 
     const closeMenu = () => {
       setShowMenu(false);
+      // let background = document.getElementById('mask-white')
+      // background.removeElement()
     };
 
     document.addEventListener('click', closeMenu);
 
-    return () => document.removeEventListener("click", closeMenu);
+    return () => {
+      document.removeEventListener("click", closeMenu)
+
+            };
   }, [showMenu]);
 
   const logout = (e) => {
@@ -31,6 +38,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
+
         <img onClick={openMenu} className="review-icon-nav" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>
       {showMenu && (
         <div className="profile-dropdown">
