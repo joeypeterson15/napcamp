@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { searchForLocations } from "../../store/spots"
+import './SearchRes.css'
 
 
 function SearchRes () {
@@ -13,12 +15,27 @@ function SearchRes () {
     }, [])
 
     return (
-        <>
-            {spots.length ?
-                spots.map(spot => (
-                    <div>{spot?.location}</div>
-                )) : "No Locations match your seach"}
-        </>
+        <div className="background-white search-results-div">
+
+            <div className="left-side-search-result-container">
+
+                {spots.length ?
+                    spots.map(spot => (
+                        <Link to={`/spots/${spot.id}`} className="spots-div result-link text">
+                            <img key={spot?.imageUrl} className="spots-result-img" alt={spot?.id} src={spot.imageUrl}></img>
+                            <div key={spot?.name} className="text location">{spot.name}</div>
+                            <div key={spot?.location} className="text category">{spot.location}</div>
+                            <div key={spot?.category} className="text category">{spot.category}</div>
+                            <div key={spot?.price} className="text category"><span className="bolder">{spot?.price}</span>/night</div>
+                        </Link>
+                    )) : "No Locations match your seach"}
+
+            </div>
+
+            <div>
+                GoogleMap
+            </div>
+        </div>
     )
 }
 

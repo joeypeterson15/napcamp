@@ -1,0 +1,29 @@
+.search-results-div {
+    display: flex;
+    display: space-around;
+    height: 100%;
+}
+
+.left-side-search-result-container {
+    /* background-color: red; */
+    border: 0.1px solid rgba(155, 155, 155, 0.3);
+    width: 55vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-rows: 1fr fr; */
+}
+
+.spots-result-img {
+    width: 19rem;
+    height: 12rem;
+    border-radius: 1rem;
+}
+
+.bolder {
+    font-weight: 600
+}
+
+.result-link {
+    justify-self: center;
+}
