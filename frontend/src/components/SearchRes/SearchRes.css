@@ -6,6 +6,7 @@
 
 .left-side-search-result-container {
     /* background-color: red; */
+    padding-top: 1rem;
     border: 0.1px solid rgba(155, 155, 155, 0.3);
     width: 55vw;
     height: 100vh;
@@ -26,4 +27,18 @@
 
 .result-link {
     justify-self: center;
+}
+
+.search-results-map {
+    position: relative;
+    /* top: 3rem; */
+    width: 50vw;
+    height: 100vh;
+    left: 0;
+    bottom: 0;
+}
+
+.border-bottom {
+    height: 1rem;
+    border-bottom: 0.2px solid rgba(155, 155, 155, 0.6);
 }

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { searchForLocations } from "../../store/spots"
+import CustomMap from '../GoogleMap'
 import './SearchRes.css'
 
 
@@ -27,13 +28,14 @@ function SearchRes () {
                             <div key={spot?.location} className="text category">{spot.location}</div>
                             <div key={spot?.category} className="text category">{spot.category}</div>
                             <div key={spot?.price} className="text category"><span className="bolder">{spot?.price}</span>/night</div>
+                            <div className="border-bottom"></div>
                         </Link>
                     )) : "No Locations match your seach"}
 
             </div>
 
-            <div>
-                GoogleMap
+            <div className="search-results-map">
+                <CustomMap spot={spots[0]}/>
             </div>
         </div>
     )
