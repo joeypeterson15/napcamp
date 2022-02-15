@@ -18,10 +18,23 @@
     line-height: 20pt;
 }
 
+.flex-me {
+    display: flex;
+}
+
+.edit-icon-display {
+    display: none;
+}
+
+.bottom-booking-card:hover .edit-icon-display {
+    display: block
+}
+
+
 
 .bookings-card {
     /* padding: 5px; */
-    height: 445px;
+    height: 20rem;
     width: 250px;
     border: 0.1px solid rgba(223, 223, 223, 0.5);
     border-radius: 10px;
@@ -74,11 +87,17 @@
 .update-booking-button {
     width: 100%;
     height: 40px;
-    background-color: rgb(217, 250, 243);
+    /* background-color: rgb(217, 250, 243); */
     border-radius: 4px;
     border: none;
     border-radius: 2px;
+}
 
+.update-booking-button:hover {
+    border: 1px solid rgb(217, 250, 243);
+    /* color: rgb(4, 206, 155); */
+    color: black;
+    background-color: rgb(4, 206, 155);
 }
 
 .green-update-button {
@@ -131,8 +150,9 @@
 }
 
 .color-edit-icon {
-    color: rgb(151, 89, 89);
-    margin-right: 50%;
+    color: rgba(66, 66, 66, 0.7);
+    /* margin-right: 50%; */
+    padding-top: 1.3rem;
 
 }
 

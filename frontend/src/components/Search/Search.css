@@ -10,18 +10,6 @@
     border-radius: 75px;
 }
 
-#search-button {
-    width: 50px;
-    height: 50px;
-    /* margin-left: 30px; */
-    background-color: rgb(127, 255, 195);
-    border: none;
-    border-radius: 50%;
-    padding: 7px;
-    margin-right: 1rem;
-    color: white;
-    margin-top: 1rem;
-}
 
 .search-text {
     border-radius: 20px;
@@ -51,4 +39,28 @@
 #search-icon-div {
     font-size: 20px;
     color: white;
+}
+
+#search-button {
+    width: 50px;
+    height: 50px;
+    /* margin-left: 30px; */
+    background-color: rgb(127, 255, 195);
+    border: none;
+    border-radius: 50%;
+    padding: 7px;
+    margin-right: 1rem;
+    color: white;
+    margin-top: 1rem;
+}
+
+#search-button:hover {
+    transition: all 500ms ease;
+    background-color: white;
+    border: 2px solid rgb(127, 255, 195);
+    color: rgb(127, 255, 195)
+}
+
+#search-icon-div:hover{
+    color: rgb(127, 255, 195)
 }

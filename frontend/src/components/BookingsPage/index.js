@@ -1,17 +1,21 @@
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getBookings } from '../../store/bookings';
 import { getSpots } from '../../store/spots';
 import { deleteBooking } from '../../store/bookings';
 import UpdateBookingModal from '../UpdateBookingModal';
 import { Link } from 'react-router-dom';
-
+import { Modal } from '../../context/Modal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './BookingsPage.css'
+
 
 export default function BookingsPage () {
     const dispatch = useDispatch();
+
+    const [isModal, setIsModal] = useState(false)
 
 
 
@@ -25,7 +29,7 @@ export default function BookingsPage () {
         var time = oldTime.split(':');
         var hours = time[0];
         var minutes = time[1];
-        let timeValue = "" + ((hours >12) ? hours -12 :hours);
+        let timeValue = "" + ((hours >12) ? hours - 12 === 0 ? 12 : hours-12 :hours == 0 ? 12 : hours);
             timeValue += (minutes < 10) ? ':' + minutes : ":" + minutes;
             timeValue += (hours >= 12) ? " pm" : " am";
             return timeValue;
@@ -59,7 +63,17 @@ export default function BookingsPage () {
                             <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
                         </Link>
                         <div className="bottom-booking-card">
-                            <h2 className="text">{spots.find((spot) => spot.id === booking.spotId)?.name}</h2>
+                            <div className="flex-me">
+
+                                <h2 className="booking-title text">{spots.find((spot) => spot.id === booking.spotId)?.name}</h2>
+                                <div className="edit-icon-display">
+                                    <UpdateBookingModal spot={spots.find((spot) => spot.id === booking.spotId)} booking={booking}/>
+                                </div>
+
+                            </div>
+                        <div>
+
+                            </div>
                             <div key={booking.date} className="text booking-data-plus-category-div">
                                 <div>Date:</div>
                                 <div>
@@ -85,11 +99,11 @@ export default function BookingsPage () {
                                      {booking.guests}
                                 </div>
                             </div>
-                            
-                            <UpdateBookingModal spot={spots.find((spot) => spot.id === booking.spotId)} booking={booking}/>
-                            <form onSubmit={cancelBooking(booking.spotId)}>
+
+                            {/* <UpdateBookingModal spot={spots.find((spot) => spot.id === booking.spotId)} booking={booking}/> */}
+                            {/* <form onSubmit={cancelBooking(booking.spotId)}>
                                 <button className="cancel-booking-button" type="submit">Cancel Booking</button>
-                            </form>
+                            </form> */}
                         </div>
                     </div>
                 ))}
