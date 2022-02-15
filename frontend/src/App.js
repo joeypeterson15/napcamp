@@ -11,12 +11,14 @@ import Welcome from "./components/Welcome"
 import SpotsIdPage from "./components/SpotIdPage"
 import BookingsPage from "./components/BookingsPage"
 import SavesPage from "./components/SavesPage";
+import SearchRes from "./components/SearchRes/SearchRes";
 
 
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isSearch, setIsSearch] = useState(false)
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -26,8 +28,8 @@ function App() {
     <div className="back">
       <Route exact path="/">
       <Navigation isLoaded={isLoaded} />
-        <Welcome />
-        <SpotsBrowser />
+        <Welcome isSearch={isSearch} setIsSearch={setIsSearch}/>
+        <SpotsBrowser isSearch={isSearch} setIsSearch={setIsSearch}/>
       </Route>
 
       <Route exact path="/trips">
@@ -41,6 +43,10 @@ function App() {
       <Route exact path="/spots/:spotId">
       <NavigationWhite isLoaded={isLoaded} />
         <SpotsIdPage />
+      </Route>
+      <Route exact path="/search/:location">
+      <NavigationWhite isLoaded={isLoaded} />
+        <SearchRes />
       </Route>
       {isLoaded && (
         <Switch>

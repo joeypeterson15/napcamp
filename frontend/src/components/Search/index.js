@@ -2,20 +2,20 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchForLocations } from '../../store/spots'
+import { useHistory } from 'react-router-dom';
 import './Search.css'
 
 function Search () {
-
+    let history = useHistory()
     const [location, setLocation] = useState('')
 
     const dispatch = useDispatch()
 
     const searchLocation = (e) => {
-
         e.preventDefault();
-
         setLocation('')
         dispatch(searchForLocations(location))
+        history.push(`/search/${location.toLowerCase()}`)
 
     }
 
@@ -37,8 +37,8 @@ function Search () {
                         <option type="click" className="text bookings-guests">1</option>
                         <option type="click" className="text bookings-guests">2</option>
                     </select>
-                    <button id="search-button" type="submit" ><div id="search-icon-div"><i className="fas fa-search"></i></div></button>
                 </div>
+                    <button id="search-button" type="submit" ><div id="search-icon-div"><i className="fas fa-search"></i></div></button>
             </form>
         </div>
     )

@@ -18,8 +18,9 @@
     border: none;
     border-radius: 50%;
     padding: 7px;
-    margin-left: 5px;
+    margin-right: 1rem;
     color: white;
+    margin-top: 1rem;
 }
 
 .search-text {
@@ -28,6 +29,7 @@
     height: 40px;
     border: none;
     padding-left: 0.5rem;
+    color: grey;
 }
 
 

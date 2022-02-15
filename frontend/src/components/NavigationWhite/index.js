@@ -53,11 +53,11 @@ function NavigationWhite({ isLoaded, spotId }){
   return (
     <nav className="nav-bar-white text">
       <div>
-        <NavLink id="napcamp-text" className="nav-link" exact to="/">NapCamp</NavLink>
+        <NavLink id="napcamp-text" className="nav-link-login" exact to="/">NapCamp</NavLink>
       </div>
       <div className="right-nav">
-        <Link to="/trips" className="nav-link">Trips</Link>
-        <Link id="nav-saves" to="/saves" className="nav-link">Saves</Link>
+        <Link to="/trips" className="nav-link trips-tag">Trips</Link>
+        <Link to="/saves" className="nav-link">Saves</Link>
         {/* <Link to="/inbox" className="nav-link">Inbox</Link> */}
         {isLoaded && sessionLinks}
       </div>

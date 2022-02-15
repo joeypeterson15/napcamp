@@ -10,8 +10,10 @@ router.get('/', asyncHandler(async function(req, res) {
 }))
 
 router.get('/:location', asyncHandler(async function(req, res) {
+    let newLocation = req.params.location.charAt(0).toUpperCase() + req.params.location.slice(1)
+    console.log('new location', newLocation)
     const locations = await Spot.findAll({where : {
-        location : req.params.location
+        location : newLocation
     }})
     res.json(locations)
 }))
