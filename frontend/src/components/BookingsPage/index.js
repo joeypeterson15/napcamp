@@ -16,6 +16,7 @@ export default function BookingsPage () {
     const dispatch = useDispatch();
 
     const [isModal, setIsModal] = useState(false)
+    const [isExpand, setIsExpand] = useState(false)
 
 
 
@@ -46,10 +47,8 @@ export default function BookingsPage () {
     const bookings = useSelector(state => Object.values(state.bookings))
     const spots = useSelector(state => Object.values(state.spots))
 
-    const cancelBooking = (spotId) => (e) => {
-        e.preventDefault();
-        dispatch(deleteBooking(spotId, userId));
-
+    const expand = () => {
+        !isExpand ? setIsExpand(true) : setIsExpand(false)
     }
 
     return (
@@ -58,11 +57,11 @@ export default function BookingsPage () {
             <div className="div-line-trips"></div>
             <div className="bookings-container">
                 {bookings.map((booking) => (
-                    <div key={booking.id} className="bookings-card">
-                        <Link className='background-link' to={`/spots/${booking.spotId}`}>
-                            <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
-                        </Link>
-                        <div className="bottom-booking-card">
+                    <div key={booking.id} className={isExpand ? "bookings-card-explore" : "bookings-card"} onClick={() => expand()}>
+
+                        <img className={isExpand ? "bookings-image-expand" : "bookings-image"} alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
+
+                        <div className={isExpand ? "bottom-booking-card-expand" : "bottom-booking-card"}>
 
                             <div className="flexx-me">
 
