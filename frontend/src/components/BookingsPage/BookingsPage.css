@@ -23,18 +23,39 @@
 
 
 
+
+
 .edit-icon-display {
     display: none;
     padding-top: 0.3rem;
 }
 
-.bottom-booking-card:hover .edit-icon-display {
+.bottom-booking-card-expand:hover .edit-icon-display {
     display: block
 
 }
 
+
 .bottom-booking-card {
-    height: 80%;
+    height: 0;
+    display: none;
+    -webkit-transition: height .25s ease;
+    -moz-transition: height .25s ease;
+    transition: height .25s ease;
+}
+
+@keyframes expand {
+    0% {
+        height: 1rem
+    }
+}
+.bottom-booking-card-expand {
+    -webkit-transition: height 1s ease;
+    -moz-transition: height 1s ease;
+    transition: height 1s ease;
+    height: 30rem;
+
+
 }
 
 .flexx-me {
@@ -50,7 +71,7 @@
     font-size: 20px;
     /* background-color: red; */
     text-align: left;
-    width: 80%;
+    width: 14rem;
     padding-bottom: 0.5rem;
 
     /* max-height: 3rem; */
@@ -60,19 +81,34 @@
 
 .bookings-card {
     /* padding: 5px; */
-    height: 18rem;
+    height: 8rem;
     /* max-height: 20rem; */
-    width: 250px;
+    width: 17rem;
     border: 0.1px solid rgba(223, 223, 223, 0.5);
     border-radius: 10px;
-    box-shadow: 0.1px 0.2px 0.1px 0.1px rgba(206, 206, 206, 0.5);
+    /* box-shadow: 0.1px 0.2px 0.1px 0.1px rgba(206, 206, 206, 0.5); */
+
+}
+
+
+.bookings-card-expand {
+    /* padding: 5px; */
+    height: 18rem;
+    /* max-height: 20rem; */
+    width: 17rem;
+    border: 0.1px solid rgba(223, 223, 223, 0.5);
+    border-radius: 10px;
+    box-shadow: 0.1px 0.2px 0.1px 0.1px rgba(156, 156, 156, 0.5);
+    -webkit-transition: height .25s ease;
+    -moz-transition: height .25s ease;
+    transition: height .25s ease;
 }
 
 .booking-data-plus-category-div {
     display: flex;
     justify-content: space-between;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     font-size: 14px;
     line-height: 20pt;
 }
@@ -80,7 +116,13 @@
 
 
 .bookings-image {
-    width: 100.5%;
+    width: 17rem;
+    height: 8rem;
+    border-radius: 10px;
+
+}
+.bookings-image-expand {
+    width: 17rem;
     height: 8rem;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;

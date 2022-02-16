@@ -9,6 +9,7 @@ import UpdateBookingModal from '../UpdateBookingModal';
 import { Link } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import BookingExpand from '../BookingExpand/BookingExpand';
 import './BookingsPage.css'
 
 
@@ -16,6 +17,7 @@ export default function BookingsPage () {
     const dispatch = useDispatch();
 
     const [isModal, setIsModal] = useState(false)
+    const [isExpand, setIsExpand] = useState(false)
 
 
 
@@ -46,11 +48,9 @@ export default function BookingsPage () {
     const bookings = useSelector(state => Object.values(state.bookings))
     const spots = useSelector(state => Object.values(state.spots))
 
-    const cancelBooking = (spotId) => (e) => {
-        e.preventDefault();
-        dispatch(deleteBooking(spotId, userId));
-
-    }
+    // const expand = () => {
+    //     !isExpand ? setIsExpand(true) : setIsExpand(false)
+    // }
 
     return (
         <div className={isBackgroundGrey ? 'background-grey' : 'background-white'}>
@@ -58,54 +58,55 @@ export default function BookingsPage () {
             <div className="div-line-trips"></div>
             <div className="bookings-container">
                 {bookings.map((booking) => (
-                    <div key={booking.id} className="bookings-card">
-                        <Link className='background-link' to={`/spots/${booking.spotId}`}>
-                            <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
-                        </Link>
-                        <div className="bottom-booking-card">
+                    <BookingExpand booking={booking} spots={spots} />
+                    // <div key={booking.id} className={isExpand ? "bookings-card-explore" : "bookings-card"} onClick={() => expand()}>
 
-                            <div className="flexx-me">
+                    //     <img className={isExpand ? "bookings-image-expand" : "bookings-image"} alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
+                    //     <BookingExpand booking={booking} spots={spots} />
+                    //     <div className={isExpand ? "bottom-booking-card-expand" : "bottom-booking-card"}>
 
-                                <div className="booking-title text">{spots.find((spot) => spot.id === booking.spotId)?.name}</div>
-                                <div className="edit-icon-display">
-                                    <UpdateBookingModal spot={spots.find((spot) => spot.id === booking.spotId)} booking={booking}/>
-                                </div>
+                    //         <div className="flexx-me">
 
-                            </div>
+                    //             <div className="booking-title text">{spots.find((spot) => spot.id === booking.spotId)?.name}</div>
+                    //             <div className="edit-icon-display">
+                    //                 <UpdateBookingModal spot={spots.find((spot) => spot.id === booking.spotId)} booking={booking}/>
+                    //             </div>
 
-
-
+                    //         </div>
 
 
-                                <div key={booking.date} className="text booking-data-plus-category-div">
-                                    <div>Date:</div>
-                                    <div>
-                                        {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate() + 1}th, 2021
-                                    </div>
-                                </div>
-                                <div key={booking.date} className="text booking-data-plus-category-div">
-                                    <div>Check-in:</div>
-                                    <div>
-                                    {convertTime(booking.startTime.toString())}
 
-                                    </div>
-                                </div>
-                                <div key={booking.date} className="text booking-data-plus-category-div">
-                                    <div>Check-out:</div>
-                                    <div>
-                                        {convertTime(booking.endTime.toString())}
-                                    </div>
-                                </div>
-                                <div key={booking.date} className="text booking-data-plus-category-div">
-                                    <div>Guests :</div>
-                                    <div>
-                                        {booking.guests}
-                                    </div>
-                                </div>
 
-                        </div>
 
-                    </div>
+                    //             <div key={booking.date} className="text booking-data-plus-category-div">
+                    //                 <div>Date:</div>
+                    //                 <div>
+                    //                     {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate() + 1}th, 2021
+                    //                 </div>
+                    //             </div>
+                    //             <div key={booking.date} className="text booking-data-plus-category-div">
+                    //                 <div>Check-in:</div>
+                    //                 <div>
+                    //                 {convertTime(booking.startTime.toString())}
+
+                    //                 </div>
+                    //             </div>
+                    //             <div key={booking.date} className="text booking-data-plus-category-div">
+                    //                 <div>Check-out:</div>
+                    //                 <div>
+                    //                     {convertTime(booking.endTime.toString())}
+                    //                 </div>
+                    //             </div>
+                    //             <div key={booking.date} className="text booking-data-plus-category-div">
+                    //                 <div>Guests :</div>
+                    //                 <div>
+                    //                     {booking.guests}
+                    //                 </div>
+                    //             </div>
+
+                    //     </div>
+
+                    // </div>
 
 
 
