@@ -63,8 +63,12 @@
     border: none;
     padding: 3%;
     color: white;
-    width: 100%;
-    height: 30%;
+    width: 95%;
+    height: 20%;
+    margin-left: 7.5px;
+    margin-top: 7.5px;
+    font-size: 15px;
+    /* align-items: center; */
     /* margin-top: 40%; */
 }
 
@@ -146,5 +150,13 @@
 }
 
 .checked-icon-div {
-    font-size: 30px;
+    /* display: flex; */
+    /* background-color: red; */
+    width: 100%;
+    /* align-items: center; */
+    /* text-align: center; */
+
+}
+.pad-left {
+    padding-left: 0.3rem;
 }

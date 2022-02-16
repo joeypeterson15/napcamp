@@ -1,40 +1,67 @@
 .background-white{
     background-color: white;
+    /* width: 100vw;
+    height: 100vh; */
 }
 
 .bookings-container {
-    width: 800px;
-    height: 100%;
+    width: 65%;
+    /* height: 100%; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     margin-left: 30%;
-    margin-top: 10%;
+    margin-top: 12%;
     /* margin-right: 20%; */
-    grid-row-gap: 100px;
+    grid-row-gap: 3rem;
     grid-column-gap: 40px;
     text-align: center;
+    height: 100vh;
     /* border: 1px solid rgb(206, 206, 206); */
-    line-height: 20pt;
+
 }
 
-.flex-me {
-    display: flex;
-}
+
 
 .edit-icon-display {
     display: none;
+    padding-top: 0.3rem;
 }
 
 .bottom-booking-card:hover .edit-icon-display {
     display: block
+
+}
+
+.bottom-booking-card {
+    height: 80%;
+}
+
+.flexx-me {
+    display: flex;
 }
 
 
 
+.booking-title {
+    padding-left: 0.5rem;
+    /* padding-top: 0; */
+
+    font-size: 20px;
+    /* background-color: red; */
+    text-align: left;
+    width: 80%;
+    padding-bottom: 0.5rem;
+
+    /* max-height: 3rem; */
+    height: 2rem;
+    /* background-color: blue; */
+}
+
 .bookings-card {
     /* padding: 5px; */
-    height: 20rem;
+    height: 18rem;
+    /* max-height: 20rem; */
     width: 250px;
     border: 0.1px solid rgba(223, 223, 223, 0.5);
     border-radius: 10px;
@@ -47,11 +74,14 @@
     padding-left: 1rem;
     padding-right: 1rem;
     font-size: 14px;
+    line-height: 20pt;
 }
+
+
 
 .bookings-image {
     width: 100.5%;
-    height: 40%;
+    height: 8rem;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -60,7 +90,7 @@
     font-size: 30px;
     position: absolute;
     margin-left: 30%;
-    top: 15%;
+    top: 20%;
 }
 
 .hide-form {
@@ -146,13 +176,20 @@
 #edit-icon-button {
     /* position: relative;
     z-index: 1; */
-    margin-left: 90%;
+    /* margin-left%; */
+    margin-left: 50%;
+}
+
+#edit-icon-button:hover {
+    cursor: pointer;
+    color: green
+
 }
 
 .color-edit-icon {
-    color: rgba(66, 66, 66, 0.7);
+    color: rgba(10, 10, 10, 0.7);
     /* margin-right: 50%; */
-    padding-top: 1.3rem;
+    /* padding-top: 1.3rem; */
 
 }
 

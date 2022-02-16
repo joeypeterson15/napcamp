@@ -59,55 +59,59 @@ export default function BookingsPage () {
             <div className="bookings-container">
                 {bookings.map((booking) => (
                     <div key={booking.id} className="bookings-card">
-                        <Link to={`/spots/${booking.spotId}`}>
+                        <Link className='background-link' to={`/spots/${booking.spotId}`}>
                             <img className="bookings-image" alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
                         </Link>
                         <div className="bottom-booking-card">
-                            <div className="flex-me">
 
-                                <h2 className="booking-title text">{spots.find((spot) => spot.id === booking.spotId)?.name}</h2>
+                            <div className="flexx-me">
+
+                                <div className="booking-title text">{spots.find((spot) => spot.id === booking.spotId)?.name}</div>
                                 <div className="edit-icon-display">
                                     <UpdateBookingModal spot={spots.find((spot) => spot.id === booking.spotId)} booking={booking}/>
                                 </div>
 
                             </div>
-                        <div>
 
-                            </div>
-                            <div key={booking.date} className="text booking-data-plus-category-div">
-                                <div>Date:</div>
-                                <div>
-                                    {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate() + 1}th, 2021
-                                </div>
-                            </div>
-                            <div key={booking.date} className="text booking-data-plus-category-div">
-                                <div>Check-in:</div>
-                                <div>
-                                 {convertTime(booking.startTime.toString())}
 
-                                </div>
-                            </div>
-                            <div key={booking.date} className="text booking-data-plus-category-div">
-                                <div>Check-out:</div>
-                                <div>
-                                    {convertTime(booking.endTime.toString())}
-                                </div>
-                            </div>
-                            <div key={booking.date} className="text booking-data-plus-category-div">
-                                <div>Guests :</div>
-                                <div>
-                                     {booking.guests}
-                                </div>
-                            </div>
 
-                            {/* <UpdateBookingModal spot={spots.find((spot) => spot.id === booking.spotId)} booking={booking}/> */}
-                            {/* <form onSubmit={cancelBooking(booking.spotId)}>
-                                <button className="cancel-booking-button" type="submit">Cancel Booking</button>
-                            </form> */}
+
+
+                                <div key={booking.date} className="text booking-data-plus-category-div">
+                                    <div>Date:</div>
+                                    <div>
+                                        {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate() + 1}th, 2021
+                                    </div>
+                                </div>
+                                <div key={booking.date} className="text booking-data-plus-category-div">
+                                    <div>Check-in:</div>
+                                    <div>
+                                    {convertTime(booking.startTime.toString())}
+
+                                    </div>
+                                </div>
+                                <div key={booking.date} className="text booking-data-plus-category-div">
+                                    <div>Check-out:</div>
+                                    <div>
+                                        {convertTime(booking.endTime.toString())}
+                                    </div>
+                                </div>
+                                <div key={booking.date} className="text booking-data-plus-category-div">
+                                    <div>Guests :</div>
+                                    <div>
+                                        {booking.guests}
+                                    </div>
+                                </div>
+
                         </div>
+
                     </div>
+
+
+
                 ))}
             </div>
         </div>
+
     )
 }

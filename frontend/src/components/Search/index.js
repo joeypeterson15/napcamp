@@ -28,7 +28,8 @@ function Search () {
                 </div>
                 <div>
                     <div className="where-to">DATES</div>
-                    <input className="search-text" type="date" placeholder="Enter dates"></input>
+                    <input className="search-text date-style" type="date" placeholder="Enter date"
+                    ></input>
                 </div>
                 <div>
                     <div className="where-to">GUESTS</div>
