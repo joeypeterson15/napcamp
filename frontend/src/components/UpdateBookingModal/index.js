@@ -33,6 +33,7 @@ function UpdateBookingModal({booking, spot}) {
               <form onSubmit={cancelBooking(booking.spotId)}>
                   <button className="update-booking-button" type="submit">Cancel Booking</button>
               </form>
+              <button className="update-booking-button cancel" type="submit" onClick={() => setShowModal(false) }>Cancel</button>
             </Modal>
           )}
         </>
