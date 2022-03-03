@@ -21,6 +21,14 @@
 
 }
 
+.hover-dropdown {
+    display: none;
+}
+
+.bookings-card:hover .hover-dropdown {
+    display: block;
+}
+
 
 
 
@@ -86,6 +94,7 @@
     width: 17rem;
     border: 0.1px solid rgba(223, 223, 223, 0.5);
     border-radius: 10px;
+    cursor: pointer;
     /* box-shadow: 0.1px 0.2px 0.1px 0.1px rgba(206, 206, 206, 0.5); */
 
 }
@@ -229,7 +238,7 @@
 
 #edit-icon-button:hover {
     cursor: pointer;
-    color: green
+    /* color: green */
 
 }
 

@@ -4,6 +4,8 @@ import UpdateBookingsForm from '../UpdateBookingsForm';
 import { deleteBooking } from '../../store/bookings';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+
 
 
 function UpdateBookingModal({booking, spot}) {
@@ -22,12 +24,10 @@ function UpdateBookingModal({booking, spot}) {
     const [showModal, setShowModal] = useState(false);
     return (
         <>
-          {/* <button onClick={() => setShowModal(true)}>UPDATE</button> */}
-          <div className="color-edit-icon">
-         
-          {/* <i class="fa-solid fa-ellipsis"></i> */}
-            <i id="edit-icon-button" className={showModal ? '' : "far fa-edit"} onClick={() => setShowModal(true) }></i>
-          </div>
+            <div id="edit-icon-button"  onClick={() => setShowModal(true) }>
+              <MoreHorizIcon></MoreHorizIcon>
+            </div>
+
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <UpdateBookingsForm spot={spot} setShowModal={setShowModal} showModal={showModal} booking={booking}/>
