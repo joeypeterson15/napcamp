@@ -23,10 +23,17 @@
 
 .hover-dropdown {
     display: none;
+    /* font-size: 10rem; */
+    cursor: pointer;
+    color: rgb(65, 65, 65);
 }
 
-.bookings-card:hover .hover-dropdown {
+.booking-outer-container:hover .hover-dropdown {
     display: block;
+}
+
+.dropdown {
+    cursor: pointer;
 }
 
 

@@ -28,7 +28,7 @@ function NavigationWhite({ isLoaded, spotId }){
 
 }
 
-  const isTrips = window.location.href.includes('trips')
+  const isTrips = window.location.href.includes('trips') || window.location.href.includes('spots') || window.location.href.includes('search')
 
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);

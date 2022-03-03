@@ -31,7 +31,7 @@ function BookingExpand ({booking, spots}) {
 
 
 
-            <div>
+            <div className="booking-outer-container">
                 <div key={booking.id} className={isExpand ? "bookings-card-expand" : "bookings-card"} onClick={() => expand()}>
 
                         <img className={isExpand ? "bookings-image-expand" : "bookings-image"} alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
@@ -90,7 +90,7 @@ function BookingExpand ({booking, spots}) {
                         :
                         <div className="hover-dropdown" onClick={() => expand()}>
 
-                          <ArrowDropDownCircleIcon ></ArrowDropDownCircleIcon>
+                          <ArrowDropDownCircleIcon></ArrowDropDownCircleIcon>
 
                         </div>
 
