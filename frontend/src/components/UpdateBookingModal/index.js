@@ -24,6 +24,7 @@ function UpdateBookingModal({booking, spot}) {
         <>
           {/* <button onClick={() => setShowModal(true)}>UPDATE</button> */}
           <div className="color-edit-icon">
+         
           {/* <i class="fa-solid fa-ellipsis"></i> */}
             <i id="edit-icon-button" className={showModal ? '' : "far fa-edit"} onClick={() => setShowModal(true) }></i>
           </div>

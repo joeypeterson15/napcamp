@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import UpdateBookingModal from "../UpdateBookingModal"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+// import { faCoffee, faSolid, faListDropdown} from "@fortawesome/free-solid-svg-icons"
 
 
 function BookingExpand ({booking, spots}) {
@@ -21,9 +23,14 @@ function BookingExpand ({booking, spots}) {
 
     return (
         <>
-            {/* <img src="public/pics/dropdown.png"></img> */}
+            {/* <img src="./dropdown.png"></img> */}
 
             {/* <i class="fa-solid fa-circle-caret-down"></i> */}
+            {/* <i class="bi bi-caret-down-square"></i> */}
+            {/* <i class="bi-alarm" style="font-size: 2rem; color: cornflowerblue;"></i> */}
+            {/* <FontAwesomeIcon icon={faListDropdown}></FontAwesomeIcon>
+            <FontAwesomeIcon icon="fa-solid fa-list-dropdown" />
+            <i class="fa-light fa-mug-saucer"></i> */}
             <div key={booking.id} className={isExpand ? "bookings-card-expand" : "bookings-card"} onClick={() => expand()}>
 
                     <img className={isExpand ? "bookings-image-expand" : "bookings-image"} alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
