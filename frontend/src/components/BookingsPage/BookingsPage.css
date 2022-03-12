@@ -10,8 +10,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    margin-left: 20%;
-    margin-top: 12%;
+    margin-left: 30vw;
+    margin-top: 21vh;
     /* margin-right: 20%; */
     grid-row-gap: 3rem;
     grid-column-gap: 40px;
@@ -147,7 +147,7 @@
 .userName-bookings {
     font-size: 30px;
     position: absolute;
-    margin-left: 20%;
+    margin-left: 30vw;
     top: 20%;
 }
 
@@ -278,14 +278,19 @@
 
 
 /* profile */
-.profile-container {
+.containers {
+    font-family: 'Roboto';
     position: absolute;
-    left: 1vw;
-    top: 30vh;
-    width: 20vw;
-    height: 50vh;
-    border: 0.2px solid grey;
+    width: 17vw;
+    left: 8vw;
+    border: 0.1px solid rgba(184, 184, 184, 0.3);
+    box-shadow: 1px 0.5px 0.1px 0.05px rgba(209, 209, 209, 0.1);
 }
+.profile-container {
+    top: 30vh;
+    height: 35vh;
+}
+
 
 .pic-plus-username-container{
     display: flex;
@@ -309,7 +314,8 @@
 
 .profile-username {
     padding-top: 2.5rem;
-    padding-left: 1.5rem;
+    padding-left: 1rem;
+    font-size: 19px;
 }
 
 .profile-container-body {
@@ -318,6 +324,7 @@
 
 .profile-container-body div{
     padding-top: 1rem;
+    font-size: 13px;
 }
 
 .create-bio {
@@ -332,4 +339,41 @@
 .edit-profile-click {
     cursor: pointer;
     text-decoration: underline;
+}
+
+
+
+.cash-container {
+    top: 68vh;
+    height: 10vh;
+
+}
+
+.balance-div {
+    /* background-color: red; */
+    width: 55%;
+    height: 2rem;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 22%;
+    margin-top: 1rem;
+
+}
+
+#word-is-balance {
+    padding-top: 0.7rem;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+#balance-circle {
+    font-size: 12px;
+    border: 1px solid rgba(211, 211, 211, 0.8);
+    box-shadow: 1px 0.5px 0.1px 0.05px rgba(209, 209, 209, 0.1);
+    border-radius: 50%;
+    padding: 0.5rem;
+    padding-top: 0.8rem;
+    width: 3rem;
+    height: 1.2rem;
+    text-align: center;
 }

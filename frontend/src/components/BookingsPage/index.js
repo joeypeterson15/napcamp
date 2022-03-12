@@ -73,7 +73,7 @@ export default function BookingsPage () {
             <div className="userName-bookings text">{userName}'s Trips:</div>
             <div className="div-line-trips"></div>
 
-            <div className="profile-container">
+            <div className="containers profile-container">
                 <div className="pic-plus-username-container">
                     <div className="profile-pic-container">
                         <img className="profile-image" src={user?.profilePicture}></img>
@@ -84,9 +84,17 @@ export default function BookingsPage () {
                     <div>{<span id="bold-intro">Intro:</span>}{user?.bio !== null ? user?.bio : "Introduce yourself to the community!"}</div>
                     {user?.memberSince &&
                     <div>Member since: {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(user?.memberSince))} 2022</div>}
-                    <div>Available Funds: ${user?.money}</div>
+                    <div onClick={() => setShowModal(true)} className="edit-profile-click">Edit profile</div>
                 </div>
-            <div onClick={() => setShowModal(true)} className="edit-profile-click">Edit profile</div>
+            </div>
+            <div className="containers cash-container">
+                <div className="balance-div">
+                    <span id="balance-circle">${user?.money}</span>
+                    <span id="word-is-balance">
+
+                        Balance
+                    </span>
+                </div>
             </div>
 
             {showModal && (
