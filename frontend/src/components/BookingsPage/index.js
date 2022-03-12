@@ -19,6 +19,7 @@ export default function BookingsPage () {
 
     const [isModal, setIsModal] = useState(false)
     const [isExpand, setIsExpand] = useState(false)
+    const [showModal, setShowModal] = useState(false)
 
 
 
@@ -68,12 +69,24 @@ export default function BookingsPage () {
                     <div className="profile-username">{user?.username}</div>
                 </div>
                 <div className="profile-container-body">
-                    <div>{user?.bio !== null ? user?.bio : "say something about yourself"}</div>
+                    <div>{<span id="bold-intro">Intro:</span>}{user?.bio !== null ? user?.bio : "Introduce yourself to the community!"}</div>
                     {user?.memberSince &&
-                    <div>Member Since: {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(user?.memberSince))} {new Date(user?.memberSince).getDate() + 1}th, 2021</div>}
+                    <div>Member since: {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(user?.memberSince))} 2022</div>}
                     <div>Available Funds: ${user?.money}</div>
                 </div>
+                <div onClick={() => setShowModal(true)} className="edit-profile-click">Edit profile</div>
             </div>
+
+            {showModal && (
+                <Modal onClose={setShowModal(false)}>
+                    <div className="edit-bio-modal">
+                        <textarea placeholder={user?.bio !== null ? user?.bio : "Introduce yourself to the napcamp community"}></textarea>
+                    </div>
+                </Modal>
+            )}
+
+
+
             <div className="bookings-container">
                 {bookings.map((booking) => (
                     <BookingExpand booking={booking} spots={spots} />

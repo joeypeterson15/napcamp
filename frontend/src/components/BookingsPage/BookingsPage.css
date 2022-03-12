@@ -296,7 +296,7 @@
     width: 6rem;
     height: 6rem;
     border-radius: 50%;
-    border: 0.2px solid black;
+    border: 0.2px solid rgba(88, 88, 88, 0.5);
     text-align: center;
     margin-left: 0.5rem;
 }
@@ -318,4 +318,18 @@
 
 .profile-container-body div{
     padding-top: 1rem;
+}
+
+.create-bio {
+    text-decoration: underline;
+}
+
+#bold-intro {
+    font-weight: 500;
+    color: rgb(177, 177, 177)
+}
+
+.edit-profile-click {
+    cursor: pointer;
+    text-decoration: underline;
 }
