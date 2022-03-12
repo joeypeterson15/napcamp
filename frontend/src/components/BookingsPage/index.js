@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { Modal } from '../../context/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import BookingExpand from '../BookingExpand/BookingExpand';
+import { getUserData } from '../../store/user';
 import './BookingsPage.css'
 
 
@@ -26,6 +27,7 @@ export default function BookingsPage () {
 
     const userId = useSelector((state) => state.session?.user?.id);
     const userName = useSelector((state) => state.session?.user?.username)
+    const user = useSelector((state) => state?.user)
 
     const convertTime = function(oldTime){
         var time = oldTime.split(':');
@@ -41,6 +43,7 @@ export default function BookingsPage () {
     useEffect(() => {
         if (userId){
             dispatch(getBookings(userId))
+            dispatch(getUserData(userId))
         }
         dispatch(getSpots())
     }, [dispatch, userId])
@@ -56,60 +59,15 @@ export default function BookingsPage () {
         <div className={isBackgroundGrey ? 'background-grey' : 'background-white'}>
             <div className="userName-bookings text">{userName}'s Trips:</div>
             <div className="div-line-trips"></div>
+
+            <div className="profile-container">
+                <img className="profile-image" src={user?.profilePicture}></img>
+                <div>{user?.money}</div>
+                <div>{user?.username}</div>
+            </div>
             <div className="bookings-container">
                 {bookings.map((booking) => (
                     <BookingExpand booking={booking} spots={spots} />
-                    // <div key={booking.id} className={isExpand ? "bookings-card-explore" : "bookings-card"} onClick={() => expand()}>
-
-                    //     <img className={isExpand ? "bookings-image-expand" : "bookings-image"} alt={booking.id} src={spots.find((spot) => spot.id === booking.spotId)?.imageUrl}></img>
-                    //     <BookingExpand booking={booking} spots={spots} />
-                    //     <div className={isExpand ? "bottom-booking-card-expand" : "bottom-booking-card"}>
-
-                    //         <div className="flexx-me">
-
-                    //             <div className="booking-title text">{spots.find((spot) => spot.id === booking.spotId)?.name}</div>
-                    //             <div className="edit-icon-display">
-                    //                 <UpdateBookingModal spot={spots.find((spot) => spot.id === booking.spotId)} booking={booking}/>
-                    //             </div>
-
-                    //         </div>
-
-
-
-
-
-                    //             <div key={booking.date} className="text booking-data-plus-category-div">
-                    //                 <div>Date:</div>
-                    //                 <div>
-                    //                     {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate() + 1}th, 2021
-                    //                 </div>
-                    //             </div>
-                    //             <div key={booking.date} className="text booking-data-plus-category-div">
-                    //                 <div>Check-in:</div>
-                    //                 <div>
-                    //                 {convertTime(booking.startTime.toString())}
-
-                    //                 </div>
-                    //             </div>
-                    //             <div key={booking.date} className="text booking-data-plus-category-div">
-                    //                 <div>Check-out:</div>
-                    //                 <div>
-                    //                     {convertTime(booking.endTime.toString())}
-                    //                 </div>
-                    //             </div>
-                    //             <div key={booking.date} className="text booking-data-plus-category-div">
-                    //                 <div>Guests :</div>
-                    //                 <div>
-                    //                     {booking.guests}
-                    //                 </div>
-                    //             </div>
-
-                    //     </div>
-
-                    // </div>
-
-
-
                 ))}
             </div>
         </div>

@@ -23,6 +23,14 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 256]
       },
     },
+    profilePicture: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    money: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+      },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,
@@ -30,6 +38,7 @@ module.exports = (sequelize, DataTypes) => {
         len: [60, 60]
       },
     },
+
   },
   {
     defaultScope: {

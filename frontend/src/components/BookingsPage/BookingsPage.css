@@ -265,3 +265,29 @@
 .hide-details {
     display: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* profile */
+.profile-container {
+    position: absolute;
+    top: 30vh;
+    width: 20vw;
+    height: 50vh;
+    border: 0.2px solid grey;
+}
+
+.profile-image {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}

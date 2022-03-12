@@ -1,4 +1,7 @@
 'use strict';
+
+// const { INTEGER, STRING } = require("sequelize/types");
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Users', {
@@ -21,6 +24,16 @@ module.exports = {
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
         allowNull: false,
+      },
+      profilePicture: {
+        type: Sequelize.STRING(256),
+        defaultValue: "https://i.ibb.co/xL7Nt98/hipcamp-icon.png",
+        allowNull: true,
+      },
+      money: {
+        type: Sequelize.INTEGER,
+        defaultValue: 100,
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,

@@ -5,13 +5,15 @@ import spotsReducer from "./spots";
 import reviewsReducer from "./reviews";
 import bookingsReducer from "./bookings";
 import savesReducer from "./saves";
+import userReducer from "./user";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   spots: spotsReducer,
   reviews: reviewsReducer,
   bookings: bookingsReducer,
-  saves: savesReducer
+  saves: savesReducer,
+  user: userReducer
 });
 
 

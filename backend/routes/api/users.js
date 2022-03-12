@@ -34,13 +34,18 @@ router.post(
     asyncHandler(async (req, res) => {
       const { email, password, username } = req.body;
       const user = await User.signup({ email, username, password });
-
       await setTokenCookie(res, user);
-
       return res.json({
         user,
       });
     }),
   );
+
+  router.get('/:id', asyncHandler(async function(req, res) {
+    const user = await User.findOne({where: {
+        id : req.params.id
+    }});
+    res.json(user)
+}))
 
 module.exports = router;
