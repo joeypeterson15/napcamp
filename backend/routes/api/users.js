@@ -50,12 +50,15 @@ router.post(
 
 
   router.put('/bio/:id', asyncHandler(async function(req, res) {
-    const {bio} = req.body
+    const { bio } = req.body
+    console.log('bio', bio)
     const user = await User.findOne({where: {
         id : req.params.id
     }});
-    const newUser = user.update({bio})
-    res.json(newUser)
+    // const newUser = user.update({ bio })
+    user.update({ bio })
+
+    res.json(user)
 }))
 
 

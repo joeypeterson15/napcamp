@@ -22,15 +22,22 @@ export default function BookingsPage () {
     const [isExpand, setIsExpand] = useState(false)
     const [showModal, setShowModal] = useState(false)
     const [bio, setBio] = useState("")
-
-
-
-
     const isBackgroundGrey = false;
 
     const userId = useSelector((state) => state.session?.user?.id);
     const userName = useSelector((state) => state.session?.user?.username)
     const user = useSelector((state) => state?.user)
+
+    useEffect(() => {
+        if (userId){
+            dispatch(getBookings(userId))
+            dispatch(getUserData(userId))
+        }
+        dispatch(getSpots())
+    }, [dispatch, userId])
+
+
+
 
     const convertTime = function(oldTime){
         var time = oldTime.split(':');
@@ -48,17 +55,11 @@ export default function BookingsPage () {
         }
         dispatch(updateMyBio(user?.id, payload))
         setShowModal(false)
-        dispatch(getUserData(user?.id))
+        // dispatch(getUserData(user?.id))
     }
 
 
-    useEffect(() => {
-        if (userId){
-            dispatch(getBookings(userId))
-            dispatch(getUserData(userId))
-        }
-        dispatch(getSpots())
-    }, [dispatch, userId])
+
 
     const bookings = useSelector(state => Object.values(state.bookings))
     const spots = useSelector(state => Object.values(state.spots))

@@ -77,10 +77,12 @@ const initialState = {
 const userReducer = ( state = initialState, action ) => {
     switch(action.type) {
         case LOAD: {
-            return action.user
+            const user = action.user
+            return user
         }
         case EDIT: {
-            return action.user
+            const user = action.user
+            return user
         }
         // case LOAD: {
         //     const newState = {...state}
