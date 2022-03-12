@@ -31,6 +31,18 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
+    bio: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    memberSince: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+    },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,

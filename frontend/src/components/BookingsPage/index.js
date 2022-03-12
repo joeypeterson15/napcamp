@@ -61,9 +61,18 @@ export default function BookingsPage () {
             <div className="div-line-trips"></div>
 
             <div className="profile-container">
-                <img className="profile-image" src={user?.profilePicture}></img>
-                <div>{user?.money}</div>
-                <div>{user?.username}</div>
+                <div className="pic-plus-username-container">
+                    <div className="profile-pic-container">
+                        <img className="profile-image" src={user?.profilePicture}></img>
+                    </div>
+                    <div className="profile-username">{user?.username}</div>
+                </div>
+                <div className="profile-container-body">
+                    <div>{user?.bio !== null ? user?.bio : "say something about yourself"}</div>
+                    {user?.memberSince &&
+                    <div>Member Since: {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(user?.memberSince))} {new Date(user?.memberSince).getDate() + 1}th, 2021</div>}
+                    <div>Available Funds: ${user?.money}</div>
+                </div>
             </div>
             <div className="bookings-container">
                 {bookings.map((booking) => (

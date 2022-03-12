@@ -280,14 +280,42 @@
 /* profile */
 .profile-container {
     position: absolute;
+    left: 1vw;
     top: 30vh;
     width: 20vw;
     height: 50vh;
     border: 0.2px solid grey;
 }
 
-.profile-image {
-    width: 10rem;
-    height: 10rem;
+.pic-plus-username-container{
+    display: flex;
+    padding-top: 1rem;
+}
+
+.profile-pic-container {
+    width: 6rem;
+    height: 6rem;
     border-radius: 50%;
+    border: 0.2px solid black;
+    text-align: center;
+    margin-left: 0.5rem;
+}
+.profile-image {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    padding-top: 0.5rem;
+}
+
+.profile-username {
+    padding-top: 2.5rem;
+    padding-left: 1.5rem;
+}
+
+.profile-container-body {
+    padding-left: 1rem;
+}
+
+.profile-container-body div{
+    padding-top: 1rem;
 }

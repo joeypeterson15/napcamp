@@ -35,6 +35,15 @@ module.exports = {
         defaultValue: 100,
         allowNull: true,
       },
+      bio: {
+        type: Sequelize.STRING(256),
+        allowNull: true,
+      },
+      memberSince: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.fn('now'),
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
