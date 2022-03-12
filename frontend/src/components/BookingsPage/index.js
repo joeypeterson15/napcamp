@@ -11,6 +11,7 @@ import { Modal } from '../../context/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import BookingExpand from '../BookingExpand/BookingExpand';
 import { getUserData } from '../../store/user';
+import { updateMyBio } from '../../store/user';
 import './BookingsPage.css'
 
 
@@ -20,6 +21,7 @@ export default function BookingsPage () {
     const [isModal, setIsModal] = useState(false)
     const [isExpand, setIsExpand] = useState(false)
     const [showModal, setShowModal] = useState(false)
+    const [bio, setBio] = useState("")
 
 
 
@@ -39,6 +41,15 @@ export default function BookingsPage () {
             timeValue += (hours >= 12) ? " pm" : " am";
             return timeValue;
         }
+    const updateBio = function(){
+        // e.preventDefault()
+        const payload = {
+            'bio': bio
+        }
+        dispatch(updateMyBio(user?.id, payload))
+        setShowModal(false)
+        dispatch(getUserData(user?.id))
+    }
 
 
     useEffect(() => {
@@ -74,16 +85,18 @@ export default function BookingsPage () {
                     <div>Member since: {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(user?.memberSince))} 2022</div>}
                     <div>Available Funds: ${user?.money}</div>
                 </div>
-                <div onClick={() => setShowModal(true)} className="edit-profile-click">Edit profile</div>
+            <div onClick={() => setShowModal(true)} className="edit-profile-click">Edit profile</div>
             </div>
 
             {showModal && (
-                <Modal onClose={setShowModal(false)}>
+                <Modal onClose={() => setShowModal(false)}>
                     <div className="edit-bio-modal">
-                        <textarea placeholder={user?.bio !== null ? user?.bio : "Introduce yourself to the napcamp community"}></textarea>
+                        <textarea value={bio} onChange={(e) => setBio(e.target.value)} placeholder={user?.bio !== null ? user?.bio : "Introduce yourself to the napcamp community"}></textarea>
                     </div>
+                    <button onClick={updateBio}>Save</button>
                 </Modal>
             )}
+
 
 
 
