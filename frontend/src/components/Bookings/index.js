@@ -7,6 +7,7 @@ import { createBooking } from "../../store/bookings"
 import CategorySpots from "../CategorySpots";
 import { updateMyMoney } from "../../store/user";
 import { Modal } from "../../context/Modal";
+import { TryRounded } from "@mui/icons-material";
 
 
 function Bookings ({ spotId, spot, spots, currentSpot, category, user }) {
@@ -26,6 +27,28 @@ function Bookings ({ spotId, spot, spots, currentSpot, category, user }) {
 
 
 
+    const handleModal = () => {
+        const errors = []
+        if (date.length < 1) {
+            errors.push('Please choose the date you would like to nap')
+            setValidationErrors(errors);
+            return;
+        }
+        if (startTime === '') {
+            errors.push('Please provide a start time')
+            return;
+        }
+        if (endTime.length < 1) {
+            errors.push('Please provide an end time')
+            return;
+        }
+        if (endTime < startTime){
+            errors.push('Please provide an end time after the start time')
+            setValidationErrors(errors);
+            return;
+        }
+        setShowModal(true)
+    }
     const onSubmit = (e) => {
         e.preventDefault();
 
@@ -74,8 +97,7 @@ function Bookings ({ spotId, spot, spots, currentSpot, category, user }) {
         setValidationErrors([])
         setValidationSuccess('Booked!')
         dispatch(createBooking(payload, spotId, userId))
-
-
+        setShowModal(false)
     }
 
 
@@ -100,14 +122,14 @@ function Bookings ({ spotId, spot, spots, currentSpot, category, user }) {
                         <option type="click" className="text bookings-guests">2</option>
                     </select>
                     <div className="time-requirment text">1 hour minimium</div>
-                <button onClick={() => setShowModal(true)} id={validationSuccess ? "bookings-booked-button" : "bookings-button"} >{validationSuccess ? <div className="checked-icon-div"><span>Booked</span><i class="pad-left fas fa-check"></i></div>: 'Instant Book'}</button>
+                <button onClick={handleModal} id={validationSuccess ? "bookings-booked-button" : "bookings-button"} >{validationSuccess ? <div className="checked-icon-div"><span>Booked</span><i class="pad-left fas fa-check"></i></div>: 'Instant Book'}</button>
             </form>
             <CategorySpots propSpot={spot} category={category} spots={spots} currentSpot={currentSpot}/>
 
             {showModal && (
                 <Modal>
                     <div className="booking-confirmation-div">
-
+                        <div>Please confirm the following information:</div>
                     </div>
                 </Modal>
             )}
