@@ -5,9 +5,10 @@ import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react'
 import { createBooking } from "../../store/bookings"
 import CategorySpots from "../CategorySpots";
+import { updateMyMoney } from "../../store/user";
 
 
-function Bookings ({ spotId, spot, spots, currentSpot, category }) {
+function Bookings ({ spotId, spot, spots, currentSpot, category, user }) {
 
     const userId = useSelector((state) => state.session?.user?.id);
 
@@ -20,12 +21,14 @@ function Bookings ({ spotId, spot, spots, currentSpot, category }) {
     const [guests, setGuests] = useState('guests');
     const [validationErrors, setValidationErrors] = useState([])
     const [validationSuccess, setValidationSuccess] = useState('')
+    console.log('price', spot?.price, Number(spot?.price.slice(1, spot?.price.length)))
 
-    let el = document.getElementById('booking-card-container');
 
 
     const onSubmit = (e) => {
         e.preventDefault();
+
+
         const errors = []
         if (date.length < 1) {
             errors.push('Please choose the date you would like to nap')
@@ -34,15 +37,27 @@ function Bookings ({ spotId, spot, spots, currentSpot, category }) {
         }
         if (startTime === '') {
             errors.push('Please provide a start time')
+            return;
         }
         if (endTime.length < 1) {
             errors.push('Please provide an end time')
+            return;
         }
         if (endTime < startTime){
             errors.push('Please provide an end time after the start time')
             setValidationErrors(errors);
             return;
         }
+
+        if (spot?.price !== null) {
+            let money = user?.money - Number(spot?.price.slice(1, spot?.price.length))
+            // money = money < 0 ? 0 : money
+            const moneyPayload = {
+                money
+            }
+            dispatch(updateMyMoney(userId, moneyPayload))
+        }
+
 
 
         const payload = {
@@ -59,7 +74,10 @@ function Bookings ({ spotId, spot, spots, currentSpot, category }) {
         setValidationSuccess('Booked!')
         dispatch(createBooking(payload, spotId, userId))
 
+
     }
+
+
 
     return (
         <div className="bookings-outer-container">
@@ -71,7 +89,7 @@ function Bookings ({ spotId, spot, spots, currentSpot, category }) {
                 </ul>
                 <div className="price text" id="bookings-price">{spot?.price === null ? 'FREE' : spot?.price}</div>
                 <div className="booking-dates">
-                    <input name="booking-date-label" value={date} onChange={(e) => setDate(e.target.value)} type="date" placeholder="start-date" id="border-left" className="text book-date"></input>
+                    <input name="booking-date-label" value={date} onChange={(e) => setDate(e.target.value)} type="date" id="date-border-left" className="text select-date book-date"></input>
                     <input value={startTime} onChange={(e) => setStartTime(e.target.value)} type="time" placeholder="checkout-date" id="border-right"className="text book-date"></input>
                     <input value={endTime} onChange={(e) => setEndTime(e.target.value)} type="time" placeholder="checkout-date" id="border-left"className="text book-date"></input>
                 </div>

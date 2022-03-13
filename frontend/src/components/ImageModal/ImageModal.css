@@ -4,6 +4,7 @@
     font-size: 50px;
     color: white;
     left: 30px;
+    cursor: pointer;
 
 }
 
@@ -13,4 +14,5 @@
     top: 38%;
     font-size: 50px;
     color: white;
+    cursor: pointer;
 }

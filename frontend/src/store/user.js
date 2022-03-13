@@ -1,11 +1,11 @@
 
-import { Edit } from '@mui/icons-material'
+import { Edit, Update } from '@mui/icons-material'
 import { csrfFetch } from './csrf'
 
 
 const LOAD = 'user/LOAD'
 const EDIT = 'user/EDIT'
-const DELETE = 'user/DELETE'
+const UPDATEMONEY = 'user/UPDATE'
 
 
 
@@ -22,20 +22,11 @@ const loadAfterEdit = user => ({
     user
 })
 
+const updateMoney = user => ({
+    type: UPDATEMONEY,
+    user
+})
 
-
-
-// const addOneSave = user => ({
-//     type: ADD,
-//     user
-// })
-
-
-
-// const deleteOneSave = id => ({
-//     type: DELETE,
-//     id
-// })
 
 
 
@@ -66,6 +57,21 @@ export const updateMyBio = (userId, payload) => async dispatch => {
     }
 }
 
+export const updateMyMoney = (userId, payload) => async dispatch => {
+    const response = await csrfFetch(`/api/users/funds/${userId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type' : 'application/json',
+        },
+        body: JSON.stringify(payload)
+    })
+
+    if(response.ok) {
+        const user = await response.json();
+        dispatch(updateMoney(user))
+    }
+}
+
 
 
 
@@ -84,11 +90,10 @@ const userReducer = ( state = initialState, action ) => {
             const user = action.user
             return user
         }
-        // case LOAD: {
-        //     const newState = {...state}
-        //     delete newState[action.id]
-        //     return newState;
-        // }
+        case UPDATEMONEY: {
+            const user = action.user
+            return user
+        }
 
         default:
         return state;

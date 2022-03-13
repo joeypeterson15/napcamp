@@ -61,5 +61,17 @@ router.post(
     res.json(user)
 }))
 
+  router.put('/funds/:id', asyncHandler(async function(req, res) {
+    const { money } = req.body
+    // console.log('bio', bio)
+    const user = await User.findOne({where: {
+        id : req.params.id
+    }});
+    // const newUser = user.update({ bio })
+    user.update({ money })
+
+    res.json(user)
+}))
+
 
 module.exports = router;

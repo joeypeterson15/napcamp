@@ -9,6 +9,7 @@ import SpotCards from '../SpotCards';
 import Bookings from '../Bookings';
 import ImageModal from '../ImageModal'
 import { getSaves, createSave } from '../../store/saves';
+import { getUserData } from '../../store/user';
 
 
 import './SpotIdPage.css'
@@ -23,12 +24,14 @@ export default function SpotIdPage () {
     const spot = useSelector(state => state.spots[spotId])
     const reviews = useSelector(state => Object.values(state.reviews))
     const saves = useSelector(state => Object.values(state.saves))
+    const user = useSelector(state => state.user)
     const userId = useSelector((state) => state.session?.user?.id);
 
     const [isSaved, setIsSaved] = useState(false)
 
     useEffect(() => {
         dispatch(getSaves(userId))
+        dispatch(getUserData(userId))
     }, [userId])
 
     useEffect(() => {
@@ -74,7 +77,7 @@ export default function SpotIdPage () {
                 <img className="spot-detail-3" alt={spot?.id} src={spot?.imageUrl}></img>
             </div>
             <ImageModal spot={spot}/>
-            <Bookings spot={spot} spotId={spot?.id} currentSpot={spot} category={spot?.category} spots={spots}/>
+            <Bookings spot={spot} spotId={spot?.id} currentSpot={spot} category={spot?.category} spots={spots} user={user}/>
             <div className="title-spot-page">
                 <div className="font arrows-above-title">{`United States  >  California  >  ${spot?.location}`}</div>
                 <div id="spot-name" className="text">{spot?.name}</div>
