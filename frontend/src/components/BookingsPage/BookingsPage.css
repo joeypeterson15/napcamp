@@ -178,6 +178,7 @@
     border: none;
     border-radius: 2px;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .update-booking-button:hover {
@@ -185,6 +186,7 @@
     color: black;
     background-color: rgb(4, 206, 155);
     cursor: pointer; */
+    box-sizing: border-box;
     border: 2px solid rgb(127, 255, 195);
     color: rgb(127, 255, 195);
     background-color: white;
@@ -214,14 +216,23 @@
 
 
 .update-booking-container {
-    width: 100%;
+    box-sizing: border-box;
+    width: 30vw;
     /* border: 0.5px solid rgb(177, 125, 125) */
     /* padding: 1%; */
 }
 
 .update-booking-form {
+    box-sizing: border-box;
     height: 200px;
     width: 100%;
+}
+
+.update-booking-form input {
+    box-sizing: border-box;
+    width: 100%;
+    border-left: none;
+    border-right: none;
 }
 
 .cancel {
@@ -238,6 +249,7 @@
 .book-date {
     width: 99%;
     text-align: center;
+    /* cursor: pointer; */
 }
 
 .update-booking-image {

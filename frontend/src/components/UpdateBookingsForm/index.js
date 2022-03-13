@@ -38,20 +38,19 @@ function UpdateBookingsForm ({ booking, showModal, setShowModal, spot }) {
         <div className="update-booking-container">
             <img alt='' className="update-booking-image" src={spot.imageUrl}></img>
 
-        <form onSubmit={updateBooking(booking.spotId)} className={showModal ?'update-booking-form' : 'hide-update-form'}>
-                                <div className={validationSuccess ? "hide-booking-dates" : "booking-dates"}>
-                                    <input value={date} onChange={(e) => setDate(e.target.value)} type="date" id="border-left" className="text book-date"></input>
-                                </div>
-                                    <input value={startTime} onChange={(e) => setStartTime(e.target.value)} type="time" id="border-right" className="text book-date"></input>
-                                    <input value={endTime} onChange={(e) => setEndTime(e.target.value)} type="time" id="border-right" className="text book-date"></input>
-                                    <select className="guests-select" value={guests} onChange={(e) => setGuests(parseInt(e.target.value, 10))}>
-                                        <option>Guests</option>
-                                        <option type="click" className="text bookings-guests">1</option>
-                                        <option type="click" className="text bookings-guests">2</option>
-                                    </select>
-                                <button className={validationSuccess ? "green-update-button" : "update-booking-button"} type="submit">{validationSuccess ? 'Updated!' : 'Update Booking'}</button>
+                <form onSubmit={updateBooking(booking.spotId)} className={showModal ?'update-booking-form' : 'hide-update-form'}>
+                    <input value={date} onChange={(e) => setDate(e.target.value)} type="date" className="text book-date"></input>
 
-                        </form>
+                    <input value={startTime} onChange={(e) => setStartTime(e.target.value)} type="time"  className="text book-date"></input>
+                    <input value={endTime} onChange={(e) => setEndTime(e.target.value)} type="time" className="text book-date"></input>
+                    <select className="guests-select" value={guests} onChange={(e) => setGuests(parseInt(e.target.value, 10))}>
+                        <option>Guests</option>
+                        <option type="click" className="text bookings-guests">1</option>
+                        <option type="click" className="text bookings-guests">2</option>
+                    </select>
+                    <button className="update-booking-button" type="submit">Update Booking</button>
+
+                </form>
         </div>
     )
 }
