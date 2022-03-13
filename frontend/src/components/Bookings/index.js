@@ -23,55 +23,59 @@ function Bookings ({ spotId, spot, spots, currentSpot, category, user }) {
     const [guests, setGuests] = useState('guests');
     const [validationErrors, setValidationErrors] = useState([])
     const [validationSuccess, setValidationSuccess] = useState('')
-    const [showModal, setShowModal] = useState(false)
+    const [showModal1, setShowModal1] = useState(false)
+    const [showModal2, setShowModal2] = useState(false)
 
 
+    const convertTime = function(oldTime){
+        var time = oldTime.split(':');
+        var hours = time[0];
+        var minutes = time[1];
+        let timeValue = "" + ((hours >12) ? hours - 12 === 0 ? 12 : hours-12 :hours == 0 ? 12 : hours);
+            timeValue += (minutes < 10) ? ':' + minutes : ":" + minutes;
+            timeValue += (hours >= 12) ? " pm" : " am";
+            return timeValue;
+        }
 
-    const handleModal = () => {
-        const errors = []
-        if (date.length < 1) {
-            errors.push('Please choose the date you would like to nap')
-            setValidationErrors(errors);
-            return;
-        }
-        if (startTime === '') {
-            errors.push('Please provide a start time')
-            return;
-        }
-        if (endTime.length < 1) {
-            errors.push('Please provide an end time')
-            return;
-        }
-        if (endTime < startTime){
-            errors.push('Please provide an end time after the start time')
-            setValidationErrors(errors);
-            return;
-        }
-        setShowModal(true)
+    const handleModal = (e) => {
+        e.preventDefault()
+
+        // const errors = []
+        // if (date.length < 1) {
+        //     errors.push('Please choose the date you would like to nap')
+        //     setValidationErrors(errors);
+        //     return;
+        // }
+        // if (startTime === '') {
+        //     errors.push('Please provide a start time')
+        //     return;
+        // }
+        // if (endTime.length < 1) {
+        //     errors.push('Please provide an end time')
+        //     return;
+        // }
+        // if (endTime < startTime){
+        //     errors.push('Please provide an end time after the start time')
+        //     setValidationErrors(errors);
+        //     return;
+        // }
+        setShowModal1(true)
     }
+
+    const handleModal2 = (e) => {
+        if (spot?.price) {
+            setShowModal1(false)
+            setShowModal2(true)
+        }
+        else {
+            onSubmit(e)
+        }
+    }
+
+
     const onSubmit = (e) => {
         e.preventDefault();
 
-
-        const errors = []
-        if (date.length < 1) {
-            errors.push('Please choose the date you would like to nap')
-            setValidationErrors(errors);
-            return;
-        }
-        if (startTime === '') {
-            errors.push('Please provide a start time')
-            return;
-        }
-        if (endTime.length < 1) {
-            errors.push('Please provide an end time')
-            return;
-        }
-        if (endTime < startTime){
-            errors.push('Please provide an end time after the start time')
-            setValidationErrors(errors);
-            return;
-        }
 
         if (spot?.price !== null) {
             let money = user?.money - Number(spot?.price.slice(1, spot?.price.length))
@@ -97,14 +101,15 @@ function Bookings ({ spotId, spot, spots, currentSpot, category, user }) {
         setValidationErrors([])
         setValidationSuccess('Booked!')
         dispatch(createBooking(payload, spotId, userId))
-        setShowModal(false)
+        setShowModal1(false)
+        setShowModal2(false)
     }
 
 
 
     return (
         <div className="bookings-outer-container">
-            <form onSubmit={onSubmit} id="booking-card-container" className="booking-card-container">
+            <form id="booking-card-container" className="booking-card-container">
                 <ul className="booking-errors">
                     {validationErrors.map((error) => (
                         <li key={error}>{error}</li>
@@ -122,14 +127,55 @@ function Bookings ({ spotId, spot, spots, currentSpot, category, user }) {
                         <option type="click" className="text bookings-guests">2</option>
                     </select>
                     <div className="time-requirment text">1 hour minimium</div>
-                <button onClick={handleModal} id={validationSuccess ? "bookings-booked-button" : "bookings-button"} >{validationSuccess ? <div className="checked-icon-div"><span>Booked</span><i class="pad-left fas fa-check"></i></div>: 'Instant Book'}</button>
+                <button onClick={(e) => handleModal(e)} id={validationSuccess ? "bookings-booked-button" : "bookings-button"} >{validationSuccess ? <div className="checked-icon-div"><span>Booked</span><i class="pad-left fas fa-check"></i></div>: 'Instant Book'}</button>
             </form>
             <CategorySpots propSpot={spot} category={category} spots={spots} currentSpot={currentSpot}/>
 
-            {showModal && (
+            {showModal1 && (
                 <Modal>
                     <div className="booking-confirmation-div">
                         <div>Please confirm the following information:</div>
+                        <div className="text booking-data-plus-category-div">
+                                    <div>Date:</div>
+                                    <div>
+                                        {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(date))} {new Date(date).getDate() + 1}th, 2021
+                                    </div>
+                                </div>
+                                <div className="text booking-data-plus-category-div">
+                                    <div>Check-in:</div>
+                                    <div>
+                                    {convertTime(startTime.toString())}
+
+                                    </div>
+                                </div>
+                                <div className="text booking-data-plus-category-div">
+                                    <div>Check-out:</div>
+                                    <div>
+                                        {convertTime(endTime.toString())}
+                                    </div>
+                                </div>
+                                <div className="text booking-data-plus-category-div">
+                                    <div>Guests :</div>
+                                    <div>
+                                        {guests}
+                                    </div>
+                                </div>
+                                <button onClick={(e) => handleModal2(e)}>Yes, book this location</button>
+                                <button onClick={() => setShowModal1(false)}>Cancel</button>
+                    </div>
+                </Modal>
+            )}
+            {showModal2 && (
+                <Modal>
+                    <div className="use-funds-modal-container">
+                        <div>Current Balance:
+                            <div id="balance-circle">
+                                {user?.money}
+                            </div>
+                        </div>
+                        <div>Would you like to use your napcamp funds to purchase this booking?</div>
+                        <button onClick={(e) => onSubmit(e)}>Yes</button>
+                        <button onClick={() => setShowModal2(false)}>Cancel booking</button>
                     </div>
                 </Modal>
             )}

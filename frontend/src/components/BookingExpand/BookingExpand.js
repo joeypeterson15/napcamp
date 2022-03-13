@@ -51,26 +51,26 @@ function BookingExpand ({booking, spots}) {
 
 
 
-                                <div key={booking.date} className="text booking-data-plus-category-div">
+                                <div className="text booking-data-plus-category-div">
                                     <div>Date:</div>
                                     <div>
                                         {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(booking.date))} {new Date(booking.date).getDate() + 1}th, 2021
                                     </div>
                                 </div>
-                                <div key={booking.date} className="text booking-data-plus-category-div">
+                                <div className="text booking-data-plus-category-div">
                                     <div>Check-in:</div>
                                     <div>
                                     {convertTime(booking.startTime.toString())}
 
                                     </div>
                                 </div>
-                                <div key={booking.date} className="text booking-data-plus-category-div">
+                                <div className="text booking-data-plus-category-div">
                                     <div>Check-out:</div>
                                     <div>
                                         {convertTime(booking.endTime.toString())}
                                     </div>
                                 </div>
-                                <div key={booking.date} className="text booking-data-plus-category-div">
+                                <div className="text booking-data-plus-category-div">
                                     <div>Guests :</div>
                                     <div>
                                         {booking.guests}

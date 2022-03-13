@@ -41,8 +41,8 @@ function UpdateBookingsForm ({ booking, showModal, setShowModal, spot }) {
                 <form onSubmit={updateBooking(booking.spotId)} className={showModal ?'update-booking-form' : 'hide-update-form'}>
                     <input value={date} onChange={(e) => setDate(e.target.value)} type="date" className="text book-date"></input>
 
-                    <input value={startTime} onChange={(e) => setStartTime(e.target.value)} type="time"  className="text book-date"></input>
-                    <input value={endTime} onChange={(e) => setEndTime(e.target.value)} type="time" className="text book-date"></input>
+                    <input value={startTime} onChange={(e) => setStartTime(e.target.value)} type="time"  className="text no-top-border book-date"></input>
+                    <input value={endTime} onChange={(e) => setEndTime(e.target.value)} type="time" className="text no-top-border book-date"></input>
                     <select className="guests-select" value={guests} onChange={(e) => setGuests(parseInt(e.target.value, 10))}>
                         <option>Guests</option>
                         <option type="click" className="text bookings-guests">1</option>
