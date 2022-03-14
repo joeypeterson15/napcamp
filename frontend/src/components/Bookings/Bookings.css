@@ -40,6 +40,8 @@
     height: 20%;
     margin-left: 7.5px;
     margin-top: 7.5px;
+    transition: all 500ms ease;
+    cursor: pointer;
     /* margin-top: 40%; */
 }
 
@@ -48,15 +50,14 @@
 }
 
 #bookings-button:hover {
-    border: 2px solid rgb(127, 255, 195);
+    border: 1.5px solid rgb(127, 255, 195);
     color: rgb(127, 255, 195);
     background-color: white;
     /* -webkit-transition: all 500ms ease;
     -moz-transition: all 500ms ease;
     -ms-transition: all 500ms ease;
     -o-transition: all 500ms ease; */
-    transition: all 500ms ease;
-    cursor: pointer;
+
 }
 
 #bookings-booked-button {
@@ -174,4 +175,52 @@
 }
 .pad-left {
     padding-left: 0.3rem;
+}
+
+
+
+
+/* modal 1 */
+
+.booking-confirmation-div {
+    width: 25vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+#confirmation-heading {
+    padding-top: 0.5rem;
+    font-family: 'Roboto';
+}
+
+.booking-info-confirmation-div {
+    width: 60%;
+    /* padding-left: 20%; */
+}
+
+.confirmation-booking-buttons-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60%;
+    height: 20%;
+}
+
+.confirmation-button {
+    font-family: 'Roboto';
+    background-color: white;
+    cursor: pointer;
+    /* border: none; */
+    height: 2rem;
+}
+
+.confirmation-button:hover {
+    color: rgb(127, 255, 195);
+    border: 0.2px solid rgb(127, 255, 195);
+    transition: all 500ms ease;
 }

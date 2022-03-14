@@ -36,13 +36,13 @@ function ProfileButton({ user }) {
       </button> */}
         <img onClick={openMenu} className="review-icon-nav" src="https://i.ibb.co/xL7Nt98/hipcamp-icon.png" alt="hipcamp-icon" ></img>
       {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <button onClick={logout}>Log Out</button>
-          </li>
-        </ul>
+        <div className="profile-dropdown">
+          {/* <div>{user.username}</div>
+          <div>{user.email}</div> */}
+          <div>
+            <button className="logout-button" onClick={logout}>Log Out</button>
+          </div>
+        </div>
       )}
     </>
   );

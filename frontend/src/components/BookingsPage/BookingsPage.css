@@ -64,12 +64,12 @@
         height: 1rem
     }
 }
-/* .bottom-booking-card-expand {
+.bottom-booking-card-expand div {
     -webkit-transition: height 1s ease;
     -moz-transition: height 1s ease;
-    transition: height 1s ease;
-    height: 30rem;
-} */
+    transition: height 3s ease;
+    /* height: 30rem; */
+}
 
 .flexx-me {
     display: flex;
@@ -100,6 +100,9 @@
     border: 0.1px solid rgba(223, 223, 223, 0.5);
     border-radius: 10px;
     cursor: pointer;
+    -webkit-transition: height .25s ease;
+    -moz-transition: height .25s ease;
+    transition: height .25s ease;
     /* box-shadow: 0.1px 0.2px 0.1px 0.1px rgba(206, 206, 206, 0.5); */
 
 }

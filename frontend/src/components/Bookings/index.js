@@ -134,40 +134,51 @@ function Bookings ({ spotId, spot, spots, currentSpot, category, user }) {
             {showModal1 && (
                 <Modal>
                     <div className="booking-confirmation-div">
-                        <div>Please confirm the following information:</div>
-                        <div className="text booking-data-plus-category-div">
-                                    <div>Date:</div>
-                                    <div>
-                                        {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(date))} {new Date(date).getDate() + 1}th, 2021
-                                    </div>
-                                </div>
-                                <div className="text booking-data-plus-category-div">
-                                    <div>Check-in:</div>
-                                    <div>
-                                    {convertTime(startTime.toString())}
+                                <h4 id="confirmation-heading">
+                                    Please confirm your booking information:
+                                </h4>
 
+                                <div className="booking-info-confirmation-div">
+                                    <div className="text booking-data-plus-category-div">
+                                        <div>Date:</div>
+                                        <div>
+                                            {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(new Date(date))} {new Date(date).getDate() + 1}th, 2021
+                                        </div>
+                                    </div>
+                                    <div className="text booking-data-plus-category-div">
+                                        <div>Check-in:</div>
+                                        <div>
+                                            {convertTime(startTime.toString())}
+
+                                        </div>
+                                    </div>
+
+                                    <div className="text booking-data-plus-category-div">
+                                        <div>Check-out:</div>
+                                        <div>
+                                            {convertTime(endTime.toString())}
+                                        </div>
+                                    </div>
+
+                                    <div className="text booking-data-plus-category-div">
+                                        <div>Guests :</div>
+                                        <div>
+                                            {guests}
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="text booking-data-plus-category-div">
-                                    <div>Check-out:</div>
-                                    <div>
-                                        {convertTime(endTime.toString())}
-                                    </div>
+
+
+                                <div className="confirmation-booking-buttons-div">
+                                    <button className="bolder confirmation-button" onClick={(e) => handleModal2(e)}>Yes, book this location</button>
+                                    {/* <button className="no-top-border confirmation-button" onClick={() => setShowModal1(false)}>Cancel</button> */}
                                 </div>
-                                <div className="text booking-data-plus-category-div">
-                                    <div>Guests :</div>
-                                    <div>
-                                        {guests}
-                                    </div>
-                                </div>
-                                <button onClick={(e) => handleModal2(e)}>Yes, book this location</button>
-                                <button onClick={() => setShowModal1(false)}>Cancel</button>
                     </div>
                 </Modal>
             )}
             {showModal2 && (
                 <Modal>
-                    <div className="use-funds-modal-container">
+                    <div className="booking-confirmation-div">
                         <div>Current Balance:
                             <div id="balance-circle">
                                 {user?.money}
