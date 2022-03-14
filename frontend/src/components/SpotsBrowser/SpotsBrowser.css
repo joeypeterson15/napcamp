@@ -11,6 +11,8 @@
     /* margin-right: 20%; */
     grid-row-gap: 50px;
     grid-column-gap: 4%;
+
+
 }
 
 .spots-img:hover {
@@ -19,6 +21,7 @@
     box-shadow: 0 0 11px rgba(33,33,33,.2);
     transition: transform 300ms;
     transform: translate3d(0, -10%, 0)
+
 }
 .spots-img {
     width: 360px;
