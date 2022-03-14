@@ -52,6 +52,7 @@ function Navigation({ isLoaded}){
     <nav className="nav-bar text">
       <div>
         <NavLink id="napcamp-text" className="nav-link-login" exact to="/">NapCamp</NavLink>
+        {/* <img src="./naptent.png"></img> */}
       </div>
       <div className="right-nav">
         {sessionUser ? <Link to="/trips" className="nav-link trips-tag">Trips</Link> : ''}
