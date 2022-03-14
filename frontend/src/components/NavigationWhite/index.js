@@ -72,6 +72,7 @@ function NavigationWhite({ isLoaded, spotId }){
       <div>
         <NavLink id="napcamp-text" className="nav-link-login" exact to="/">NapCamp</NavLink>
       </div>
+
       {isTrips ?
       <div className="search-nav-div">
         <input className="search-input-nav"
@@ -82,10 +83,10 @@ function NavigationWhite({ isLoaded, spotId }){
         ></input>
         <button id="search-button-nav" onClick={(e) => searchLocation(e)}><div id="search-icon-nav-div"><i className="fas fa-search"></i></div></button>
       </div> : ""}
+
       <div className="right-nav">
-        <Link to="/trips" className="nav-link trips-tag">Trips</Link>
-        <Link to="/saves" className="nav-link">Saves</Link>
-        {/* <Link to="/inbox" className="nav-link">Inbox</Link> */}
+        {sessionUser ? <Link to="/trips" className="nav-link trips-tag">Trips</Link> : ''}
+        {sessionUser ? <Link to="/saves" className="nav-link">Saves</Link> : ''}
         {isLoaded && sessionLinks}
       </div>
     </nav>

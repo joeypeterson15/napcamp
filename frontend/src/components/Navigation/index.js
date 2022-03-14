@@ -54,8 +54,8 @@ function Navigation({ isLoaded}){
         <NavLink id="napcamp-text" className="nav-link-login" exact to="/">NapCamp</NavLink>
       </div>
       <div className="right-nav">
-        <Link to="/trips" className="nav-link trips-tag">Trips</Link>
-        <Link to="/saves" className="nav-link">Saves</Link>
+        {sessionUser ? <Link to="/trips" className="nav-link trips-tag">Trips</Link> : ''}
+        {sessionUser ? <Link to="/saves" className="nav-link">Saves</Link> : ''}
         {/* <Link to="/inbox" className="nav-link">Inbox</Link> */}
         {isLoaded && sessionLinks}
       </div>

@@ -68,15 +68,11 @@
     height: 30px;
     width: 30px;
     cursor: pointer;
-
-    /* margin-left: 30px; */
-
     border-radius: 20px;
-    /* margin-top: 0.8rem; */
     right: 8.8rem;
     top: 1.7rem;
-
 }
+
 
 #header-icon-button {
     border: none;
