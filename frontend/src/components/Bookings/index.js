@@ -179,14 +179,19 @@ function Bookings ({ spotId, spot, spots, currentSpot, category, user }) {
             {showModal2 && (
                 <Modal>
                     <div className="booking-confirmation-div">
-                        <div>Current Balance:
-                            <div id="balance-circle">
-                                {user?.money}
+                        <div className="change-size-text" id="confirmation-heading">Would you like to use your napcamp funds to purchase this booking?</div>
+
+                        <div className="modal-balance-div">Current Balance:
+                            <div className="balance-circle-modal">
+                                ${user?.money}
                             </div>
                         </div>
-                        <div>Would you like to use your napcamp funds to purchase this booking?</div>
-                        <button onClick={(e) => onSubmit(e)}>Yes</button>
-                        <button onClick={() => setShowModal2(false)}>Cancel booking</button>
+
+                        <div className="modal2-buttons confirmation-booking-buttons-div">
+
+                            <button className="confirmation-button" onClick={(e) => onSubmit(e)}>Yes</button>
+                            <button className="pad-pad confirmation-button" onClick={() => setShowModal2(false)}>Cancel booking</button>
+                        </div>
                     </div>
                 </Modal>
             )}
