@@ -50,7 +50,7 @@ export const getSaves = (userId) => async dispatch => {
 
 export const createSave = (payload, spotId, userId) => async dispatch => {
 
-    console.log('beginning of thunk action before backend')
+    // console.log('beginning of thunk action before backend')
 
     const response = await csrfFetch(`/api/saves/${userId}`, {
         method: 'POST',
@@ -61,7 +61,7 @@ export const createSave = (payload, spotId, userId) => async dispatch => {
         body: JSON.stringify({...payload})
     })
 
-    console.log('made it back from the thunk action in store')
+    // console.log('made it back from the thunk action in store')
 
     if (response.ok) {
         const save = await response.json()

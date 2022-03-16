@@ -51,7 +51,7 @@ router.post(
 
   router.put('/bio/:id', asyncHandler(async function(req, res) {
     const { bio } = req.body
-    console.log('bio', bio)
+    // console.log('bio', bio)
     const user = await User.findOne({where: {
         id : req.params.id
     }});
