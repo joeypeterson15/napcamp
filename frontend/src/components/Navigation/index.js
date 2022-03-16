@@ -40,7 +40,7 @@ function Navigation({ isLoaded}){
 
         <NavLink id="nav-login" className="nav-link" to="/login">Login</NavLink>
         <NavLink id="nav-signup" className="nav-link" to="/signup">Signup</NavLink>
-        <button id="demo-user-button" onClick={() => demoLogin()}>Demo</button>
+        <button id="demo-user-button" onClick={demoLogin}>Demo</button>
       </div>
 
     );
